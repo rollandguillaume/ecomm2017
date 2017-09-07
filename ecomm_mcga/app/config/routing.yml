@@ -1,3 +1,8 @@
+e_comm:
+    resource: "@ECommBundle/Controller/"
+    type:     annotation
+    prefix:   /
+
 app:
     resource: '@AppBundle/Controller/'
     type: annotation
