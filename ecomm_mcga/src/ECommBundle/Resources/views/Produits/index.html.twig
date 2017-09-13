@@ -1,0 +1,23 @@
+
+{% extends "ECommBundle::layout.html.twig" %}
+
+
+{% block ecomm_body %}
+
+  <h2>Liste des annonces</h2>
+
+  <ul>
+    {% for produit in listProduits %}
+      <li>
+ 
+          {{ produit.nom }}
+          au prix :{{ produit.prix }}
+   
+      </li>
+    {% else %}
+      <li>Pas (encore !) d'annonces</li>
+    {% endfor %}
+  </ul>
+
+{% endblock %}
+

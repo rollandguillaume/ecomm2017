@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <container xmlns="http://symfony.com/schema/dic/services" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
   <parameters>
-    <parameter key="kernel.root_dir">/home/max/Documents/ecomm2017/ecomm_mcga/app</parameter>
-    <parameter key="kernel.project_dir">/home/max/Documents/ecomm2017/ecomm_mcga</parameter>
+    <parameter key="kernel.root_dir">/home/max/git/ecomm2017/ecomm_mcga/app</parameter>
+    <parameter key="kernel.project_dir">/home/max/git/ecomm2017/ecomm_mcga</parameter>
     <parameter key="kernel.environment">dev</parameter>
     <parameter key="kernel.debug">true</parameter>
     <parameter key="kernel.name">app</parameter>
-    <parameter key="kernel.cache_dir">/home/max/Documents/ecomm2017/ecomm_mcga/var/cache/dev</parameter>
-    <parameter key="kernel.logs_dir">/home/max/Documents/ecomm2017/ecomm_mcga/var/logs</parameter>
+    <parameter key="kernel.cache_dir">/home/max/git/ecomm2017/ecomm_mcga/var/cache/dev</parameter>
+    <parameter key="kernel.logs_dir">/home/max/git/ecomm2017/ecomm_mcga/var/logs</parameter>
     <parameter key="kernel.bundles" type="collection">
       <parameter key="FrameworkBundle">Symfony\Bundle\FrameworkBundle\FrameworkBundle</parameter>
       <parameter key="SecurityBundle">Symfony\Bundle\SecurityBundle\SecurityBundle</parameter>
@@ -17,76 +17,94 @@
       <parameter key="DoctrineBundle">Doctrine\Bundle\DoctrineBundle\DoctrineBundle</parameter>
       <parameter key="SensioFrameworkExtraBundle">Sensio\Bundle\FrameworkExtraBundle\SensioFrameworkExtraBundle</parameter>
       <parameter key="ECommBundle">ECommBundle\ECommBundle</parameter>
+      <parameter key="CoreBundle">CoreBundle\CoreBundle</parameter>
+      <parameter key="UserBundle">UserBundle\UserBundle</parameter>
       <parameter key="DebugBundle">Symfony\Bundle\DebugBundle\DebugBundle</parameter>
       <parameter key="WebProfilerBundle">Symfony\Bundle\WebProfilerBundle\WebProfilerBundle</parameter>
       <parameter key="SensioDistributionBundle">Sensio\Bundle\DistributionBundle\SensioDistributionBundle</parameter>
+      <parameter key="DoctrineFixturesBundle">Doctrine\Bundle\FixturesBundle\DoctrineFixturesBundle</parameter>
       <parameter key="SensioGeneratorBundle">Sensio\Bundle\GeneratorBundle\SensioGeneratorBundle</parameter>
       <parameter key="WebServerBundle">Symfony\Bundle\WebServerBundle\WebServerBundle</parameter>
     </parameter>
     <parameter key="kernel.bundles_metadata" type="collection">
       <parameter key="FrameworkBundle" type="collection">
         <parameter key="parent">null</parameter>
-        <parameter key="path">/home/max/Documents/ecomm2017/ecomm_mcga/vendor/symfony/symfony/src/Symfony/Bundle/FrameworkBundle</parameter>
+        <parameter key="path">/home/max/git/ecomm2017/ecomm_mcga/vendor/symfony/symfony/src/Symfony/Bundle/FrameworkBundle</parameter>
         <parameter key="namespace">Symfony\Bundle\FrameworkBundle</parameter>
       </parameter>
       <parameter key="SecurityBundle" type="collection">
         <parameter key="parent">null</parameter>
-        <parameter key="path">/home/max/Documents/ecomm2017/ecomm_mcga/vendor/symfony/symfony/src/Symfony/Bundle/SecurityBundle</parameter>
+        <parameter key="path">/home/max/git/ecomm2017/ecomm_mcga/vendor/symfony/symfony/src/Symfony/Bundle/SecurityBundle</parameter>
         <parameter key="namespace">Symfony\Bundle\SecurityBundle</parameter>
       </parameter>
       <parameter key="TwigBundle" type="collection">
         <parameter key="parent">null</parameter>
-        <parameter key="path">/home/max/Documents/ecomm2017/ecomm_mcga/vendor/symfony/symfony/src/Symfony/Bundle/TwigBundle</parameter>
+        <parameter key="path">/home/max/git/ecomm2017/ecomm_mcga/vendor/symfony/symfony/src/Symfony/Bundle/TwigBundle</parameter>
         <parameter key="namespace">Symfony\Bundle\TwigBundle</parameter>
       </parameter>
       <parameter key="MonologBundle" type="collection">
         <parameter key="parent">null</parameter>
-        <parameter key="path">/home/max/Documents/ecomm2017/ecomm_mcga/vendor/symfony/monolog-bundle</parameter>
+        <parameter key="path">/home/max/git/ecomm2017/ecomm_mcga/vendor/symfony/monolog-bundle</parameter>
         <parameter key="namespace">Symfony\Bundle\MonologBundle</parameter>
       </parameter>
       <parameter key="SwiftmailerBundle" type="collection">
         <parameter key="parent">null</parameter>
-        <parameter key="path">/home/max/Documents/ecomm2017/ecomm_mcga/vendor/symfony/swiftmailer-bundle</parameter>
+        <parameter key="path">/home/max/git/ecomm2017/ecomm_mcga/vendor/symfony/swiftmailer-bundle</parameter>
         <parameter key="namespace">Symfony\Bundle\SwiftmailerBundle</parameter>
       </parameter>
       <parameter key="DoctrineBundle" type="collection">
         <parameter key="parent">null</parameter>
-        <parameter key="path">/home/max/Documents/ecomm2017/ecomm_mcga/vendor/doctrine/doctrine-bundle</parameter>
+        <parameter key="path">/home/max/git/ecomm2017/ecomm_mcga/vendor/doctrine/doctrine-bundle</parameter>
         <parameter key="namespace">Doctrine\Bundle\DoctrineBundle</parameter>
       </parameter>
       <parameter key="SensioFrameworkExtraBundle" type="collection">
         <parameter key="parent">null</parameter>
-        <parameter key="path">/home/max/Documents/ecomm2017/ecomm_mcga/vendor/sensio/framework-extra-bundle</parameter>
+        <parameter key="path">/home/max/git/ecomm2017/ecomm_mcga/vendor/sensio/framework-extra-bundle</parameter>
         <parameter key="namespace">Sensio\Bundle\FrameworkExtraBundle</parameter>
       </parameter>
       <parameter key="ECommBundle" type="collection">
         <parameter key="parent">null</parameter>
-        <parameter key="path">/home/max/Documents/ecomm2017/ecomm_mcga/src/ECommBundle</parameter>
+        <parameter key="path">/home/max/git/ecomm2017/ecomm_mcga/src/ECommBundle</parameter>
         <parameter key="namespace">ECommBundle</parameter>
+      </parameter>
+      <parameter key="CoreBundle" type="collection">
+        <parameter key="parent">null</parameter>
+        <parameter key="path">/home/max/git/ecomm2017/ecomm_mcga/src/CoreBundle</parameter>
+        <parameter key="namespace">CoreBundle</parameter>
+      </parameter>
+      <parameter key="UserBundle" type="collection">
+        <parameter key="parent">null</parameter>
+        <parameter key="path">/home/max/git/ecomm2017/ecomm_mcga/src/UserBundle</parameter>
+        <parameter key="namespace">UserBundle</parameter>
       </parameter>
       <parameter key="DebugBundle" type="collection">
         <parameter key="parent">null</parameter>
-        <parameter key="path">/home/max/Documents/ecomm2017/ecomm_mcga/vendor/symfony/symfony/src/Symfony/Bundle/DebugBundle</parameter>
+        <parameter key="path">/home/max/git/ecomm2017/ecomm_mcga/vendor/symfony/symfony/src/Symfony/Bundle/DebugBundle</parameter>
         <parameter key="namespace">Symfony\Bundle\DebugBundle</parameter>
       </parameter>
       <parameter key="WebProfilerBundle" type="collection">
         <parameter key="parent">null</parameter>
-        <parameter key="path">/home/max/Documents/ecomm2017/ecomm_mcga/vendor/symfony/symfony/src/Symfony/Bundle/WebProfilerBundle</parameter>
+        <parameter key="path">/home/max/git/ecomm2017/ecomm_mcga/vendor/symfony/symfony/src/Symfony/Bundle/WebProfilerBundle</parameter>
         <parameter key="namespace">Symfony\Bundle\WebProfilerBundle</parameter>
       </parameter>
       <parameter key="SensioDistributionBundle" type="collection">
         <parameter key="parent">null</parameter>
-        <parameter key="path">/home/max/Documents/ecomm2017/ecomm_mcga/vendor/sensio/distribution-bundle</parameter>
+        <parameter key="path">/home/max/git/ecomm2017/ecomm_mcga/vendor/sensio/distribution-bundle</parameter>
         <parameter key="namespace">Sensio\Bundle\DistributionBundle</parameter>
+      </parameter>
+      <parameter key="DoctrineFixturesBundle" type="collection">
+        <parameter key="parent">null</parameter>
+        <parameter key="path">/home/max/git/ecomm2017/ecomm_mcga/vendor/doctrine/doctrine-fixtures-bundle</parameter>
+        <parameter key="namespace">Doctrine\Bundle\FixturesBundle</parameter>
       </parameter>
       <parameter key="SensioGeneratorBundle" type="collection">
         <parameter key="parent">null</parameter>
-        <parameter key="path">/home/max/Documents/ecomm2017/ecomm_mcga/vendor/sensio/generator-bundle</parameter>
+        <parameter key="path">/home/max/git/ecomm2017/ecomm_mcga/vendor/sensio/generator-bundle</parameter>
         <parameter key="namespace">Sensio\Bundle\GeneratorBundle</parameter>
       </parameter>
       <parameter key="WebServerBundle" type="collection">
         <parameter key="parent">null</parameter>
-        <parameter key="path">/home/max/Documents/ecomm2017/ecomm_mcga/vendor/symfony/symfony/src/Symfony/Bundle/WebServerBundle</parameter>
+        <parameter key="path">/home/max/git/ecomm2017/ecomm_mcga/vendor/symfony/symfony/src/Symfony/Bundle/WebServerBundle</parameter>
         <parameter key="namespace">Symfony\Bundle\WebServerBundle</parameter>
       </parameter>
     </parameter>
@@ -96,7 +114,7 @@
     <parameter key="database_port">null</parameter>
     <parameter key="database_name">symfony</parameter>
     <parameter key="database_user">root</parameter>
-    <parameter key="database_password">null</parameter>
+    <parameter key="database_password">root</parameter>
     <parameter key="mailer_transport">smtp</parameter>
     <parameter key="mailer_host">127.0.0.1</parameter>
     <parameter key="mailer_user">null</parameter>
@@ -116,7 +134,7 @@
       <parameter key="cookie_httponly">true</parameter>
       <parameter key="gc_probability">1</parameter>
     </parameter>
-    <parameter key="session.save_path">/home/max/Documents/ecomm2017/ecomm_mcga/var/sessions/dev</parameter>
+    <parameter key="session.save_path">/home/max/git/ecomm2017/ecomm_mcga/var/sessions/dev</parameter>
     <parameter key="session.metadata.update_threshold">0</parameter>
     <parameter key="form.type_extension.csrf.enabled">true</parameter>
     <parameter key="form.type_extension.csrf.field_name">_token</parameter>
@@ -125,13 +143,13 @@
       <parameter>twig</parameter>
     </parameter>
     <parameter key="validator.mapping.cache.prefix"></parameter>
-    <parameter key="validator.mapping.cache.file">/home/max/Documents/ecomm2017/ecomm_mcga/var/cache/dev/validation.php</parameter>
+    <parameter key="validator.mapping.cache.file">/home/max/git/ecomm2017/ecomm_mcga/var/cache/dev/validation.php</parameter>
     <parameter key="validator.translation_domain">validators</parameter>
     <parameter key="profiler_listener.only_exceptions">false</parameter>
     <parameter key="profiler_listener.only_master_requests">false</parameter>
-    <parameter key="profiler.storage.dsn">file:/home/max/Documents/ecomm2017/ecomm_mcga/var/cache/dev/profiler</parameter>
+    <parameter key="profiler.storage.dsn">file:/home/max/git/ecomm2017/ecomm_mcga/var/cache/dev/profiler</parameter>
     <parameter key="debug.error_handler.throw_at">-1</parameter>
-    <parameter key="debug.container.dump">/home/max/Documents/ecomm2017/ecomm_mcga/var/cache/dev/appDevDebugProjectContainer.xml</parameter>
+    <parameter key="debug.container.dump">/home/max/git/ecomm2017/ecomm_mcga/var/cache/dev/appDevDebugProjectContainer.xml</parameter>
     <parameter key="router.options.generator_class">Symfony\Component\Routing\Generator\UrlGenerator</parameter>
     <parameter key="router.options.generator_base_class">Symfony\Component\Routing\Generator\UrlGenerator</parameter>
     <parameter key="router.options.generator_dumper_class">Symfony\Component\Routing\Generator\Dumper\PhpGeneratorDumper</parameter>
@@ -143,7 +161,7 @@
     <parameter key="router.request_context.host">localhost</parameter>
     <parameter key="router.request_context.scheme">http</parameter>
     <parameter key="router.request_context.base_url"></parameter>
-    <parameter key="router.resource">/home/max/Documents/ecomm2017/ecomm_mcga/app/config/routing_dev.yml</parameter>
+    <parameter key="router.resource">/home/max/git/ecomm2017/ecomm_mcga/app/config/routing_dev.yml</parameter>
     <parameter key="router.cache_class_prefix">appDevDebugProjectContainer</parameter>
     <parameter key="request_listener.http_port">80</parameter>
     <parameter key="request_listener.https_port">443</parameter>
@@ -202,7 +220,7 @@
     <parameter key="swiftmailer.mailer.default.transport.smtp.timeout">30</parameter>
     <parameter key="swiftmailer.mailer.default.transport.smtp.source_ip">null</parameter>
     <parameter key="swiftmailer.mailer.default.transport.smtp.local_domain">null</parameter>
-    <parameter key="swiftmailer.spool.default.memory.path">/home/max/Documents/ecomm2017/ecomm_mcga/var/cache/dev/swiftmailer/spool/default</parameter>
+    <parameter key="swiftmailer.spool.default.memory.path">/home/max/git/ecomm2017/ecomm_mcga/var/cache/dev/swiftmailer/spool/default</parameter>
     <parameter key="swiftmailer.mailer.default.spool.enabled">true</parameter>
     <parameter key="swiftmailer.mailer.default.plugin.impersonate">null</parameter>
     <parameter key="swiftmailer.mailer.default.single_address">null</parameter>
@@ -321,7 +339,7 @@
     <parameter key="doctrine.orm.second_level_cache.cache_configuration.class">Doctrine\ORM\Cache\CacheConfiguration</parameter>
     <parameter key="doctrine.orm.second_level_cache.regions_configuration.class">Doctrine\ORM\Cache\RegionsConfiguration</parameter>
     <parameter key="doctrine.orm.auto_generate_proxy_classes">true</parameter>
-    <parameter key="doctrine.orm.proxy_dir">/home/max/Documents/ecomm2017/ecomm_mcga/var/cache/dev/doctrine/orm/Proxies</parameter>
+    <parameter key="doctrine.orm.proxy_dir">/home/max/git/ecomm2017/ecomm_mcga/var/cache/dev/doctrine/orm/Proxies</parameter>
     <parameter key="doctrine.orm.proxy_namespace">Proxies</parameter>
     <parameter key="sensio_framework_extra.view.guesser.class">Sensio\Bundle\FrameworkExtraBundle\Templating\TemplateGuesser</parameter>
     <parameter key="sensio_framework_extra.controller.listener.class">Sensio\Bundle\FrameworkExtraBundle\EventListener\ControllerListener</parameter>
@@ -457,10 +475,10 @@
       <tag name="kernel.event_subscriber"/>
       <argument type="service" id="controller_name_converter"/>
     </service>
-    <service id="2_fe88b25fa7e449ffba60a84df53e5712b18d79996e5eb9f0259076a2bcae9cac" class="Symfony\Component\Config\Resource\SelfCheckingResourceChecker" public="false">
+    <service id="2_a9f1af0acd795d4bb00ab2d2134fcd7d3cf91f4436eb2891a88c68892a0837b3" class="Symfony\Component\Config\Resource\SelfCheckingResourceChecker" public="false">
       <tag name="config_cache.resource_checker" priority="-990"/>
     </service>
-    <service id="1_fe88b25fa7e449ffba60a84df53e5712b18d79996e5eb9f0259076a2bcae9cac" class="Symfony\Component\DependencyInjection\Config\ContainerParametersResourceChecker" public="false">
+    <service id="1_a9f1af0acd795d4bb00ab2d2134fcd7d3cf91f4436eb2891a88c68892a0837b3" class="Symfony\Component\DependencyInjection\Config\ContainerParametersResourceChecker" public="false">
       <tag name="config_cache.resource_checker" priority="-980"/>
       <argument type="service" id="service_container"/>
     </service>
@@ -502,9 +520,9 @@
     <service id="filesystem" class="Symfony\Component\Filesystem\Filesystem"/>
     <service id="file_locator" class="Symfony\Component\HttpKernel\Config\FileLocator">
       <argument type="service" id="kernel"/>
-      <argument>/home/max/Documents/ecomm2017/ecomm_mcga/app/Resources</argument>
+      <argument>/home/max/git/ecomm2017/ecomm_mcga/app/Resources</argument>
       <argument type="collection">
-        <argument>/home/max/Documents/ecomm2017/ecomm_mcga/app</argument>
+        <argument>/home/max/git/ecomm2017/ecomm_mcga/app</argument>
       </argument>
     </service>
     <service id="uri_signer" class="Symfony\Component\HttpKernel\UriSigner">
@@ -512,8 +530,8 @@
     </service>
     <service id="config_cache_factory" class="Symfony\Component\Config\ResourceCheckerConfigCacheFactory">
       <argument type="iterator">
-        <argument type="service" id="1_fe88b25fa7e449ffba60a84df53e5712b18d79996e5eb9f0259076a2bcae9cac"/>
-        <argument type="service" id="2_fe88b25fa7e449ffba60a84df53e5712b18d79996e5eb9f0259076a2bcae9cac"/>
+        <argument type="service" id="1_a9f1af0acd795d4bb00ab2d2134fcd7d3cf91f4436eb2891a88c68892a0837b3"/>
+        <argument type="service" id="2_a9f1af0acd795d4bb00ab2d2134fcd7d3cf91f4436eb2891a88c68892a0837b3"/>
       </argument>
     </service>
     <service id="fragment.handler" class="Symfony\Component\HttpKernel\DependencyInjection\LazyLoadingFragmentHandler">
@@ -597,8 +615,8 @@
       <tag name="monolog.logger" channel="cache"/>
       <argument></argument>
       <argument>0</argument>
-      <argument>R8F7N1rNHW1-ePJB2AreuA</argument>
-      <argument>/home/max/Documents/ecomm2017/ecomm_mcga/var/cache/dev/pools</argument>
+      <argument>4N25ITqRODiAMLG0XRdGyh</argument>
+      <argument>/home/max/git/ecomm2017/ecomm_mcga/var/cache/dev/pools</argument>
       <argument type="service" id="monolog.logger.cache" on-invalid="ignore"/>
       <factory class="Symfony\Component\Cache\Adapter\AbstractAdapter" method="createSystemCache"/>
     </service>
@@ -607,7 +625,7 @@
       <tag name="monolog.logger" channel="cache"/>
       <argument></argument>
       <argument>0</argument>
-      <argument>R8F7N1rNHW1-ePJB2AreuA</argument>
+      <argument>4N25ITqRODiAMLG0XRdGyh</argument>
       <call method="setLogger">
         <argument type="service" id="monolog.logger.cache" on-invalid="ignore"/>
       </call>
@@ -627,7 +645,7 @@
       <tag name="monolog.logger" channel="cache"/>
       <argument></argument>
       <argument>0</argument>
-      <argument>/home/max/Documents/ecomm2017/ecomm_mcga/var/cache/dev/pools</argument>
+      <argument>/home/max/git/ecomm2017/ecomm_mcga/var/cache/dev/pools</argument>
       <call method="setLogger">
         <argument type="service" id="monolog.logger.cache" on-invalid="ignore"/>
       </call>
@@ -666,7 +684,7 @@
       <argument type="service" id="translator.selector"/>
     </service>
     <service id="translator.selector" class="Symfony\Component\Translation\MessageSelector" public="false"/>
-    <service id="1_16c3ef5a434f91e107a1de425289dd8157c9ed91ca27a98b7d7ecbc27e557ef5" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+    <service id="1_e29c69c3a0e6901270f9e728d32a5e08494d3effd52dfed0a8af7e640935a776" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
       <tag name="container.service_locator"/>
       <argument type="collection">
         <argument key="session" type="service" id="session" on-invalid="ignore"/>
@@ -696,23 +714,23 @@
     <service id="session.flash_bag" class="Symfony\Component\HttpFoundation\Session\Flash\FlashBag" public="false"/>
     <service id="session.attribute_bag" class="Symfony\Component\HttpFoundation\Session\Attribute\AttributeBag" public="false"/>
     <service id="session.storage.mock_file" class="Symfony\Component\HttpFoundation\Session\Storage\MockFileSessionStorage" public="false">
-      <argument>/home/max/Documents/ecomm2017/ecomm_mcga/var/cache/dev/sessions</argument>
+      <argument>/home/max/git/ecomm2017/ecomm_mcga/var/cache/dev/sessions</argument>
       <argument>MOCKSESSID</argument>
       <argument type="service" id="session.storage.metadata_bag"/>
     </service>
     <service id="session.handler.native_file" class="Symfony\Component\HttpFoundation\Session\Storage\Handler\NativeFileSessionHandler" public="false">
-      <argument>/home/max/Documents/ecomm2017/ecomm_mcga/var/sessions/dev</argument>
+      <argument>/home/max/git/ecomm2017/ecomm_mcga/var/sessions/dev</argument>
     </service>
     <service id="session.handler.write_check" class="Symfony\Component\HttpFoundation\Session\Storage\Handler\WriteCheckSessionHandler" public="false"/>
     <service id="session_listener" class="Symfony\Component\HttpKernel\EventListener\SessionListener">
       <tag name="kernel.event_subscriber"/>
-      <argument type="service" id="1_16c3ef5a434f91e107a1de425289dd8157c9ed91ca27a98b7d7ecbc27e557ef5"/>
+      <argument type="service" id="1_e29c69c3a0e6901270f9e728d32a5e08494d3effd52dfed0a8af7e640935a776"/>
     </service>
     <service id="session.save_listener" class="Symfony\Component\HttpKernel\EventListener\SaveSessionListener">
       <tag name="kernel.event_subscriber"/>
     </service>
     <service id="form.resolved_type_factory" class="Symfony\Component\Form\Extension\DataCollector\Proxy\ResolvedTypeFactoryDataCollectorProxy">
-      <argument type="service" id="1_f884c1aba4f587fbc439562ea6581d601f91f9bde3afd904c123bd469ea25fcb"/>
+      <argument type="service" id="1_b97089e5f9acb7ec7d6328832c936daa09e5957300502440ec1ab196a983ac89"/>
       <argument type="service" id="data_collector.form"/>
     </service>
     <service id="form.registry" class="Symfony\Component\Form\FormRegistry">
@@ -959,12 +977,12 @@
     <service id="templating.filename_parser" class="Symfony\Bundle\FrameworkBundle\Templating\TemplateFilenameParser"/>
     <service id="templating.locator" class="Symfony\Bundle\FrameworkBundle\Templating\Loader\TemplateLocator" public="false">
       <argument type="service" id="file_locator"/>
-      <argument>/home/max/Documents/ecomm2017/ecomm_mcga/var/cache/dev</argument>
+      <argument>/home/max/git/ecomm2017/ecomm_mcga/var/cache/dev</argument>
     </service>
     <service id="templating.finder" class="Symfony\Bundle\FrameworkBundle\CacheWarmer\TemplateFinder" public="false">
       <argument type="service" id="kernel"/>
       <argument type="service" id="templating.filename_parser"/>
-      <argument>/home/max/Documents/ecomm2017/ecomm_mcga/app/Resources</argument>
+      <argument>/home/max/git/ecomm2017/ecomm_mcga/app/Resources</argument>
     </service>
     <service id="templating.cache_warmer.template_paths" class="Symfony\Bundle\FrameworkBundle\CacheWarmer\TemplatePathsCacheWarmer" public="false">
       <tag name="kernel.cache_warmer" priority="20"/>
@@ -988,13 +1006,13 @@
         <argument type="service" id="monolog.logger.templating" on-invalid="ignore"/>
       </call>
     </service>
-    <service id="2_05666fb301ec5cde6eba98101e8dbf39425df60fae3eb6d96c30d4d6186200e2" class="Doctrine\Common\Cache\ApcCache" public="false">
+    <service id="2_4e9f321dead7ebe28784f2fb2225d59faa48ad399118c2caa09526de4a389239" class="Doctrine\Common\Cache\ApcCache" public="false">
       <call method="setNamespace">
         <argument></argument>
       </call>
     </service>
-    <service id="1_05666fb301ec5cde6eba98101e8dbf39425df60fae3eb6d96c30d4d6186200e2" class="Symfony\Component\Cache\Adapter\PhpArrayAdapter" public="false">
-      <argument>/home/max/Documents/ecomm2017/ecomm_mcga/var/cache/dev/validation.php</argument>
+    <service id="1_4e9f321dead7ebe28784f2fb2225d59faa48ad399118c2caa09526de4a389239" class="Symfony\Component\Cache\Adapter\PhpArrayAdapter" public="false">
+      <argument>/home/max/git/ecomm2017/ecomm_mcga/var/cache/dev/validation.php</argument>
       <argument type="service" id="cache.validator"/>
       <factory class="Symfony\Component\Cache\Adapter\PhpArrayAdapter" method="create"/>
     </service>
@@ -1013,7 +1031,7 @@
       </call>
       <call method="addXmlMappings">
         <argument type="collection">
-          <argument>/home/max/Documents/ecomm2017/ecomm_mcga/vendor/symfony/symfony/src/Symfony/Component/Form/Resources/config/validation.xml</argument>
+          <argument>/home/max/git/ecomm2017/ecomm_mcga/vendor/symfony/symfony/src/Symfony/Component/Form/Resources/config/validation.xml</argument>
         </argument>
       </call>
       <call method="enableAnnotationMapping">
@@ -1032,14 +1050,14 @@
     <service id="validator.mapping.cache_warmer" class="Symfony\Bundle\FrameworkBundle\CacheWarmer\ValidatorCacheWarmer" public="false">
       <tag name="kernel.cache_warmer"/>
       <argument type="service" id="validator.builder"/>
-      <argument>/home/max/Documents/ecomm2017/ecomm_mcga/var/cache/dev/validation.php</argument>
+      <argument>/home/max/git/ecomm2017/ecomm_mcga/var/cache/dev/validation.php</argument>
       <argument type="service" id="cache.validator"/>
     </service>
     <service id="validator.mapping.cache.symfony" class="Symfony\Component\Validator\Mapping\Cache\Psr6Cache" public="false">
-      <argument type="service" id="1_05666fb301ec5cde6eba98101e8dbf39425df60fae3eb6d96c30d4d6186200e2"/>
+      <argument type="service" id="1_4e9f321dead7ebe28784f2fb2225d59faa48ad399118c2caa09526de4a389239"/>
     </service>
     <service id="validator.mapping.cache.doctrine.apc" class="Symfony\Component\Validator\Mapping\Cache\DoctrineCache" public="false">
-      <argument type="service" id="2_05666fb301ec5cde6eba98101e8dbf39425df60fae3eb6d96c30d4d6186200e2"/>
+      <argument type="service" id="2_4e9f321dead7ebe28784f2fb2225d59faa48ad399118c2caa09526de4a389239"/>
     </service>
     <service id="validator.validator_factory" class="Symfony\Component\Validator\ContainerConstraintValidatorFactory" public="false">
       <argument type="service" id="service_locator.39e66930232432ca5ba91e98fdd8a17b"/>
@@ -1110,7 +1128,7 @@
       </call>
     </service>
     <service id="profiler.storage" class="Symfony\Component\HttpKernel\Profiler\FileProfilerStorage" public="false">
-      <argument>file:/home/max/Documents/ecomm2017/ecomm_mcga/var/cache/dev/profiler</argument>
+      <argument>file:/home/max/git/ecomm2017/ecomm_mcga/var/cache/dev/profiler</argument>
     </service>
     <service id="profiler_listener" class="Symfony\Component\HttpKernel\EventListener\ProfilerListener">
       <tag name="kernel.event_subscriber"/>
@@ -1144,7 +1162,7 @@
       <tag name="data_collector" template="@WebProfiler/Collector/logger.html.twig" id="logger" priority="300"/>
       <tag name="monolog.logger" channel="profiler"/>
       <argument type="service" id="monolog.logger.profiler" on-invalid="ignore"/>
-      <argument>/home/max/Documents/ecomm2017/ecomm_mcga/var/cache/dev/appDevDebugProjectContainer</argument>
+      <argument>/home/max/git/ecomm2017/ecomm_mcga/var/cache/dev/appDevDebugProjectContainer</argument>
     </service>
     <service id="data_collector.time" class="Symfony\Component\HttpKernel\DataCollector\TimeDataCollector" public="false">
       <tag name="data_collector" template="@WebProfiler/Collector/time.html.twig" id="time" priority="330"/>
@@ -1181,7 +1199,7 @@
         <argument type="service" id="cache.annotations"/>
       </call>
     </service>
-    <service id="1_f884c1aba4f587fbc439562ea6581d601f91f9bde3afd904c123bd469ea25fcb" class="Symfony\Component\Form\ResolvedFormTypeFactory" public="false"/>
+    <service id="1_b97089e5f9acb7ec7d6328832c936daa09e5957300502440ec1ab196a983ac89" class="Symfony\Component\Form\ResolvedFormTypeFactory" public="false"/>
     <service id="form.type_extension.form.data_collector" class="Symfony\Component\Form\Extension\DataCollector\Type\DataCollectorTypeExtension" public="false">
       <tag name="form.type_extension" extended_type="Symfony\Component\Form\Extension\Core\Type\FormType" extended-type="Symfony\Component\Form\Extension\Core\Type\FormType"/>
       <argument type="service" id="data_collector.form"/>
@@ -1218,7 +1236,7 @@
     <service id="debug.file_link_formatter" class="Symfony\Component\HttpKernel\Debug\FileLinkFormatter" public="false">
       <argument>null</argument>
       <argument type="service" id="request_stack" on-invalid="ignore"/>
-      <argument>/home/max/Documents/ecomm2017/ecomm_mcga</argument>
+      <argument>/home/max/git/ecomm2017/ecomm_mcga</argument>
       <argument>/_profiler/open?file=%%f&amp;line=%%l#line%%l</argument>
     </service>
     <service id="debug.event_dispatcher" class="Symfony\Component\HttpKernel\Debug\TraceableEventDispatcher">
@@ -1618,9 +1636,9 @@
     <service id="router.default" class="Symfony\Bundle\FrameworkBundle\Routing\Router" public="false">
       <tag name="monolog.logger" channel="router"/>
       <argument type="service" id="service_container"/>
-      <argument>/home/max/Documents/ecomm2017/ecomm_mcga/app/config/routing_dev.yml</argument>
+      <argument>/home/max/git/ecomm2017/ecomm_mcga/app/config/routing_dev.yml</argument>
       <argument type="collection">
-        <argument key="cache_dir">/home/max/Documents/ecomm2017/ecomm_mcga/var/cache/dev</argument>
+        <argument key="cache_dir">/home/max/git/ecomm2017/ecomm_mcga/var/cache/dev</argument>
         <argument key="debug">true</argument>
         <argument key="generator_class">Symfony\Component\Routing\Generator\UrlGenerator</argument>
         <argument key="generator_base_class">Symfony\Component\Routing\Generator\UrlGenerator</argument>
@@ -1658,13 +1676,13 @@
       <argument type="service" id="router.request_context" on-invalid="ignore"/>
       <argument type="service" id="monolog.logger.request" on-invalid="ignore"/>
     </service>
-    <service id="3_692c511d325ab531789024c3c522edde51afaddc4c2e8b36a28d886498f2e9fa" class="Symfony\Component\Cache\Adapter\PhpArrayAdapter" public="false">
-      <argument>/home/max/Documents/ecomm2017/ecomm_mcga/var/cache/dev/annotations.php</argument>
+    <service id="3_af6af0d30012a8deccc5db9d8d3809a5591fdf7cc56459418708a5e018ef6a79" class="Symfony\Component\Cache\Adapter\PhpArrayAdapter" public="false">
+      <argument>/home/max/git/ecomm2017/ecomm_mcga/var/cache/dev/annotations.php</argument>
       <argument type="service" id="cache.annotations"/>
       <factory class="Symfony\Component\Cache\Adapter\PhpArrayAdapter" method="create"/>
     </service>
-    <service id="2_692c511d325ab531789024c3c522edde51afaddc4c2e8b36a28d886498f2e9fa" class="Doctrine\Common\Cache\ArrayCache" public="false"/>
-    <service id="1_692c511d325ab531789024c3c522edde51afaddc4c2e8b36a28d886498f2e9fa" class="Doctrine\Common\Annotations\AnnotationRegistry" public="false">
+    <service id="2_af6af0d30012a8deccc5db9d8d3809a5591fdf7cc56459418708a5e018ef6a79" class="Doctrine\Common\Cache\ArrayCache" public="false"/>
+    <service id="1_af6af0d30012a8deccc5db9d8d3809a5591fdf7cc56459418708a5e018ef6a79" class="Doctrine\Common\Annotations\AnnotationRegistry" public="false">
       <call method="registerLoader">
         <argument>class_exists</argument>
       </call>
@@ -1672,7 +1690,7 @@
     <service id="annotations.reader" class="Doctrine\Common\Annotations\AnnotationReader" public="false">
       <call method="addGlobalIgnoredName">
         <argument>required</argument>
-        <argument type="service" id="1_692c511d325ab531789024c3c522edde51afaddc4c2e8b36a28d886498f2e9fa"/>
+        <argument type="service" id="1_af6af0d30012a8deccc5db9d8d3809a5591fdf7cc56459418708a5e018ef6a79"/>
       </call>
     </service>
     <service id="annotations.filesystem_cache" class="Doctrine\Common\Cache\FilesystemCache" public="false">
@@ -1681,11 +1699,11 @@
     <service id="annotations.cache_warmer" class="Symfony\Bundle\FrameworkBundle\CacheWarmer\AnnotationsCacheWarmer" public="false">
       <tag name="kernel.cache_warmer"/>
       <argument type="service" id="annotations.reader"/>
-      <argument>/home/max/Documents/ecomm2017/ecomm_mcga/var/cache/dev/annotations.php</argument>
+      <argument>/home/max/git/ecomm2017/ecomm_mcga/var/cache/dev/annotations.php</argument>
       <argument type="service" id="cache.annotations"/>
     </service>
     <service id="annotations.cache" class="Symfony\Component\Cache\DoctrineProvider" public="false">
-      <argument type="service" id="3_692c511d325ab531789024c3c522edde51afaddc4c2e8b36a28d886498f2e9fa"/>
+      <argument type="service" id="3_af6af0d30012a8deccc5db9d8d3809a5591fdf7cc56459418708a5e018ef6a79"/>
     </service>
     <service id="security.authorization_checker" class="Symfony\Component\Security\Core\Authorization\AuthorizationChecker">
       <argument type="service" id="security.token_storage"/>
@@ -2157,12 +2175,12 @@
     </service>
     <service id="security.authentication.listener.anonymous.main" class="Symfony\Component\Security\Http\Firewall\AnonymousAuthenticationListener" public="false">
       <argument type="service" id="security.token_storage"/>
-      <argument>59b63a95a61d77.25928318</argument>
+      <argument>59b8d4754f27c0.24490261</argument>
       <argument type="service" id="monolog.logger.security" on-invalid="null"/>
       <argument type="service" id="security.authentication.manager"/>
     </service>
     <service id="security.authentication.provider.anonymous.main" class="Symfony\Component\Security\Core\Authentication\Provider\AnonymousAuthenticationProvider" public="false">
-      <argument>59b63a95a61d77.25928318</argument>
+      <argument>59b8d4754f27c0.24490261</argument>
     </service>
     <service id="security.exception_listener.main" class="Symfony\Component\Security\Http\Firewall\ExceptionListener" public="false">
       <argument type="service" id="security.token_storage"/>
@@ -2207,7 +2225,7 @@
           <argument>form_div_layout.html.twig</argument>
         </argument>
         <argument key="autoescape">name</argument>
-        <argument key="cache">/home/max/Documents/ecomm2017/ecomm_mcga/var/cache/dev/twig</argument>
+        <argument key="cache">/home/max/git/ecomm2017/ecomm_mcga/var/cache/dev/twig</argument>
         <argument key="charset">UTF-8</argument>
         <argument key="paths" type="collection"/>
         <argument key="date" type="collection">
@@ -2308,7 +2326,7 @@
     </service>
     <service id="twig.template_iterator" class="Symfony\Bundle\TwigBundle\TemplateIterator" public="false">
       <argument type="service" id="kernel"/>
-      <argument>/home/max/Documents/ecomm2017/ecomm_mcga/app</argument>
+      <argument>/home/max/git/ecomm2017/ecomm_mcga/app</argument>
       <argument type="collection"/>
     </service>
     <service id="twig.template_cache_warmer" class="Symfony\Bundle\TwigBundle\CacheWarmer\TemplateCacheWarmer" public="false">
@@ -2318,44 +2336,52 @@
     </service>
     <service id="twig.loader.native_filesystem" class="Twig\Loader\FilesystemLoader" public="false">
       <argument type="collection"/>
-      <argument>/home/max/Documents/ecomm2017/ecomm_mcga</argument>
+      <argument>/home/max/git/ecomm2017/ecomm_mcga</argument>
       <call method="addPath">
-        <argument>/home/max/Documents/ecomm2017/ecomm_mcga/vendor/symfony/symfony/src/Symfony/Bundle/FrameworkBundle/Resources/views</argument>
+        <argument>/home/max/git/ecomm2017/ecomm_mcga/vendor/symfony/symfony/src/Symfony/Bundle/FrameworkBundle/Resources/views</argument>
         <argument>Framework</argument>
       </call>
       <call method="addPath">
-        <argument>/home/max/Documents/ecomm2017/ecomm_mcga/vendor/symfony/symfony/src/Symfony/Bundle/SecurityBundle/Resources/views</argument>
+        <argument>/home/max/git/ecomm2017/ecomm_mcga/vendor/symfony/symfony/src/Symfony/Bundle/SecurityBundle/Resources/views</argument>
         <argument>Security</argument>
       </call>
       <call method="addPath">
-        <argument>/home/max/Documents/ecomm2017/ecomm_mcga/vendor/symfony/symfony/src/Symfony/Bundle/TwigBundle/Resources/views</argument>
+        <argument>/home/max/git/ecomm2017/ecomm_mcga/vendor/symfony/symfony/src/Symfony/Bundle/TwigBundle/Resources/views</argument>
         <argument>Twig</argument>
       </call>
       <call method="addPath">
-        <argument>/home/max/Documents/ecomm2017/ecomm_mcga/vendor/symfony/swiftmailer-bundle/Resources/views</argument>
+        <argument>/home/max/git/ecomm2017/ecomm_mcga/vendor/symfony/swiftmailer-bundle/Resources/views</argument>
         <argument>Swiftmailer</argument>
       </call>
       <call method="addPath">
-        <argument>/home/max/Documents/ecomm2017/ecomm_mcga/vendor/doctrine/doctrine-bundle/Resources/views</argument>
+        <argument>/home/max/git/ecomm2017/ecomm_mcga/vendor/doctrine/doctrine-bundle/Resources/views</argument>
         <argument>Doctrine</argument>
       </call>
       <call method="addPath">
-        <argument>/home/max/Documents/ecomm2017/ecomm_mcga/src/ECommBundle/Resources/views</argument>
+        <argument>/home/max/git/ecomm2017/ecomm_mcga/src/ECommBundle/Resources/views</argument>
         <argument>EComm</argument>
       </call>
       <call method="addPath">
-        <argument>/home/max/Documents/ecomm2017/ecomm_mcga/vendor/symfony/symfony/src/Symfony/Bundle/DebugBundle/Resources/views</argument>
+        <argument>/home/max/git/ecomm2017/ecomm_mcga/src/CoreBundle/Resources/views</argument>
+        <argument>Core</argument>
+      </call>
+      <call method="addPath">
+        <argument>/home/max/git/ecomm2017/ecomm_mcga/src/UserBundle/Resources/views</argument>
+        <argument>User</argument>
+      </call>
+      <call method="addPath">
+        <argument>/home/max/git/ecomm2017/ecomm_mcga/vendor/symfony/symfony/src/Symfony/Bundle/DebugBundle/Resources/views</argument>
         <argument>Debug</argument>
       </call>
       <call method="addPath">
-        <argument>/home/max/Documents/ecomm2017/ecomm_mcga/vendor/symfony/symfony/src/Symfony/Bundle/WebProfilerBundle/Resources/views</argument>
+        <argument>/home/max/git/ecomm2017/ecomm_mcga/vendor/symfony/symfony/src/Symfony/Bundle/WebProfilerBundle/Resources/views</argument>
         <argument>WebProfiler</argument>
       </call>
       <call method="addPath">
-        <argument>/home/max/Documents/ecomm2017/ecomm_mcga/app/Resources/views</argument>
+        <argument>/home/max/git/ecomm2017/ecomm_mcga/app/Resources/views</argument>
       </call>
       <call method="addPath">
-        <argument>/home/max/Documents/ecomm2017/ecomm_mcga/vendor/symfony/symfony/src/Symfony/Bridge/Twig/Resources/views/Form</argument>
+        <argument>/home/max/git/ecomm2017/ecomm_mcga/vendor/symfony/symfony/src/Symfony/Bridge/Twig/Resources/views/Form</argument>
       </call>
     </service>
     <service id="twig.loader.chain" class="Twig\Loader\ChainLoader" public="false"/>
@@ -2380,7 +2406,7 @@
     <service id="twig.extension.code" class="Symfony\Bridge\Twig\Extension\CodeExtension" public="false">
       <tag name="twig.extension"/>
       <argument type="service" id="debug.file_link_formatter" on-invalid="ignore"/>
-      <argument>/home/max/Documents/ecomm2017/ecomm_mcga/app</argument>
+      <argument>/home/max/git/ecomm2017/ecomm_mcga/app</argument>
       <argument>UTF-8</argument>
     </service>
     <service id="twig.extension.routing" class="Symfony\Bridge\Twig\Extension\RoutingExtension" public="false">
@@ -2464,44 +2490,52 @@
       <tag name="twig.loader"/>
       <argument type="service" id="templating.locator"/>
       <argument type="service" id="templating.name_parser"/>
-      <argument>/home/max/Documents/ecomm2017/ecomm_mcga</argument>
+      <argument>/home/max/git/ecomm2017/ecomm_mcga</argument>
       <call method="addPath">
-        <argument>/home/max/Documents/ecomm2017/ecomm_mcga/vendor/symfony/symfony/src/Symfony/Bundle/FrameworkBundle/Resources/views</argument>
+        <argument>/home/max/git/ecomm2017/ecomm_mcga/vendor/symfony/symfony/src/Symfony/Bundle/FrameworkBundle/Resources/views</argument>
         <argument>Framework</argument>
       </call>
       <call method="addPath">
-        <argument>/home/max/Documents/ecomm2017/ecomm_mcga/vendor/symfony/symfony/src/Symfony/Bundle/SecurityBundle/Resources/views</argument>
+        <argument>/home/max/git/ecomm2017/ecomm_mcga/vendor/symfony/symfony/src/Symfony/Bundle/SecurityBundle/Resources/views</argument>
         <argument>Security</argument>
       </call>
       <call method="addPath">
-        <argument>/home/max/Documents/ecomm2017/ecomm_mcga/vendor/symfony/symfony/src/Symfony/Bundle/TwigBundle/Resources/views</argument>
+        <argument>/home/max/git/ecomm2017/ecomm_mcga/vendor/symfony/symfony/src/Symfony/Bundle/TwigBundle/Resources/views</argument>
         <argument>Twig</argument>
       </call>
       <call method="addPath">
-        <argument>/home/max/Documents/ecomm2017/ecomm_mcga/vendor/symfony/swiftmailer-bundle/Resources/views</argument>
+        <argument>/home/max/git/ecomm2017/ecomm_mcga/vendor/symfony/swiftmailer-bundle/Resources/views</argument>
         <argument>Swiftmailer</argument>
       </call>
       <call method="addPath">
-        <argument>/home/max/Documents/ecomm2017/ecomm_mcga/vendor/doctrine/doctrine-bundle/Resources/views</argument>
+        <argument>/home/max/git/ecomm2017/ecomm_mcga/vendor/doctrine/doctrine-bundle/Resources/views</argument>
         <argument>Doctrine</argument>
       </call>
       <call method="addPath">
-        <argument>/home/max/Documents/ecomm2017/ecomm_mcga/src/ECommBundle/Resources/views</argument>
+        <argument>/home/max/git/ecomm2017/ecomm_mcga/src/ECommBundle/Resources/views</argument>
         <argument>EComm</argument>
       </call>
       <call method="addPath">
-        <argument>/home/max/Documents/ecomm2017/ecomm_mcga/vendor/symfony/symfony/src/Symfony/Bundle/DebugBundle/Resources/views</argument>
+        <argument>/home/max/git/ecomm2017/ecomm_mcga/src/CoreBundle/Resources/views</argument>
+        <argument>Core</argument>
+      </call>
+      <call method="addPath">
+        <argument>/home/max/git/ecomm2017/ecomm_mcga/src/UserBundle/Resources/views</argument>
+        <argument>User</argument>
+      </call>
+      <call method="addPath">
+        <argument>/home/max/git/ecomm2017/ecomm_mcga/vendor/symfony/symfony/src/Symfony/Bundle/DebugBundle/Resources/views</argument>
         <argument>Debug</argument>
       </call>
       <call method="addPath">
-        <argument>/home/max/Documents/ecomm2017/ecomm_mcga/vendor/symfony/symfony/src/Symfony/Bundle/WebProfilerBundle/Resources/views</argument>
+        <argument>/home/max/git/ecomm2017/ecomm_mcga/vendor/symfony/symfony/src/Symfony/Bundle/WebProfilerBundle/Resources/views</argument>
         <argument>WebProfiler</argument>
       </call>
       <call method="addPath">
-        <argument>/home/max/Documents/ecomm2017/ecomm_mcga/app/Resources/views</argument>
+        <argument>/home/max/git/ecomm2017/ecomm_mcga/app/Resources/views</argument>
       </call>
       <call method="addPath">
-        <argument>/home/max/Documents/ecomm2017/ecomm_mcga/vendor/symfony/symfony/src/Symfony/Bridge/Twig/Resources/views/Form</argument>
+        <argument>/home/max/git/ecomm2017/ecomm_mcga/vendor/symfony/symfony/src/Symfony/Bridge/Twig/Resources/views/Form</argument>
       </call>
     </service>
     <service id="templating.engine.twig" class="Symfony\Bundle\TwigBundle\TwigEngine" public="false">
@@ -2553,7 +2587,7 @@
     </service>
     <service id="monolog.processor.psr_log_message" class="Monolog\Processor\PsrLogMessageProcessor" public="false"/>
     <service id="monolog.handler.main" class="Monolog\Handler\StreamHandler">
-      <argument>/home/max/Documents/ecomm2017/ecomm_mcga/var/logs/dev.log</argument>
+      <argument>/home/max/git/ecomm2017/ecomm_mcga/var/logs/dev.log</argument>
       <argument>100</argument>
       <argument>true</argument>
       <argument>null</argument>
@@ -2572,9 +2606,9 @@
       <argument>100</argument>
       <argument>true</argument>
     </service>
-    <service id="3_b6500fc5a685449467473a3c95b82001dbe9ca44f9e806c63c6c2c37a8e02c3b" class="Swift_Transport_Esmtp_Auth_PlainAuthenticator" public="false"/>
-    <service id="2_b6500fc5a685449467473a3c95b82001dbe9ca44f9e806c63c6c2c37a8e02c3b" class="Swift_Transport_Esmtp_Auth_LoginAuthenticator" public="false"/>
-    <service id="1_b6500fc5a685449467473a3c95b82001dbe9ca44f9e806c63c6c2c37a8e02c3b" class="Swift_Transport_Esmtp_Auth_CramMd5Authenticator" public="false"/>
+    <service id="3_80151a546c7aa9011f4454b82c8e46cbee14516fb9fe4092af4752556ef09949" class="Swift_Transport_Esmtp_Auth_PlainAuthenticator" public="false"/>
+    <service id="2_80151a546c7aa9011f4454b82c8e46cbee14516fb9fe4092af4752556ef09949" class="Swift_Transport_Esmtp_Auth_LoginAuthenticator" public="false"/>
+    <service id="1_80151a546c7aa9011f4454b82c8e46cbee14516fb9fe4092af4752556ef09949" class="Swift_Transport_Esmtp_Auth_CramMd5Authenticator" public="false"/>
     <service id="swiftmailer.mailer.abstract" class="Swift_Mailer" abstract="true">
       <argument type="service" id="swiftmailer.transport"/>
     </service>
@@ -2591,9 +2625,9 @@
     </service>
     <service id="swiftmailer.transport.authhandler.abstract" class="Swift_Transport_Esmtp_AuthHandler" public="false" abstract="true">
       <argument type="collection">
-        <argument type="service" id="1_b6500fc5a685449467473a3c95b82001dbe9ca44f9e806c63c6c2c37a8e02c3b"/>
-        <argument type="service" id="2_b6500fc5a685449467473a3c95b82001dbe9ca44f9e806c63c6c2c37a8e02c3b"/>
-        <argument type="service" id="3_b6500fc5a685449467473a3c95b82001dbe9ca44f9e806c63c6c2c37a8e02c3b"/>
+        <argument type="service" id="1_80151a546c7aa9011f4454b82c8e46cbee14516fb9fe4092af4752556ef09949"/>
+        <argument type="service" id="2_80151a546c7aa9011f4454b82c8e46cbee14516fb9fe4092af4752556ef09949"/>
+        <argument type="service" id="3_80151a546c7aa9011f4454b82c8e46cbee14516fb9fe4092af4752556ef09949"/>
       </argument>
     </service>
     <service id="swiftmailer.transport.eventdispatcher.abstract" class="Swift_Events_SimpleEventDispatcher" public="false" abstract="true"/>
@@ -2605,7 +2639,7 @@
     <service id="swiftmailer.transport.smtp.abstract" class="Swift_Transport_EsmtpTransport" public="false" abstract="true"/>
     <service id="swiftmailer.transport.spool.abstract" class="Swift_Transport_SpoolTransport" public="false" abstract="true"/>
     <service id="swiftmailer.spool.file.abstract" class="Swift_FileSpool" public="false" abstract="true">
-      <argument>/home/max/Documents/ecomm2017/ecomm_mcga/app/../data/swiftmailer/spool</argument>
+      <argument>/home/max/git/ecomm2017/ecomm_mcga/app/../data/swiftmailer/spool</argument>
     </service>
     <service id="swiftmailer.spool.memory.abstract" class="Swift_MemorySpool" public="false" abstract="true"/>
     <service id="swiftmailer.email_sender.listener" class="Symfony\Bundle\SwiftmailerBundle\EventListener\EmailSenderListener">
@@ -2620,9 +2654,9 @@
     <service id="swiftmailer.mailer.default.transport.eventdispatcher" class="Swift_Events_SimpleEventDispatcher" public="false"/>
     <service id="swiftmailer.mailer.default.transport.authhandler" class="Swift_Transport_Esmtp_AuthHandler" public="false">
       <argument type="collection">
-        <argument type="service" id="1_b6500fc5a685449467473a3c95b82001dbe9ca44f9e806c63c6c2c37a8e02c3b"/>
-        <argument type="service" id="2_b6500fc5a685449467473a3c95b82001dbe9ca44f9e806c63c6c2c37a8e02c3b"/>
-        <argument type="service" id="3_b6500fc5a685449467473a3c95b82001dbe9ca44f9e806c63c6c2c37a8e02c3b"/>
+        <argument type="service" id="1_80151a546c7aa9011f4454b82c8e46cbee14516fb9fe4092af4752556ef09949"/>
+        <argument type="service" id="2_80151a546c7aa9011f4454b82c8e46cbee14516fb9fe4092af4752556ef09949"/>
+        <argument type="service" id="3_80151a546c7aa9011f4454b82c8e46cbee14516fb9fe4092af4752556ef09949"/>
       </argument>
       <call method="setUsername">
         <argument>null</argument>
@@ -2769,7 +2803,7 @@
         <argument key="port">null</argument>
         <argument key="dbname">symfony</argument>
         <argument key="user">root</argument>
-        <argument key="password">null</argument>
+        <argument key="password">root</argument>
         <argument key="charset">UTF8</argument>
         <argument key="driverOptions" type="collection"/>
         <argument key="defaultTableOptions" type="collection"/>
@@ -2817,7 +2851,9 @@
     <service id="doctrine.orm.quote_strategy.ansi" class="Doctrine\ORM\Mapping\AnsiQuoteStrategy" public="false"/>
     <service id="doctrine.orm.default_configuration" class="Doctrine\ORM\Configuration" public="false">
       <call method="setEntityNamespaces">
-        <argument type="collection"/>
+        <argument type="collection">
+          <argument key="ECommBundle">ECommBundle\Entity</argument>
+        </argument>
       </call>
       <call method="setMetadataCacheImpl">
         <argument type="service" id="doctrine_cache.providers.doctrine.orm.default_metadata_cache"/>
@@ -2832,7 +2868,7 @@
         <argument type="service" id="doctrine.orm.default_metadata_driver"/>
       </call>
       <call method="setProxyDir">
-        <argument>/home/max/Documents/ecomm2017/ecomm_mcga/var/cache/dev/doctrine/orm/Proxies</argument>
+        <argument>/home/max/git/ecomm2017/ecomm_mcga/var/cache/dev/doctrine/orm/Proxies</argument>
       </call>
       <call method="setProxyNamespace">
         <argument>Proxies</argument>
@@ -2856,20 +2892,31 @@
         <argument type="service" id="doctrine.orm.default_entity_listener_resolver"/>
       </call>
     </service>
-    <service id="doctrine.orm.default_metadata_driver" class="Doctrine\Common\Persistence\Mapping\Driver\MappingDriverChain" public="false"/>
+    <service id="doctrine.orm.default_annotation_metadata_driver" class="Doctrine\ORM\Mapping\Driver\AnnotationDriver" public="false">
+      <argument type="service" id="annotations.cached_reader"/>
+      <argument type="collection">
+        <argument>/home/max/git/ecomm2017/ecomm_mcga/src/ECommBundle/Entity</argument>
+      </argument>
+    </service>
+    <service id="doctrine.orm.default_metadata_driver" class="Doctrine\Common\Persistence\Mapping\Driver\MappingDriverChain" public="false">
+      <call method="addDriver">
+        <argument type="service" id="doctrine.orm.default_annotation_metadata_driver"/>
+        <argument>ECommBundle\Entity</argument>
+      </call>
+    </service>
     <service id="doctrine_cache.providers.doctrine.orm.default_metadata_cache" class="Doctrine\Common\Cache\ArrayCache">
       <call method="setNamespace">
-        <argument>sf2orm_default_92389a57bb173193992daabbd618f4132b466df5790015a948a6964b8b083309</argument>
+        <argument>sf2orm_default_f2dc88314792e5bb0496272a00ce3d11bcfc309c7e1e9471a8ba164a35a23693</argument>
       </call>
     </service>
     <service id="doctrine_cache.providers.doctrine.orm.default_result_cache" class="Doctrine\Common\Cache\ArrayCache">
       <call method="setNamespace">
-        <argument>sf2orm_default_92389a57bb173193992daabbd618f4132b466df5790015a948a6964b8b083309</argument>
+        <argument>sf2orm_default_f2dc88314792e5bb0496272a00ce3d11bcfc309c7e1e9471a8ba164a35a23693</argument>
       </call>
     </service>
     <service id="doctrine_cache.providers.doctrine.orm.default_query_cache" class="Doctrine\Common\Cache\ArrayCache">
       <call method="setNamespace">
-        <argument>sf2orm_default_92389a57bb173193992daabbd618f4132b466df5790015a948a6964b8b083309</argument>
+        <argument>sf2orm_default_f2dc88314792e5bb0496272a00ce3d11bcfc309c7e1e9471a8ba164a35a23693</argument>
       </call>
     </service>
     <service id="doctrine.orm.default_entity_listener_resolver" class="Doctrine\Bundle\DoctrineBundle\Mapping\ContainerAwareEntityListenerResolver">
@@ -2999,7 +3046,7 @@
         </argument>
       </call>
     </service>
-    <service id="2_c9972c3984d2366128daba22d789a4899f3af8a7ff97dd5d6d06cacd0cecc7fd" class="Symfony\Component\VarDumper\Dumper\HtmlDumper" public="false">
+    <service id="2_9c7fa8a6e989fe773134cd22a4690810b16fb8a86711e40a6e8bbc3a2508b40d" class="Symfony\Component\VarDumper\Dumper\HtmlDumper" public="false">
       <argument>null</argument>
       <argument>UTF-8</argument>
       <argument>1</argument>
@@ -3010,7 +3057,7 @@
         </argument>
       </call>
     </service>
-    <service id="1_c9972c3984d2366128daba22d789a4899f3af8a7ff97dd5d6d06cacd0cecc7fd" class="Symfony\Bundle\WebProfilerBundle\Csp\NonceGenerator" public="false"/>
+    <service id="1_9c7fa8a6e989fe773134cd22a4690810b16fb8a86711e40a6e8bbc3a2508b40d" class="Symfony\Bundle\WebProfilerBundle\Csp\NonceGenerator" public="false"/>
     <service id="web_profiler.controller.profiler" class="Symfony\Bundle\WebProfilerBundle\Controller\ProfilerController">
       <argument type="service" id="router.default" on-invalid="null"/>
       <argument type="service" id="profiler" on-invalid="null"/>
@@ -3083,7 +3130,7 @@
       </argument>
       <argument>bottom</argument>
       <argument type="service" id="web_profiler.csp.handler"/>
-      <argument>/home/max/Documents/ecomm2017/ecomm_mcga</argument>
+      <argument>/home/max/git/ecomm2017/ecomm_mcga</argument>
     </service>
     <service id="web_profiler.controller.router" class="Symfony\Bundle\WebProfilerBundle\Controller\RouterController">
       <argument type="service" id="profiler" on-invalid="null"/>
@@ -3096,11 +3143,11 @@
       <argument>true</argument>
     </service>
     <service id="web_profiler.csp.handler" class="Symfony\Bundle\WebProfilerBundle\Csp\ContentSecurityPolicyHandler" public="false">
-      <argument type="service" id="1_c9972c3984d2366128daba22d789a4899f3af8a7ff97dd5d6d06cacd0cecc7fd"/>
+      <argument type="service" id="1_9c7fa8a6e989fe773134cd22a4690810b16fb8a86711e40a6e8bbc3a2508b40d"/>
     </service>
     <service id="twig.extension.webprofiler" class="Symfony\Bundle\WebProfilerBundle\Twig\WebProfilerExtension" public="false">
       <tag name="twig.extension"/>
-      <argument type="service" id="2_c9972c3984d2366128daba22d789a4899f3af8a7ff97dd5d6d06cacd0cecc7fd"/>
+      <argument type="service" id="2_9c7fa8a6e989fe773134cd22a4690810b16fb8a86711e40a6e8bbc3a2508b40d"/>
     </service>
     <service id="web_profiler.debug_toolbar" class="Symfony\Bundle\WebProfilerBundle\EventListener\WebDebugToolbarListener">
       <tag name="kernel.event_subscriber"/>
@@ -3119,12 +3166,12 @@
     </service>
     <service id="web_server.command.server_run" class="Symfony\Bundle\WebServerBundle\Command\ServerRunCommand" public="false">
       <tag name="console.command"/>
-      <argument>/home/max/Documents/ecomm2017/ecomm_mcga/public</argument>
+      <argument>/home/max/git/ecomm2017/ecomm_mcga/public</argument>
       <argument>dev</argument>
     </service>
     <service id="web_server.command.server_start" class="Symfony\Bundle\WebServerBundle\Command\ServerStartCommand" public="false">
       <tag name="console.command"/>
-      <argument>/home/max/Documents/ecomm2017/ecomm_mcga/public</argument>
+      <argument>/home/max/git/ecomm2017/ecomm_mcga/public</argument>
       <argument>dev</argument>
     </service>
     <service id="web_server.command.server_stop" class="Symfony\Bundle\WebServerBundle\Command\ServerStopCommand" public="false">
@@ -3339,42 +3386,42 @@
       <argument>true</argument>
     </service>
     <service id="cache.app.recorder_inner" class="Symfony\Component\Cache\Adapter\FilesystemAdapter" public="false" lazy="true">
-      <argument>KRqdBQ-5cK</argument>
+      <argument>-eT-+5Lvcg</argument>
       <argument>0</argument>
-      <argument>/home/max/Documents/ecomm2017/ecomm_mcga/var/cache/dev/pools</argument>
+      <argument>/home/max/git/ecomm2017/ecomm_mcga/var/cache/dev/pools</argument>
       <call method="setLogger">
         <argument type="service" id="monolog.logger.cache" on-invalid="ignore"/>
       </call>
     </service>
     <service id="cache.system.recorder_inner" class="Symfony\Component\Cache\Adapter\AdapterInterface" public="false" lazy="true">
-      <argument>Zx7ZvUXZHl</argument>
+      <argument>ym94WeENCG</argument>
       <argument>0</argument>
-      <argument>R8F7N1rNHW1-ePJB2AreuA</argument>
-      <argument>/home/max/Documents/ecomm2017/ecomm_mcga/var/cache/dev/pools</argument>
+      <argument>4N25ITqRODiAMLG0XRdGyh</argument>
+      <argument>/home/max/git/ecomm2017/ecomm_mcga/var/cache/dev/pools</argument>
       <argument type="service" id="monolog.logger.cache" on-invalid="ignore"/>
       <factory class="Symfony\Component\Cache\Adapter\AbstractAdapter" method="createSystemCache"/>
     </service>
     <service id="cache.validator.recorder_inner" class="Symfony\Component\Cache\Adapter\AdapterInterface" public="false" lazy="true">
-      <argument>wL-g5DGbnI</argument>
+      <argument>2e+El2CeGJ</argument>
       <argument>0</argument>
-      <argument>R8F7N1rNHW1-ePJB2AreuA</argument>
-      <argument>/home/max/Documents/ecomm2017/ecomm_mcga/var/cache/dev/pools</argument>
+      <argument>4N25ITqRODiAMLG0XRdGyh</argument>
+      <argument>/home/max/git/ecomm2017/ecomm_mcga/var/cache/dev/pools</argument>
       <argument type="service" id="monolog.logger.cache" on-invalid="ignore"/>
       <factory class="Symfony\Component\Cache\Adapter\AbstractAdapter" method="createSystemCache"/>
     </service>
     <service id="cache.serializer.recorder_inner" class="Symfony\Component\Cache\Adapter\AdapterInterface" public="false" lazy="true">
-      <argument>53QgWW0mNK</argument>
+      <argument>7oRlAVU75l</argument>
       <argument>0</argument>
-      <argument>R8F7N1rNHW1-ePJB2AreuA</argument>
-      <argument>/home/max/Documents/ecomm2017/ecomm_mcga/var/cache/dev/pools</argument>
+      <argument>4N25ITqRODiAMLG0XRdGyh</argument>
+      <argument>/home/max/git/ecomm2017/ecomm_mcga/var/cache/dev/pools</argument>
       <argument type="service" id="monolog.logger.cache" on-invalid="ignore"/>
       <factory class="Symfony\Component\Cache\Adapter\AbstractAdapter" method="createSystemCache"/>
     </service>
     <service id="cache.annotations.recorder_inner" class="Symfony\Component\Cache\Adapter\AdapterInterface" public="false" lazy="true">
-      <argument>DEdB2GqUuS</argument>
+      <argument>k1c4qn5+QX</argument>
       <argument>0</argument>
-      <argument>R8F7N1rNHW1-ePJB2AreuA</argument>
-      <argument>/home/max/Documents/ecomm2017/ecomm_mcga/var/cache/dev/pools</argument>
+      <argument>4N25ITqRODiAMLG0XRdGyh</argument>
+      <argument>/home/max/git/ecomm2017/ecomm_mcga/var/cache/dev/pools</argument>
       <argument type="service" id="monolog.logger.cache" on-invalid="ignore"/>
       <factory class="Symfony\Component\Cache\Adapter\AbstractAdapter" method="createSystemCache"/>
     </service>
@@ -3475,7 +3522,7 @@
     <service id="console.command.symfony_bundle_webserverbundle_command_serverstopcommand" alias="web_server.command.server_stop"/>
     <service id="console.command.symfony_bundle_webserverbundle_command_serverstatuscommand" alias="web_server.command.server_status"/>
     <service id="twig.loader" alias="twig.loader.filesystem"/>
-    <service id="service_locator.b8d2046fb854cde05549fb309e1a80d2" alias="1_16c3ef5a434f91e107a1de425289dd8157c9ed91ca27a98b7d7ecbc27e557ef5" public="false"/>
+    <service id="service_locator.b8d2046fb854cde05549fb309e1a80d2" alias="1_e29c69c3a0e6901270f9e728d32a5e08494d3effd52dfed0a8af7e640935a776" public="false"/>
     <service id="event_dispatcher" alias="debug.event_dispatcher"/>
     <service id="controller_resolver" alias="debug.controller_resolver" public="false"/>
     <service id="argument_resolver" alias="debug.argument_resolver" public="false"/>

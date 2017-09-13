@@ -1,0 +1,6 @@
+
+core_home:
+    path:      /
+    defaults:  { _controller: CoreBundle:Core:index }
+
+
