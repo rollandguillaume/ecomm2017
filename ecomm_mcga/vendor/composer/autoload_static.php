@@ -84,7 +84,6 @@ class ComposerStaticIniteb984aa49fff959eb627c8c2b6de3152
         ),
         'C' => 
         array (
-            'CoreBundle\\' => 11,
             'Composer\\CaBundle\\' => 18,
         ),
     );
@@ -233,10 +232,6 @@ class ComposerStaticIniteb984aa49fff959eb627c8c2b6de3152
         'Doctrine\\Bundle\\DoctrineBundle\\' => 
         array (
             0 => __DIR__ . '/..' . '/doctrine/doctrine-bundle',
-        ),
-        'CoreBundle\\' => 
-        array (
-            0 => __DIR__ . '/../..' . '/src/CoreBundle',
         ),
         'Composer\\CaBundle\\' => 
         array (

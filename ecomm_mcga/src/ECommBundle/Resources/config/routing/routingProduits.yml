@@ -1,0 +1,7 @@
+ecomm_home:
+    path:      /{page}
+    defaults:
+        _controller: ECommBundle:Produits:index
+        page:        1
+    requirements:
+        page: \d*

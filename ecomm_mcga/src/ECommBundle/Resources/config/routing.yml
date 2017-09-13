@@ -1,7 +1,11 @@
-ecomm_home:
-    path:      /{page}
-    defaults:
-        _controller: ECommBundle:Produits:index
-        page:        1
-    requirements:
-        page: \d*
+routingProduits:
+  resource: "@ECommBundle/Resources/config/routing/routingProduits.yml"
+  prefix: /Produits
+
+routingPage:
+  resource: "@ECommBundle/Resources/config/routing/routingPage.yml"
+  prefix: /
+
+
+
+

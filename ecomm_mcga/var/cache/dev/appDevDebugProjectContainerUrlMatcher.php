@@ -109,17 +109,17 @@ class appDevDebugProjectContainerUrlMatcher extends Symfony\Bundle\FrameworkBund
         }
 
         // ecomm_home
-        if (0 === strpos($pathinfo, '/platform') && preg_match('#^/platform(?:/(?P<page>\\d*))?$#s', $pathinfo, $matches)) {
+        if (0 === strpos($pathinfo, '/Produits') && preg_match('#^/Produits(?:/(?P<page>\\d*))?$#s', $pathinfo, $matches)) {
             return $this->mergeDefaults(array_replace($matches, array('_route' => 'ecomm_home')), array (  '_controller' => 'ECommBundle\\Controller\\ProduitsController::indexAction',  'page' => 1,));
         }
 
-        // core_home
+        // page_home
         if ('' === $trimmedPathinfo) {
             if (substr($pathinfo, -1) !== '/') {
-                return $this->redirect($pathinfo.'/', 'core_home');
+                return $this->redirect($pathinfo.'/', 'page_home');
             }
 
-            return array (  '_controller' => 'CoreBundle:Core:index',  '_route' => 'core_home',);
+            return array (  '_controller' => 'ECommBundle\\Controller\\PageController::indexAction',  '_route' => 'page_home',);
         }
 
         throw 0 < count($allow) ? new MethodNotAllowedException(array_unique($allow)) : new ResourceNotFoundException();

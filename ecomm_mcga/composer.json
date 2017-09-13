@@ -5,7 +5,6 @@
     "autoload": {
         "psr-4": {
             "ECommBundle\\": "src/ECommBundle",
-            "CoreBundle\\": "src/CoreBundle",
             "UserBundle\\": "src/UserBundle"
         },
         "classmap": [
