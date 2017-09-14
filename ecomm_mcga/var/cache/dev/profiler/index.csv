@@ -4,3 +4,14 @@ ddeb43,127.0.0.1,GET,http://127.0.0.1:8000/,1505300776,,200
 f2c7d8,127.0.0.1,GET,http://127.0.0.1:8000/Produits,1505300780,,200
 641464,127.0.0.1,GET,http://127.0.0.1:8000/,1505300794,,200
 960663,127.0.0.1,GET,http://127.0.0.1:8000/Produits,1505300800,,200
+c89b5d,127.0.0.1,GET,http://localhost:8000/,1505375103,,200
+386ee6,127.0.0.1,GET,http://localhost:8000/,1505375108,,200
+15a13b,127.0.0.1,GET,http://localhost:8000/Produits,1505375109,b97a06,200
+b97a06,127.0.0.1,GET,http://localhost:8000/Produits,1505375109,,500
+9a8e3e,127.0.0.1,GET,http://localhost:8000/,1505375413,,200
+65912f,127.0.0.1,GET,http://localhost:8000/Produits,1505375415,,200
+338e10,127.0.0.1,GET,http://localhost:8000/,1505375518,,200
+bf22bd,127.0.0.1,GET,http://localhost:8000/Produits,1505375521,,200
+3db044,127.0.0.1,GET,http://localhost:8000/,1505375913,,200
+93458a,127.0.0.1,GET,http://localhost:8000/,1505376234,,200
+17f04e,127.0.0.1,GET,http://localhost:8000/Produits,1505376235,,200

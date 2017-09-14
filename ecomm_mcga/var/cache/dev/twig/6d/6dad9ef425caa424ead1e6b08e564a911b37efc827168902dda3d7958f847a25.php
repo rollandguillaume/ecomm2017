@@ -8,87 +8,91 @@ class __TwigTemplate_2862faf0b7aa3cd8628b8248de0907ea9b24c5c8f5284585323d2212cdd
         parent::__construct($env);
 
         // line 1
-        $this->parent = $this->loadTemplate("ECommBundle::Produitslayout.html.twig", "ECommBundle:Produits:index.html.twig", 1);
+        $this->parent = $this->loadTemplate("base.html.twig", "ECommBundle:Produits:index.html.twig", 1);
         $this->blocks = array(
-            'ecomm_body' => array($this, 'block_ecomm_body'),
+            'body' => array($this, 'block_body'),
         );
     }
 
     protected function doGetParent(array $context)
     {
-        return "ECommBundle::Produitslayout.html.twig";
+        return "base.html.twig";
     }
 
     protected function doDisplay(array $context, array $blocks = array())
     {
-        $__internal_549a2d74e510ceb431aaa89cd1fcfc6573c5a603c8925d5c807130bd21b7dc56 = $this->env->getExtension("Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension");
-        $__internal_549a2d74e510ceb431aaa89cd1fcfc6573c5a603c8925d5c807130bd21b7dc56->enter($__internal_549a2d74e510ceb431aaa89cd1fcfc6573c5a603c8925d5c807130bd21b7dc56_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "ECommBundle:Produits:index.html.twig"));
+        $__internal_219003bdf9c236dde3823a20e98bc8f53ff197aa17fab6142638f4334006bbc5 = $this->env->getExtension("Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension");
+        $__internal_219003bdf9c236dde3823a20e98bc8f53ff197aa17fab6142638f4334006bbc5->enter($__internal_219003bdf9c236dde3823a20e98bc8f53ff197aa17fab6142638f4334006bbc5_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "ECommBundle:Produits:index.html.twig"));
 
-        $__internal_4361f2851cec29147b720d34f43c22593b9f75c51a6eefd7d6fd92bc305ade71 = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
-        $__internal_4361f2851cec29147b720d34f43c22593b9f75c51a6eefd7d6fd92bc305ade71->enter($__internal_4361f2851cec29147b720d34f43c22593b9f75c51a6eefd7d6fd92bc305ade71_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "ECommBundle:Produits:index.html.twig"));
+        $__internal_bc0e9789ca1a96805471f71a1579c5234d64ee8f7644e33cfe850bee572d1c06 = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
+        $__internal_bc0e9789ca1a96805471f71a1579c5234d64ee8f7644e33cfe850bee572d1c06->enter($__internal_bc0e9789ca1a96805471f71a1579c5234d64ee8f7644e33cfe850bee572d1c06_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "ECommBundle:Produits:index.html.twig"));
 
         $this->parent->display($context, array_merge($this->blocks, $blocks));
         
-        $__internal_549a2d74e510ceb431aaa89cd1fcfc6573c5a603c8925d5c807130bd21b7dc56->leave($__internal_549a2d74e510ceb431aaa89cd1fcfc6573c5a603c8925d5c807130bd21b7dc56_prof);
+        $__internal_219003bdf9c236dde3823a20e98bc8f53ff197aa17fab6142638f4334006bbc5->leave($__internal_219003bdf9c236dde3823a20e98bc8f53ff197aa17fab6142638f4334006bbc5_prof);
 
         
-        $__internal_4361f2851cec29147b720d34f43c22593b9f75c51a6eefd7d6fd92bc305ade71->leave($__internal_4361f2851cec29147b720d34f43c22593b9f75c51a6eefd7d6fd92bc305ade71_prof);
+        $__internal_bc0e9789ca1a96805471f71a1579c5234d64ee8f7644e33cfe850bee572d1c06->leave($__internal_bc0e9789ca1a96805471f71a1579c5234d64ee8f7644e33cfe850bee572d1c06_prof);
 
     }
 
     // line 4
-    public function block_ecomm_body($context, array $blocks = array())
+    public function block_body($context, array $blocks = array())
     {
-        $__internal_ac79d71af1d4f3ab66cf80de36dd37ede21c07b7d9f65ff3015bc22e3570ce80 = $this->env->getExtension("Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension");
-        $__internal_ac79d71af1d4f3ab66cf80de36dd37ede21c07b7d9f65ff3015bc22e3570ce80->enter($__internal_ac79d71af1d4f3ab66cf80de36dd37ede21c07b7d9f65ff3015bc22e3570ce80_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "ecomm_body"));
+        $__internal_e5a2da66624d9d407489b7b4d3ec2eea715c15ddd423e57fda20bb5dec191c2a = $this->env->getExtension("Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension");
+        $__internal_e5a2da66624d9d407489b7b4d3ec2eea715c15ddd423e57fda20bb5dec191c2a->enter($__internal_e5a2da66624d9d407489b7b4d3ec2eea715c15ddd423e57fda20bb5dec191c2a_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "body"));
 
-        $__internal_7d5fd249f73b661ec1b92c161ce6ea63fd37e5f1d50937bec4a07d996af5b2b4 = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
-        $__internal_7d5fd249f73b661ec1b92c161ce6ea63fd37e5f1d50937bec4a07d996af5b2b4->enter($__internal_7d5fd249f73b661ec1b92c161ce6ea63fd37e5f1d50937bec4a07d996af5b2b4_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "ecomm_body"));
+        $__internal_a3468d33d62fcf4c82ec9ccf18bf3bda510a9794308e9e3aca5b6e6ea897c675 = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
+        $__internal_a3468d33d62fcf4c82ec9ccf18bf3bda510a9794308e9e3aca5b6e6ea897c675->enter($__internal_a3468d33d62fcf4c82ec9ccf18bf3bda510a9794308e9e3aca5b6e6ea897c675_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "body"));
 
         // line 5
         echo "
+<h1>Produits</h1>
+
+<hr>
+
   <h2>Liste des annonces</h2>
 
   <ul>
     ";
-        // line 9
+        // line 13
         $context['_parent'] = $context;
-        $context['_seq'] = twig_ensure_traversable((isset($context["listProduits"]) || array_key_exists("listProduits", $context) ? $context["listProduits"] : (function () { throw new Twig_Error_Runtime('Variable "listProduits" does not exist.', 9, $this->getSourceContext()); })()));
+        $context['_seq'] = twig_ensure_traversable((isset($context["listProduits"]) || array_key_exists("listProduits", $context) ? $context["listProduits"] : (function () { throw new Twig_Error_Runtime('Variable "listProduits" does not exist.', 13, $this->getSourceContext()); })()));
         $context['_iterated'] = false;
         foreach ($context['_seq'] as $context["_key"] => $context["produit"]) {
-            // line 10
+            // line 14
             echo "      <li>
- 
+
           ";
-            // line 12
+            // line 16
             echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->getSourceContext(), $context["produit"], "nom", array()), "html", null, true);
             echo "
           au prix :";
-            // line 13
+            // line 17
             echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->getSourceContext(), $context["produit"], "prix", array()), "html", null, true);
             echo "
-   
+
       </li>
     ";
             $context['_iterated'] = true;
         }
         if (!$context['_iterated']) {
-            // line 17
+            // line 21
             echo "      <li>Pas (encore !) d'annonces</li>
     ";
         }
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['produit'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 19
+        // line 23
         echo "  </ul>
 
 ";
         
-        $__internal_7d5fd249f73b661ec1b92c161ce6ea63fd37e5f1d50937bec4a07d996af5b2b4->leave($__internal_7d5fd249f73b661ec1b92c161ce6ea63fd37e5f1d50937bec4a07d996af5b2b4_prof);
+        $__internal_a3468d33d62fcf4c82ec9ccf18bf3bda510a9794308e9e3aca5b6e6ea897c675->leave($__internal_a3468d33d62fcf4c82ec9ccf18bf3bda510a9794308e9e3aca5b6e6ea897c675_prof);
 
         
-        $__internal_ac79d71af1d4f3ab66cf80de36dd37ede21c07b7d9f65ff3015bc22e3570ce80->leave($__internal_ac79d71af1d4f3ab66cf80de36dd37ede21c07b7d9f65ff3015bc22e3570ce80_prof);
+        $__internal_e5a2da66624d9d407489b7b4d3ec2eea715c15ddd423e57fda20bb5dec191c2a->leave($__internal_e5a2da66624d9d407489b7b4d3ec2eea715c15ddd423e57fda20bb5dec191c2a_prof);
 
     }
 
@@ -104,25 +108,29 @@ class __TwigTemplate_2862faf0b7aa3cd8628b8248de0907ea9b24c5c8f5284585323d2212cdd
 
     public function getDebugInfo()
     {
-        return array (  84 => 19,  77 => 17,  68 => 13,  64 => 12,  60 => 10,  55 => 9,  49 => 5,  40 => 4,  11 => 1,);
+        return array (  88 => 23,  81 => 21,  72 => 17,  68 => 16,  64 => 14,  59 => 13,  49 => 5,  40 => 4,  11 => 1,);
     }
 
     public function getSourceContext()
     {
-        return new Twig_Source("{% extends \"ECommBundle::Produitslayout.html.twig\" %}
+        return new Twig_Source("{% extends \"base.html.twig\" %}
 
 
-{% block ecomm_body %}
+{% block body %}
+
+<h1>Produits</h1>
+
+<hr>
 
   <h2>Liste des annonces</h2>
 
   <ul>
     {% for produit in listProduits %}
       <li>
- 
+
           {{ produit.nom }}
           au prix :{{ produit.prix }}
-   
+
       </li>
     {% else %}
       <li>Pas (encore !) d'annonces</li>
@@ -130,7 +138,6 @@ class __TwigTemplate_2862faf0b7aa3cd8628b8248de0907ea9b24c5c8f5284585323d2212cdd
   </ul>
 
 {% endblock %}
-
-", "ECommBundle:Produits:index.html.twig", "/home/max/git/ecomm2017/ecomm_mcga/src/ECommBundle/Resources/views/Produits/index.html.twig");
+", "ECommBundle:Produits:index.html.twig", "/home/rollandguillaume/Desktop/ecomm2017/ecomm_mcga/src/ECommBundle/Resources/views/Produits/index.html.twig");
     }
 }
