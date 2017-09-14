@@ -5,11 +5,11 @@ use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
 class PageController extends Controller
 {
-    // La page d'accueil
+  /**
+   * Page d'accueil
+   */
   public function indexAction()
   {
-    // On retourne simplement la vue de la page d'accueil
-    return $this->get('templating')->renderResponse('ECommBundle:Page:index.html.twig');
-    // La méthode raccourcie $this->render('...') est parfaitement valable
+    return $this->render('ECommBundle:Page:index.html.twig');
   }
 }
