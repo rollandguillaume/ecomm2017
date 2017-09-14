@@ -8,19 +8,26 @@
     </head>
     <body>
 
-      <div >
-        <div>
-          <h3>Les produits</h3>
-          <ul >
+      <header>
+        header
+      </header>
+
+      <div>
+        <nav>
+          <ul>
             <li><a href="{{ path('page_home') }}">home</a></li>
             <li><a href="{{ path('ecomm_home') }}">Les produits</a></li>
           </ul>
-        </div>
+        </nav>
       </div>
 
         {% block body %}
 
         {% endblock %}
+
+        <footer>
+          footer
+        </footer>
 
         {% block javascripts %}{% endblock %}
     </body>
