@@ -15,20 +15,23 @@
       <div>
         <nav>
           <ul>
-            <li><a href="{{ path('page_home') }}">home</a></li>
+            <li><a href="{{ path('page_home') }}">Home</a></li>
             <li><a href="{{ path('ecomm_home') }}">Les produits</a></li>
+            <li><a href="{{ path('panier_produit') }}">Panier</a></li>
           </ul>
         </nav>
       </div>
 
-        {% block body %}
+      <hr>
 
-        {% endblock %}
+      {% block body %}
 
-        <footer>
-          footer
-        </footer>
+      {% endblock %}
 
-        {% block javascripts %}{% endblock %}
+      <footer>
+        footer
+      </footer>
+
+      {% block javascripts %}{% endblock %}
     </body>
 </html>

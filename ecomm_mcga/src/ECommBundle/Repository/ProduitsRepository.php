@@ -12,5 +12,17 @@ use Doctrine\ORM\EntityRepository;
  */
 class ProduitsRepository extends EntityRepository
 {
-   
+
+  /**
+   *
+   */
+  public function existProduit ($nomProduit) {
+
+   $qb =  $this->createQueryBuilder('p')
+     ->andWhere('p.nom = :nom')
+       ->setParameter('nom', $nomProduit)
+   ;
+
+   return sizeof($qb->getQuery()->getResult()) == 1;
+ }
 }

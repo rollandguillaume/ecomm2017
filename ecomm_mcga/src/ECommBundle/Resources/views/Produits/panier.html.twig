@@ -1,0 +1,39 @@
+{% extends "base.html.twig" %}
+
+
+{% block body %}
+
+<h2>panier</h2>
+
+
+  {% if (panier is iterable) and (panier|length > 0) %}
+    <a href="{{path('emptypanier_produit')}}">
+      <input type="button" name="vider" value="vider le panier">
+    </a>
+    <ul>
+      {% for item in panier %}
+        {% if item is iterable %}
+        <li>
+          {% for ssitem in item %}
+            {{ssitem}}
+          {% endfor %}
+        </li>
+        {% else %}
+            {# n'est pas pas un ssArray #}
+        {% endif %}
+
+      {% endfor %}
+    </ul>
+    <a href="#">
+      <input type="button" name="valider" value="valider le panier">
+    </a>
+  {% else %}
+      {# n'est pas pas un array || est vide #}
+      <div class="">
+        <p>Votre panier est vide</p>
+      </div>
+  {% endif %}
+
+
+
+{% endblock %}
