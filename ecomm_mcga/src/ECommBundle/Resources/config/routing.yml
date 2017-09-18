@@ -6,6 +6,6 @@ routingPage:
   resource: "@ECommBundle/Resources/config/routing/routingPage.yml"
   prefix: /
 
-
-
-
+routingSecurity:
+  resource: "@ECommBundle/Resources/config/routing/routingSecurity.yml"
+  prefix: /

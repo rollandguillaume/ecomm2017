@@ -11,6 +11,13 @@
       <header>
         header
       </header>
+      {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+    Connecté en tant que {{ app.user.username }}
+    -
+    <a href="{{ path('logout') }}">Déconnexion</a>
+{% else %}
+    <a href="{{ path('login') }}">Connexion</a>
+{% endif %}
 
       <div>
         <nav>
