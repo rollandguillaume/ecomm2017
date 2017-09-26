@@ -16,11 +16,11 @@ class ProduitsRepository extends EntityRepository
   /**
    *
    */
-  public function existProduit ($nomProduit) {
+  public function existProduit ($idProduit) {
 
    $qb =  $this->createQueryBuilder('p')
-     ->andWhere('p.nom = :nom')
-       ->setParameter('nom', $nomProduit)
+     ->andWhere('p.id = :id')
+       ->setParameter('id', $idProduit)
    ;
 
    return sizeof($qb->getQuery()->getResult()) == 1;

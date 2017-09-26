@@ -17,19 +17,20 @@
       <input type="button" name="vider" value="vider le panier">
     </a>
     <ul>
+      {% set prixHT = 0 %}{# declaration de variable #}
       {% for item in panier %}
-        {% if item is iterable %}
-        <li>
-          {% for ssitem in item %}
-            {{ssitem}}
-          {% endfor %}
-        </li>
-        {% else %}
-            {# n'est pas pas un ssArray #}
+      {# item est un produit + sa qte #}
+        {% if item.qte > 0 %}
+          <li>
+            {{item.produit.nom}} * {{item.qte}} = {{item.qte * item.produit.prix}} € HT
+          </li>
+          {% set prixHT = prixHT + (item.qte * item.produit.prix)%}{# calcul twig#}
         {% endif %}
-
       {% endfor %}
     </ul>
+    <div class="">
+      prix total HT : {{prixHT}} €
+    </div>
     <a href="#">
       <input type="button" name="valider" value="valider le panier">
     </a>

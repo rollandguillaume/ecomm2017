@@ -41,25 +41,46 @@ class PanierController extends Controller
    */
   public function addAction (Request $req) {
     $msgAjout = "";
+    $dejaPanier = false;
 
     $post = $req->request;
 
-    $nomProduit = $post->get('nomProduit');
+    $idProduit = $post->get('nomProduit');
     $qte = $post->get('qte');
 
     if ($qte > 0) {//si qte positive
 
+      $repoProduit = $this->getDoctrine()
+        ->getManager()
+        ->getRepository('ECommBundle:Produits')
+      ;
 
-      $panier = $this->getPanier($req);
-      $oldQte = 0;
-      if (isset($panier[$nomProduit]["qte"])) {
-        $oldQte = $panier[$nomProduit]["qte"];
+      if ($repoProduit->existProduit($idProduit)) {
+        $produit = $repoProduit->find($idProduit);
+
+        $panier = $this->getPanier($req);
+        $oldQte = 0;
+        if (isset($panier[$idProduit]["qte"])) {
+          $oldQte = $panier[$idProduit]["qte"];
+          $dejaPanier = true;
+        }
+
+        $panier[$idProduit] = array(
+          "produit"=>$produit,
+          "qte"=>($oldQte+$qte)
+        );
+        $this->setPanier($req, $panier);
+
+        $ajout = "ajout de ".$qte." fois ".$produit->getNom();
+        if ($dejaPanier) {
+          $msgAjout = "produit déjà présent dans votre panier : ".$ajout.". Quantité actuelle : ".($oldQte+$qte);
+        } else {
+          $msgAjout = $ajout;
+        }
+
+      } else {
+        $msgAjout = "produit indisponible";
       }
-      $panier[$nomProduit] = array("nomProduit"=>$nomProduit, "qte"=>($oldQte+$qte));
-      $this->setPanier($req, $panier);
-
-      $msgAjout = "ajout de ".$qte." fois ".$nomProduit;
-
     } else {
       $msgAjout = "la quantité n'est pas correcte";
     }
