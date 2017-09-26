@@ -19,10 +19,12 @@ class PanierController extends Controller
    * Retourne le panier de l'utilisateur si existant
    * sinon initialise un panier vide
    */
-  private function getPanier (Request $req) {
-    $panier = $req->getSession()->get($this->namePanier);
+  private function getPanier () {
+    // $panier = $req->getSession()->get($this->namePanier);
+    $panier = $this->get('session')->get('panier');
     if (!(isset($panier) && ($panier !== null))) {
-      $req->getSession()->set($this->namePanier, array());
+      // $req->getSession()->set($this->namePanier, array());
+      $this->get('session')->set($this->namePanier, array());
     }
     return $panier;
   }
@@ -30,8 +32,9 @@ class PanierController extends Controller
   /**
    *
    */
-  private function setPanier ($req, $newPanier) {
-    $req->getSession()->set($this->namePanier, $newPanier);
+  private function setPanier ($newPanier) {
+    // $req->getSession()->set($this->namePanier, $newPanier);
+    $this->get('session')->set($this->namePanier, $newPanier);
   }
 
   /**
@@ -58,7 +61,7 @@ class PanierController extends Controller
       if ($repoProduit->existProduit($idProduit)) {
         $produit = $repoProduit->find($idProduit);
 
-        $panier = $this->getPanier($req);
+        $panier = $this->getPanier();
         $oldQte = 0;
         if (isset($panier[$idProduit]["qte"])) {
           $oldQte = $panier[$idProduit]["qte"];
@@ -69,7 +72,7 @@ class PanierController extends Controller
           "produit"=>$produit,
           "qte"=>($oldQte+$qte)
         );
-        $this->setPanier($req, $panier);
+        $this->setPanier($panier);
 
         $ajout = "ajout de ".$qte." fois ".$produit->getNom();
         if ($dejaPanier) {
@@ -97,8 +100,8 @@ class PanierController extends Controller
    *
    * pre: le panier doit contenir que des produit existant
    */
-  public function panierAction (Request $req) {
-    $panier = $this->getPanier($req);
+  public function panierAction () {
+    $panier = $this->getPanier();
 
     return $this->render('ECommBundle:Produits:panier.html.twig', array(
       'panier' => $panier
@@ -109,8 +112,8 @@ class PanierController extends Controller
    * Vide le panier
    * redirige vers la page du panier
    */
-  public function emptyPanierAction (Request $req) {
-    $this->setPanier($req, null);
+  public function emptyPanierAction () {
+    $this->setPanier(null);
     return $this->redirectToRoute('panier_produit');
   }
 
