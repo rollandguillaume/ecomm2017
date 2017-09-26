@@ -20,7 +20,7 @@ class Produits
      * @ORM\GeneratedValue(strategy="AUTO")
      */
     private $id;
-  
+
     /**
      * @var string
      *
@@ -43,17 +43,9 @@ class Produits
     private $prix;
 
     /**
-     * @var boolean
-     *
-     * @ORM\Column(name="disponible", type="boolean")
-     */
-    private $disponible;
-
-
-    /**
      * Get id
      *
-     * @return integer 
+     * @return integer
      */
     public function getId()
     {
@@ -76,7 +68,7 @@ class Produits
     /**
      * Get nom
      *
-     * @return string 
+     * @return string
      */
     public function getNom()
     {
@@ -99,7 +91,7 @@ class Produits
     /**
      * Get description
      *
-     * @return string 
+     * @return string
      */
     public function getDescription()
     {
@@ -122,34 +114,11 @@ class Produits
     /**
      * Get prix
      *
-     * @return float 
+     * @return float
      */
     public function getPrix()
     {
         return $this->prix;
-    }
-
-    /**
-     * Set disponible
-     *
-     * @param boolean $disponible
-     * @return Produits
-     */
-    public function setDisponible($disponible)
-    {
-        $this->disponible = $disponible;
-
-        return $this;
-    }
-
-    /**
-     * Get disponible
-     *
-     * @return boolean 
-     */
-    public function getDisponible()
-    {
-        return $this->disponible;
     }
 
    }

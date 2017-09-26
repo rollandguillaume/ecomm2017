@@ -3,9 +3,14 @@
 
 {% block body %}
 
-<h2>consultation {{produit}}</h2>
+<h2>consultation {{produit.nom}}</h2>
 
-{{produit}}
+{{produit.nom}}
+<form class="" action="{{path('add_panier')}}" method="post">
+         <input type="text" name="nomProduit" value="{{produit.nom}}" hidden>
+         <input type="number" name="qte" value="" min="1" placeholder="quantite">
+         <input type="submit" name="" value="ajouter au panier">
+</form>
 
 
 {% endblock %}

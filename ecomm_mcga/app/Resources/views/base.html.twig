@@ -5,6 +5,12 @@
         <title>{% block title %}Site ecommerce{% endblock %}</title>
         {% block stylesheets %}{% endblock %}
         <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
+
+        {# On charge le CSS de bootstrap depuis le site directement #}
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css">
+        
+        {% block css %}
+        {% endblock %}
     </head>
     <body>
 
@@ -12,13 +18,11 @@
         header
       </header>
       {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
-    Connecté en tant que {{ app.user.username }}
-    -
-    <a href="{{ path('logout') }}">Déconnexion</a>
-{% else %}
-    <a href="{{ path('login') }}">Connexion</a>
-{% endif %}
-
+      Connecté en tant que {{ app.user.username }}
+      <a href="{{ path('logout') }}">Déconnexion</a>
+      {% else %}
+      <a href="{{ path('login') }}">Connexion</a>
+      {% endif %}
       <div>
         <nav>
           <ul>
@@ -32,7 +36,6 @@
       <hr>
 
       {% block body %}
-
       {% endblock %}
 
       <footer>

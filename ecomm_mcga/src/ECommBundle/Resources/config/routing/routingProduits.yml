@@ -6,25 +6,31 @@ ecomm_home:
     requirements:
         page: \d*
 
-add_produit:
-  path:   /add
-  defaults:
-      _controller: ECommBundle:Produits:add
-
 consultation_produit:
-  path:   /consultation/{nomProduit}
+  path:   consultation/{id}
   defaults:
       _controller: ECommBundle:Produits:consultation
-      nomProduit: ""
-  requirements:
-      nomProduit: \w*
+
+
+
+
+
+
+
+
+
+add_panier:
+  path:   /add
+  defaults:
+      _controller: ECommBundle:Panier:add
+
 
 panier_produit:
   path:   /panier
   defaults:
-    _controller:  ECommBundle:Produits:panier
+    _controller:  ECommBundle:Panier:panier
 
 emptypanier_produit:
   path:   /panier/vider
   defaults:
-    _controller:  ECommBundle:Produits:emptyPanier
+    _controller:  ECommBundle:Panier:emptyPanier

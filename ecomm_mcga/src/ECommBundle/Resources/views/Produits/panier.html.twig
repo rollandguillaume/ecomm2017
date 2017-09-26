@@ -3,7 +3,13 @@
 
 {% block body %}
 
-<h2>panier</h2>
+  <h2>panier</h2>
+  {% for flashMessage in app.session.flashbag.get('success') %}
+    <div class="alert alert-success">
+    {{ flashMessage }}
+    </div>
+  {% endfor %}
+
 
 
   {% if (panier is iterable) and (panier|length > 0) %}
@@ -33,7 +39,5 @@
         <p>Votre panier est vide</p>
       </div>
   {% endif %}
-
-
 
 {% endblock %}
