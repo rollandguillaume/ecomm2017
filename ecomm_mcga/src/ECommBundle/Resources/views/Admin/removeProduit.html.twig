@@ -1,0 +1,15 @@
+{{msg}}
+
+<br>
+<br>
+
+<form class="" action="{{path('remove_produit')}}" method="post">
+
+  <select class="" name="id">
+    <option value="">--</option>
+    {% for item in produits %}
+      <option value="{{item.id}}">{{item.nom}}</option>
+    {% endfor %}
+  </select>
+  <input type="submit" name="" value="enlever/rendre non dispo ??">
+</form>

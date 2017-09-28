@@ -1,0 +1,14 @@
+index_admin:
+  path:   /
+  defaults:
+    _controller: ECommBundle:Admin:index
+
+add_new_produit:
+  path:   /add
+  defaults:
+    _controller: ECommBundle:Admin:addProduit
+
+remove_produit:
+  path:   /remove
+  defaults:
+    _controller: ECommBundle:Admin:removeProduit

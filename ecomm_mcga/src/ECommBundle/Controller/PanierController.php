@@ -2,11 +2,10 @@
 
 namespace ECommBundle\Controller;
 
-
-use ECommBundle\Entity\Produits;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
+use ECommBundle\Entity\Produits;
 
 
 class PanierController extends Controller
@@ -122,22 +121,5 @@ class PanierController extends Controller
   public function removeAction () {
 
   }
-
-  /**
-   * Valider la commande utilisateur apres confirmation de paiement
-   * Edite la facture
-   */
-  public function validerCommandeAction () {
-
-  }
-
-  /**
-  * Editer la facture en fonction du panier
-  * en retirant les qte de la bdd
-  */
-  private function editFactureAction () {
-
-  }
-
 
 }
