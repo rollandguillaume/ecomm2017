@@ -13,7 +13,6 @@ class PanierController extends Controller
 
 {
   private $namePanier = 'panier';
-  private $pagenotfound = 'la page demandée n\'existe pas';
 
   /**
    * Retourne le panier de l'utilisateur si existant

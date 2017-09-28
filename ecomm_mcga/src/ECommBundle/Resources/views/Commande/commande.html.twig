@@ -1,0 +1,17 @@
+{% extends "base.html.twig" %}
+
+
+{% block body %}
+
+  <p>{{ msg }}</p>
+
+  <h2>récapitulatif commande</h2>
+
+  {% for produit in recapitulatif %}
+
+    {{produit.nom}}
+    {{produit.prix}}
+  {% endfor %}
+
+
+{% endblock %}

@@ -132,10 +132,10 @@ class Commandes
     /**
      * Set utilisateur
      *
-     * @param \Utilisateurs\UtilisateursBundle\Entity\Utilisateurs $utilisateur
+     * @param \ECommBundle\Entity\User $utilisateur
      * @return Commandes
      */
-    public function setUtilisateur(\Utilisateurs\UtilisateursBundle\Entity\Utilisateurs $utilisateur = null)
+    public function setUtilisateur(\ECommBundle\Entity\User $utilisateur = null)
     {
         $this->utilisateur = $utilisateur;
 
@@ -145,7 +145,7 @@ class Commandes
     /**
      * Get utilisateur
      *
-     * @return \Utilisateurs\UtilisateursBundle\Entity\Utilisateurs
+     * @return \ECommBundle\Entity\User
      */
     public function getUtilisateur()
     {
