@@ -54,6 +54,13 @@ class User implements AdvancedUserInterface, \Serializable
      */
     private $plainPassword;
 
+    /**
+     * @ORM\OneToMany(targetEntity="ECommBundle\Entity\Commandes", mappedBy="utilisateur")
+     * @ORM\JoinColumn(nullable=true)
+     */
+     private $commandes;
+
+
     public function __construct()
     {
         $this->isActive = true;

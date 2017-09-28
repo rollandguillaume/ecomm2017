@@ -25,7 +25,6 @@ class Commandes
      * @ORM\ManyToOne(targetEntity="ECommBundle\Entity\User", inversedBy="commandes")
      * @ORM\JoinColumn(nullable=true)
      */
-
     private $utilisateur;
 
     /**
