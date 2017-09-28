@@ -9,3 +9,11 @@ routingPage:
 routingSecurity:
   resource: "@ECommBundle/Resources/config/routing/routingSecurity.yml"
   prefix: /
+
+routingPanier:
+  resource: "@ECommBundle/Resources/config/routing/routingPanier.yml"
+  prefix: /Panier
+
+routingCommande:
+  resource: "@ECommBundle/Resources/config/routing/routingCommande.yml"
+  prefix: /Commande

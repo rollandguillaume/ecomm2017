@@ -103,7 +103,7 @@ class PanierController extends Controller
   public function panierAction () {
     $panier = $this->getPanier();
 
-    return $this->render('ECommBundle:Produits:panier.html.twig', array(
+    return $this->render('ECommBundle:Panier:panier.html.twig', array(
       'panier' => $panier
     ));
   }

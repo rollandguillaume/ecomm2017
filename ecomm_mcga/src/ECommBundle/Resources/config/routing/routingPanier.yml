@@ -1,0 +1,14 @@
+panier_produit:
+  path:   /
+  defaults:
+    _controller:  ECommBundle:Panier:panier
+
+add_panier:
+  path:   /add
+  defaults:
+    _controller: ECommBundle:Panier:add
+
+emptypanier_produit:
+  path:   /vider
+  defaults:
+    _controller:  ECommBundle:Panier:emptyPanier
