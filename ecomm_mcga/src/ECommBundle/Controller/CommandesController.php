@@ -34,7 +34,7 @@ class CommandesController extends Controller
       $em->flush();
 
       //vider le panier
-      // $this->get('session')->set('panier', array());
+      $this->get('session')->set('panier', array());
 
       return $this->render('ECommBundle:Commande:commande.html.twig', array(
         'msg' => 'commande validée',
@@ -52,14 +52,22 @@ class CommandesController extends Controller
     $panier = $this->get('session')->get('panier');
     $listCommande = array();
 
-    foreach ($panier as $key => $value) {
+    $prixTot = 0;
+    foreach ($panier as $item) {
+      $produit = $item['produit'];
+      $qte = $item['qte'];
+      $prixLot = $qte*$produit->getPrix();
+      $prixTot += $prixLot;
 
-      $listCommande["idproduit"] = array(
-        "nom" => "produitname",
-        "prix" => 1.99,
+      $listCommande['produits'][$produit->getId()] = array(
+        "nom" => $produit->getNom(),
+        "prix" => $produit->getPrix(),
+        "qte" => $qte,
+        "prixLot" => $prixLot
       );
     }
 
+    $listCommande["prixTot"] = $prixTot;
 
     return $listCommande;
   }

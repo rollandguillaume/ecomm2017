@@ -7,11 +7,17 @@
 
   <h2>récapitulatif commande</h2>
 
-  {% for produit in recapitulatif %}
+  <ul>
+    {% for produit in recapitulatif.produits %}
+    <li>
+      {{produit.nom}} :
+      {{produit.prix}} *
+      {{produit.qte}} =
+      {{produit.prixLot}} €
+    </li>
+    {% endfor %}
+</ul>
 
-    {{produit.nom}}
-    {{produit.prix}}
-  {% endfor %}
-
+ totale : {{recapitulatif.prixTot}} €
 
 {% endblock %}
