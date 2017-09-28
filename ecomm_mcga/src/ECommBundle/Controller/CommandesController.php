@@ -3,6 +3,8 @@ namespace ECommBundle\Controller;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Response;
 use ECommBundle\Entity\Commandes;
+use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
+use Symfony\Component\HttpKernel\Exception\UnauthorizedHttpException;
 
 
 class CommandesController extends Controller
@@ -13,36 +15,39 @@ class CommandesController extends Controller
    */
   public function validationAction()
   {
-    $userLog = $this->get('security.token_storage')->getToken()->getUser();
-    $panier = $this->get('session')->get('panier');
-    // var_dump($userLog);
-    // var_dump($panier);
+    if ($this->get('security.authorization_checker')->isGranted('ROLE_USER')) {
+      $userLog = $this->get('security.token_storage')->getToken()->getUser();
+      $panier = $this->get('session')->get('panier');
+      // var_dump($userLog);
+      // var_dump($panier);
 
-    if (!$panier) {//pas de panier alors redirection page du panier
-      return $this->redirectToRoute('panier_produit');
-    } else {
-      //sinon creer l'objet commande dans la bdd
-      $commande = new Commandes();
-      $commande->setDate(new \DateTime());
-      $commande->setValider(0);
-      $commande->setUtilisateur($userLog);
+      if (!$panier) {//pas de panier alors redirection page du panier
+        return $this->redirectToRoute('panier_produit');
+      } else {
+        //sinon creer l'objet commande dans la bdd
+        $commande = new Commandes();
+        $commande->setDate(new \DateTime());
+        $commande->setValider(0);
+        $commande->setUtilisateur($userLog);
         $listCommande = $this->makeListCommande();
-      $commande->setCommande($listCommande);
+        $commande->setCommande($listCommande);
 
-      $em = $this->getDoctrine()->getManager();
-      $em->persist($commande);
-      $em->flush();
+        $em = $this->getDoctrine()->getManager();
+        $em->persist($commande);
+        $em->flush();
 
-      //vider le panier
-      $this->get('session')->set('panier', array());
+        //vider le panier
+        $this->get('session')->set('panier', array());
 
-      return $this->render('ECommBundle:Commande:commande.html.twig', array(
-        'msg' => 'commande validée',
-        'recapitulatif' => $listCommande
-      ));
+        return $this->render('ECommBundle:Commande:commande.html.twig', array(
+          'msg' => 'commande validée',
+          'recapitulatif' => $listCommande
+        ));
+      }
+    } else {
+      throw new UnauthorizedHttpException(null, "non connecté");
     }
 
-    // return new Response("\nvalidation en cours de dev");
   }
 
   /**
@@ -77,7 +82,7 @@ class CommandesController extends Controller
   /**
    * demande fictive à banque ??
    */
-  private function confimBank () {
+  private function confirmBank () {
     return true;
   }
 }
