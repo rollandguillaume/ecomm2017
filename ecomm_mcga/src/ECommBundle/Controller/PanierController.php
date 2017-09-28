@@ -21,7 +21,7 @@ class PanierController extends Controller
    */
   private function getPanier () {
     // $panier = $req->getSession()->get($this->namePanier);
-    $panier = $this->get('session')->get('panier');
+    $panier = $this->get('session')->get($this->namePanier);
     if (!(isset($panier) && ($panier !== null))) {
       // $req->getSession()->set($this->namePanier, array());
       $this->get('session')->set($this->namePanier, array());
