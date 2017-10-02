@@ -25,4 +25,18 @@ class ProduitsRepository extends EntityRepository
 
    return sizeof($qb->getQuery()->getResult()) == 1;
  }
+
+ public function getProduits()
+  {
+    $query = $this->createQueryBuilder('a')
+      // Jointure sur l'attribut image
+      ->leftJoin('a.medias', 'm')
+      ->addSelect('m')
+    ;
+
+    return $query
+    ->getQuery()
+    ->getResult();
+  }
+
 }

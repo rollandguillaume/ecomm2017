@@ -23,9 +23,11 @@ class ProduitsController extends Controller
       $listProduits = $this->getDoctrine()
       ->getManager()
       ->getRepository('ECommBundle:Produits')
-      ->findAll()
+      ->getProduits()
       ;
+
     }
+
 
     return $this->render('ECommBundle:Produits:index.html.twig', array(
       'listProduits' => $listProduits,

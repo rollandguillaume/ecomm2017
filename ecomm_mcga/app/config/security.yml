@@ -11,7 +11,6 @@ security:
                 class: ECommBundle:User
                 # if you're using multiple entity managers
                 # manager_name: customer
-
     firewalls:
         main:
             anonymous: ~
@@ -24,5 +23,7 @@ security:
                 csrf_token_generator: security.csrf.token_manager
 
     access_control:
-    - { path: ^/login, roles: IS_AUTHENTICATED_ANONYMOUSLY }
-    - { path: ^/Commande, roles: ROLE_USER }
+      - { path: ^/login, roles: IS_AUTHENTICATED_ANONYMOUSLY }
+      - { path: ^/Commande, roles: ROLE_USER }
+    role_hierarchy:
+      ROLE_VENDEUR:       ROLE_USER

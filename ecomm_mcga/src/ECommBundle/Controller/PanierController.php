@@ -14,9 +14,9 @@ class PanierController extends Controller
   private $namePanier = 'panier';
 
   /**
-   * Retourne le panier de l'utilisateur si existant
-   * sinon initialise un panier vide
-   */
+  * Retourne le panier de l'utilisateur si existant
+  * sinon initialise un panier vide
+  */
   private function getPanier () {
     // $panier = $req->getSession()->get($this->namePanier);
     $panier = $this->get('session')->get($this->namePanier);
@@ -28,18 +28,18 @@ class PanierController extends Controller
   }
 
   /**
-   *
-   */
+  *
+  */
   private function setPanier ($newPanier) {
     // $req->getSession()->set($this->namePanier, $newPanier);
     $this->get('session')->set($this->namePanier, $newPanier);
   }
 
   /**
-   * Ajouter l'article choisi par l'utilisateur en quantite demander au panier
-   *
-   * pre: l'objet ajouter doit etre existant en bdd
-   */
+  * Ajouter l'article choisi par l'utilisateur en quantite demander au panier
+  *
+  * pre: l'objet ajouter doit etre existant en bdd
+  */
   public function addAction (Request $req) {
     $msgAjout = "";
     $dejaPanier = false;
@@ -52,8 +52,8 @@ class PanierController extends Controller
     if ($qte > 0) {//si qte positive
 
       $repoProduit = $this->getDoctrine()
-        ->getManager()
-        ->getRepository('ECommBundle:Produits')
+      ->getManager()
+      ->getRepository('ECommBundle:Produits')
       ;
 
       if ($repoProduit->existProduit($idProduit)) {
@@ -94,10 +94,10 @@ class PanierController extends Controller
   }
 
   /**
-   * Affichage du contenu du panier
-   *
-   * pre: le panier doit contenir que des produit existant
-   */
+  * Affichage du contenu du panier
+  *
+  * pre: le panier doit contenir que des produit existant
+  */
   public function panierAction () {
     $panier = $this->getPanier();
 
@@ -107,17 +107,17 @@ class PanierController extends Controller
   }
 
   /**
-   * Vide le panier
-   * redirige vers la page du panier
-   */
+  * Vide le panier
+  * redirige vers la page du panier
+  */
   public function emptyPanierAction () {
     $this->setPanier(null);
     return $this->redirectToRoute('panier_produit');
   }
 
   /**
-   * Remove l'article choisi par l'utilisateur en quantite demander au panier
-   */
+  * Remove l'article choisi par l'utilisateur en quantite demander au panier
+  */
   public function removeAction () {
 
   }

@@ -10,9 +10,9 @@ use Symfony\Component\HttpKernel\Exception\UnauthorizedHttpException;
 class CommandesController extends Controller
 {
   /**
-   * Page de validation
-   * voir app/config/security.yml pour la redirection sur page de connection si non authentifié
-   */
+  * Page de validation
+  * voir app/config/security.yml pour la redirection sur page de connection si non authentifié
+  */
   public function validationAction()
   {
     if ($this->get('security.authorization_checker')->isGranted('ROLE_USER')) {
@@ -51,8 +51,8 @@ class CommandesController extends Controller
   }
 
   /**
-   * pre: panier de session doit exister
-   */
+  * pre: panier de session doit exister
+  */
   private function makeListCommande () {
     $panier = $this->get('session')->get('panier');
     $listCommande = array();
@@ -80,8 +80,8 @@ class CommandesController extends Controller
 
 
   /**
-   * demande fictive à banque ??
-   */
+  * demande fictive à banque ??
+  */
   private function confirmBank () {
     return true;
   }
