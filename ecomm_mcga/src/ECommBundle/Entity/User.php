@@ -58,7 +58,7 @@ class User implements AdvancedUserInterface, \Serializable
      * @ORM\OneToMany(targetEntity="ECommBundle\Entity\Commandes", mappedBy="utilisateur")
      * @ORM\JoinColumn(nullable=true)
      */
-     private $commandes;
+    private $commandes;
 
 
     public function __construct()
