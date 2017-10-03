@@ -4,6 +4,7 @@ namespace ECommBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 use ECommBundle\Entity\Produits;
 
@@ -118,8 +119,13 @@ class PanierController extends Controller
   /**
   * Remove l'article choisi par l'utilisateur en quantite demander au panier
   */
-  public function removeAction () {
-
+  public function removeAction ($id) {
+    $panier = $this->getPanier();
+    if (isset($panier[$id])) {
+      unset($panier[$id]);
+      $this->setPanier($panier);
+    }
+    return $this->redirectToRoute('panier_produit');
   }
 
 }

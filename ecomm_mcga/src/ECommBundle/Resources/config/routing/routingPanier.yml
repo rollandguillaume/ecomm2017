@@ -8,6 +8,13 @@ add_panier:
   defaults:
     _controller: ECommBundle:Panier:add
 
+remove_panier:
+  path:   /remove/{id}
+  defaults:
+    _controller: ECommBundle:Panier:remove
+  requirements:
+      id: \d*
+
 emptypanier_produit:
   path:   /vider
   defaults:

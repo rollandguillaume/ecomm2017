@@ -23,6 +23,7 @@
         {% if item.qte > 0 %}
           <li>
             {{item.produit.nom}} * {{item.qte}} = {{item.qte * item.produit.prix}} € HT
+            <a href="{{path('remove_panier', {id:item.produit.id})}}">x</a>
           </li>
           {% set prixHT = prixHT + (item.qte * item.produit.prix)%}{# calcul twig#}
         {% endif %}
