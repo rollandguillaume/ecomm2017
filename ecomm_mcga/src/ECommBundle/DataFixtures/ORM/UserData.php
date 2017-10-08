@@ -29,9 +29,13 @@ class UserData extends Fixture
 
     $manager->flush();
   }
+
+  /**
+  * @return int
+  */
   public function getOrder()
   {
-    return 2;
+    return 1; // the order in which fixtures will be loaded
   }
 
 }

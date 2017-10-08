@@ -61,6 +61,11 @@ class User implements AdvancedUserInterface, \Serializable
   private $commandes;
 
   /**
+  * @ORM\Column(name="address", type="text", length=255)
+  */
+  protected $address='';
+
+  /**
   * @ORM\Column(type="json_array")
   */
   private $roles = array();
@@ -188,6 +193,28 @@ class User implements AdvancedUserInterface, \Serializable
 
       // allows for chaining
       return $this;
+    }
+    /**
+     * Set address
+     *
+     * @param string $address
+     * @return User
+     */
+    public function setAddress($address)
+    {
+        $this->address = $address;
+
+        return $this;
+    }
+
+    /**
+     * Get address
+     *
+     * @return string
+     */
+    public function getAddress()
+    {
+        return $this->address;
     }
 
   }

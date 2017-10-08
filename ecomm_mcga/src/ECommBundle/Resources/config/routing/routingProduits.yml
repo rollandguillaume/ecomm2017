@@ -10,3 +10,9 @@ consultation_produit:
   path:   consultation/{id}
   defaults:
       _controller: ECommBundle:Produits:consultation
+
+
+category:
+  path:   category/{slug}
+  defaults:
+      _controller: ECommBundle:Produits:category

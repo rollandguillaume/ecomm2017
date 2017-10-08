@@ -6,16 +6,21 @@ use Doctrine\Common\DataFixtures\OrderedFixtureInterface;
 use Doctrine\Common\Persistence\ObjectManager;
 use ECommBundle\Entity\Produits;
 use ECommBundle\Entity\Media;
+use Eshop\ShopBundle\Entity\Category;
 
 class ProduitsData extends AbstractFixture implements OrderedFixtureInterface
 {
   public function load(ObjectManager $manager)
   {
+    $categoryRepository = $manager->getRepository('ECommBundle:Category');
+
     $produit1 = new Produits();
     $produit1->setDescription("excellent cidre");
     // $produit1->setDisponible('1');
     $produit1->setNom('cidre');
     $produit1->setPrix('1.99');
+    $produit1->setCategory($categoryRepository->findBySlug('cidre'));
+    $produit1->setQuantity(mt_rand(1, 10));
     // Création de l'entité Image
     $image = new Media();
     $image->setUrl('http://placehold.it/800x400');
@@ -36,6 +41,8 @@ class ProduitsData extends AbstractFixture implements OrderedFixtureInterface
     // $produit2->setDisponible('1');
     $produit2->setNom('vin');
     $produit2->setPrix('1.99');
+    $produit2->setCategory($categoryRepository->findBySlug('vin'));
+    $produit2->setQuantity(mt_rand(1, 10));
     $manager->persist($produit2);
 
     $produit3 = new Produits();
@@ -43,6 +50,8 @@ class ProduitsData extends AbstractFixture implements OrderedFixtureInterface
     // $produit3->setDisponible('1');
     $produit3->setNom('vin2');
     $produit3->setPrix('1.99');
+    $produit3->setCategory($categoryRepository->findBySlug('vin'));
+    $produit3->setQuantity(mt_rand(1, 10));
     // Création de l'entité Image
     $image3 = new Media();
     $image3->setUrl('http://placehold.it/900x1000');
@@ -55,8 +64,11 @@ class ProduitsData extends AbstractFixture implements OrderedFixtureInterface
     $manager->flush();
   }
 
+  /**
+  * @return int
+  */
   public function getOrder()
   {
-    return 3;
+    return 3; // the order in which fixtures will be loaded
   }
 }

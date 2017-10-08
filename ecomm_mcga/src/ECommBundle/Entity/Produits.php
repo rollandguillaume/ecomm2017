@@ -45,10 +45,27 @@ class Produits
   private $prix;
 
   /**
+  * @var integer
+  *
+  * @ORM\Column(name="quantity", type="integer", nullable=false)
+  * @Assert\Range(
+  *      min = 0,
+  *      minMessage = "Must be at least {{ limit }}",
+  * )
+  */
+  private $quantity;
+
+  /**
   * @ORM\OneToMany(targetEntity="ECommBundle\Entity\Media", cascade={"persist", "remove"}, mappedBy="produit")
   * @Assert\Valid()
   */
   private $medias;
+
+  /**
+  * @ORM\ManyToOne(targetEntity="Category", inversedBy="products")
+  * @ORM\JoinColumn(name="category_id", referencedColumnName="id", onDelete="CASCADE")
+  **/
+  private $category;
 
   public function __construct()
   {
@@ -173,5 +190,50 @@ class Produits
   {
     return $this->medias;
   }
+
+  /**
+  * Set category
+  *
+  * @param \ECommBundle\Entity\Category $category
+  * @return Produits
+  */
+  public function setCategory(\ECommBundle\Entity\Category $category = null)
+  {
+    $this->category = $category;
+
+    return $this;
+  }
+
+  /**
+  * Get category
+  *
+  * @return \ECommBundle\Entity\Category
+  */
+  public function getCategory()
+  {
+    return $this->category;
+  }
+  /**
+     * Set quantity
+     *
+     * @param integer $quantity
+     * @return Produits
+     */
+    public function setQuantity($quantity)
+    {
+        $this->quantity = $quantity;
+
+        return $this;
+    }
+
+    /**
+     * Get quantity
+     *
+     * @return integer
+     */
+    public function getQuantity()
+    {
+        return $this->quantity;
+    }
 
 }
