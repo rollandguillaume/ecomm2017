@@ -18,9 +18,19 @@ security:
                 path:   /logout
                 target: /
             form_login:
-                login_path: /login
+                # submit the login form here
                 check_path: /login
+                # the user is redirected here when they need to log in
+                login_path: /login
+
+                # field names for the username and password fields
+                username_parameter: _username
+                password_parameter: _password
+
                 csrf_token_generator: security.csrf.token_manager
+
+
+
 
     access_control:
       - { path: ^/login, roles: IS_AUTHENTICATED_ANONYMOUSLY }

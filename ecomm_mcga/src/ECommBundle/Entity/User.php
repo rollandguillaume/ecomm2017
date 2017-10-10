@@ -11,7 +11,6 @@ use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 * @ORM\Table(name="user")
 * @ORM\Entity(repositoryClass="ECommBundle\Repository\UserRepository")
 * @UniqueEntity(fields="email", message="Email already taken")
-* @UniqueEntity(fields="username", message="Username already taken")
 */
 class User implements AdvancedUserInterface, \Serializable
 {
@@ -21,12 +20,6 @@ class User implements AdvancedUserInterface, \Serializable
   * @ORM\GeneratedValue(strategy="AUTO")
   */
   private $id;
-
-  /**
-  * @ORM\Column(type="string", length=255, unique=true)
-  * @Assert\NotBlank()
-  */
-  private $username;
 
   /**
   * The below length depends on the "algorithm" you use for encoding
@@ -61,9 +54,20 @@ class User implements AdvancedUserInterface, \Serializable
   private $orders;
 
   /**
-  * @ORM\Column(name="address", type="text", length=255)
+  * @ORM\Column(type="string", nullable=true)
+  * @Assert\NotBlank
   */
-  protected $address='';
+  private $address=null;
+
+  /**
+  * @ORM\Column(type="string", length=255)
+  */
+  private $name;
+
+  /**
+  * @ORM\Column(type="string", length=255)
+  */
+  private $lastname;
 
   /**
   * @ORM\Column(type="json_array")
@@ -95,12 +99,57 @@ class User implements AdvancedUserInterface, \Serializable
 
   public function getUsername()
   {
-    return $this->username;
+    return $this->email;
   }
 
   public function setUsername($username)
   {
-    $this->username = $username;
+    $this->email = $username;
+  }
+
+  /**
+  * Set name
+  *
+  * @param string $name
+  * @return User
+  */
+  public function setName($name)
+  {
+    $this->name = $name;
+
+    return $this;
+  }
+
+  /**
+  * Get name
+  *
+  * @return string
+  */
+  public function getName()
+  {
+    return $this->name;
+  }
+
+  /**
+  * Set lastname
+  *
+  * @param string $lastname
+  * @return User
+  */
+  public function setLastName($lastname)
+  {
+    $this->lastname = $lastname;
+    return $this;
+  }
+
+  /**
+  * Get lastname
+  *
+  * @return string
+  */
+  public function getLastname()
+  {
+    return $this->lastname;
   }
 
   public function getPlainPassword()
@@ -158,7 +207,6 @@ class User implements AdvancedUserInterface, \Serializable
   {
     return serialize(array(
       $this->id,
-      $this->username,
       $this->password,
       $this->isActive
       // see section on salt below
@@ -171,7 +219,6 @@ class User implements AdvancedUserInterface, \Serializable
   {
     list (
       $this->id,
-      $this->username,
       $this->password,
       $this->isActive
       // see section on salt below
@@ -195,26 +242,26 @@ class User implements AdvancedUserInterface, \Serializable
       return $this;
     }
     /**
-     * Set address
-     *
-     * @param string $address
-     * @return User
-     */
+    * Set address
+    *
+    * @param string $address
+    * @return User
+    */
     public function setAddress($address)
     {
-        $this->address = $address;
+      $this->address = $address;
 
-        return $this;
+      return $this;
     }
 
     /**
-     * Get address
-     *
-     * @return string
-     */
+    * Get address
+    *
+    * @return string
+    */
     public function getAddress()
     {
-        return $this->address;
+      return $this->address;
     }
 
   }
