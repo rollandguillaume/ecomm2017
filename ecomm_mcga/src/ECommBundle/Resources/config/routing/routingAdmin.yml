@@ -6,9 +6,9 @@ index_admin:
 add_new_produit:
   path:   /add
   defaults:
-    _controller: ECommBundle:Admin:addProduit
+    _controller: ECommBundle:Admin:addProduct
 
 remove_produit:
   path:   /remove
   defaults:
-    _controller: ECommBundle:Admin:removeProduit
+    _controller: ECommBundle:Admin:removeProduct

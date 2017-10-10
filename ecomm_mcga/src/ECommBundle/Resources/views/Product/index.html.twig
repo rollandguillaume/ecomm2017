@@ -16,8 +16,6 @@
       <h1 class="my-4">Shop Categories</h1>
       <div class="list-group">
         {% for categorytab in categories %}
-
-
         <a href="{{ path('category', {'slug' : categorytab.slug}) }}"
         {% if category is defined and category==categorytab %}
         class="list-group-item active"

@@ -20,4 +20,4 @@ routingCommande:
 
 routingAdmin:
   resource: "@ECommBundle/Resources/config/routing/routingAdmin.yml"
-  prefix: /Admin
+  prefix: /admin

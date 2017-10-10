@@ -17,7 +17,7 @@ class AdminController extends Controller
   /**
    * ajouter un nouveau produit
    */
-  public function addProduitAction(Request $request)
+  public function addProductAction(Request $request)
   {
     $produit = new Product();
     $msg = "";
@@ -44,7 +44,7 @@ class AdminController extends Controller
       ));
   }
 
-  public function removeProduitAction(Request $request)
+  public function removeProductAction(Request $request)
   {
     $msg = "";
 
@@ -69,7 +69,7 @@ class AdminController extends Controller
       }
     }
 
-    return $this->render('ECommBundle:Admin:removeProduit.html.twig', array(
+    return $this->render('ECommBundle:Admin:removeProduct.html.twig', array(
       'produits' => $repoProduit->findAll(),
       'msg' => $msg
     ));
