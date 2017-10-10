@@ -24,6 +24,6 @@ security:
 
     access_control:
       - { path: ^/login, roles: IS_AUTHENTICATED_ANONYMOUSLY }
-      - { path: ^/Commande, roles: ROLE_USER }
+      - { path: ^/order, roles: ROLE_USER }
     role_hierarchy:
       ROLE_VENDEUR:       ROLE_USER

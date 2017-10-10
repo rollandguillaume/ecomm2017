@@ -1,6 +1,6 @@
 routingProduits:
-  resource: "@ECommBundle/Resources/config/routing/routingProduits.yml"
-  prefix: /Produits
+  resource: "@ECommBundle/Resources/config/routing/routingProduct.yml"
+  prefix: /product
 
 routingPage:
   resource: "@ECommBundle/Resources/config/routing/routingPage.yml"
@@ -11,12 +11,12 @@ routingSecurity:
   prefix: /
 
 routingPanier:
-  resource: "@ECommBundle/Resources/config/routing/routingPanier.yml"
-  prefix: /Panier
+  resource: "@ECommBundle/Resources/config/routing/routingCart.yml"
+  prefix: /cart
 
 routingCommande:
-  resource: "@ECommBundle/Resources/config/routing/routingCommande.yml"
-  prefix: /Commande
+  resource: "@ECommBundle/Resources/config/routing/routingOrder.yml"
+  prefix: /order
 
 routingAdmin:
   resource: "@ECommBundle/Resources/config/routing/routingAdmin.yml"

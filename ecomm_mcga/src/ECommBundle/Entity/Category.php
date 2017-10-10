@@ -44,7 +44,7 @@ class Category
     private $name;
 
     /**
-     * @ORM\OneToMany(targetEntity="Produits", mappedBy="category")
+     * @ORM\OneToMany(targetEntity="Product", mappedBy="category")
      **/
     private $products;
 
@@ -94,10 +94,10 @@ class Category
     /**
      * Add products
      *
-     * @param \ECommBundle\Entity\Produits $products
+     * @param \ECommBundle\Entity\Product $products
      * @return Category
      */
-    public function addProduct(\ECommBundle\Entity\Produits $products)
+    public function addProduct(\ECommBundle\Entity\Product $products)
     {
         $this->products[] = $products;
 
@@ -107,9 +107,9 @@ class Category
     /**
      * Remove products
      *
-     * @param \ECommBundle\Entity\Produits $products
+     * @param \ECommBundle\Entity\Product $products
      */
-    public function removeProduct(\ECommBundle\Entity\Produits $products)
+    public function removeProduct(\ECommBundle\Entity\Product $products)
     {
         $this->products->removeElement($products);
     }

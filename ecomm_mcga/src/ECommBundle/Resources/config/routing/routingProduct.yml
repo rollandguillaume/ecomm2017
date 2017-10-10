@@ -1,7 +1,7 @@
 ecomm_home:
     path:      /{page}
     defaults:
-        _controller: ECommBundle:Produits:index
+        _controller: ECommBundle:Product:index
         page:        1
     requirements:
         page: \d*
@@ -9,10 +9,10 @@ ecomm_home:
 consultation_produit:
   path:   consultation/{id}
   defaults:
-      _controller: ECommBundle:Produits:consultation
+      _controller: ECommBundle:Product:consultation
 
 
 category:
   path:   category/{slug}
   defaults:
-      _controller: ECommBundle:Produits:category
+      _controller: ECommBundle:Product:category

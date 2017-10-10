@@ -4,17 +4,17 @@ namespace ECommBundle\DataFixtures\ORM;
 use Doctrine\Common\DataFixtures\AbstractFixture;
 use Doctrine\Common\DataFixtures\OrderedFixtureInterface;
 use Doctrine\Common\Persistence\ObjectManager;
-use ECommBundle\Entity\Produits;
+use ECommBundle\Entity\Product;
 use ECommBundle\Entity\Media;
 use Eshop\ShopBundle\Entity\Category;
 
-class ProduitsData extends AbstractFixture implements OrderedFixtureInterface
+class ProductData extends AbstractFixture implements OrderedFixtureInterface
 {
   public function load(ObjectManager $manager)
   {
     $categoryRepository = $manager->getRepository('ECommBundle:Category');
 
-    $produit1 = new Produits();
+    $produit1 = new Product();
     $produit1->setDescription("excellent cidre");
     // $produit1->setDisponible('1');
     $produit1->setNom('cidre');
@@ -36,7 +36,7 @@ class ProduitsData extends AbstractFixture implements OrderedFixtureInterface
 
     $manager->persist($produit1);
 
-    $produit2 = new Produits();
+    $produit2 = new Product();
     $produit2->setDescription("excellent vin");
     // $produit2->setDisponible('1');
     $produit2->setNom('vin');
@@ -45,7 +45,7 @@ class ProduitsData extends AbstractFixture implements OrderedFixtureInterface
     $produit2->setQuantity(mt_rand(1, 10));
     $manager->persist($produit2);
 
-    $produit3 = new Produits();
+    $produit3 = new Product();
     $produit3->setDescription("excellent vin");
     // $produit3->setDisponible('1');
     $produit3->setNom('vin2');

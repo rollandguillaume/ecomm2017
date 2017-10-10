@@ -2,12 +2,12 @@
 namespace ECommBundle\Controller;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Response;
-use ECommBundle\Entity\Commandes;
+use ECommBundle\Entity\Order;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 use Symfony\Component\HttpKernel\Exception\UnauthorizedHttpException;
 
 
-class CommandesController extends Controller
+class OrderController extends Controller
 {
   /**
   * Page de validation
@@ -25,7 +25,7 @@ class CommandesController extends Controller
         return $this->redirectToRoute('panier_produit');
       } else {
         //sinon creer l'objet commande dans la bdd
-        $commande = new Commandes();
+        $commande = new Order();
         $commande->setDate(new \DateTime());
         $commande->setValider(0);
         $commande->setUtilisateur($userLog);
@@ -39,7 +39,7 @@ class CommandesController extends Controller
         //vider le panier
         $this->get('session')->set('panier', array());
 
-        return $this->render('ECommBundle:Commande:commande.html.twig', array(
+        return $this->render('ECommBundle:Order:order.html.twig', array(
           'msg' => 'commande validée',
           'recapitulatif' => $listCommande
         ));

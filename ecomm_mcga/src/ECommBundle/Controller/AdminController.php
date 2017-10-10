@@ -2,8 +2,8 @@
 namespace ECommBundle\Controller;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Response;
-use ECommBundle\Form\ProduitsType;
-use ECommBundle\Entity\Produits;
+use ECommBundle\Form\ProductType;
+use ECommBundle\Entity\Product;
 use Symfony\Component\HttpFoundation\Request;
 
 
@@ -19,11 +19,11 @@ class AdminController extends Controller
    */
   public function addProduitAction(Request $request)
   {
-    $produit = new Produits();
+    $produit = new Product();
     $msg = "";
 
     $form = $this->get('form.factory')
-      ->create(ProduitsType::class, $produit);
+      ->create(ProductType::class, $produit);
 
       if ($request->isMethod('POST')) {
         $form->handleRequest($request);
@@ -38,7 +38,7 @@ class AdminController extends Controller
         }
       }
 
-      return $this->render('ECommBundle:Admin:addNewProduits.html.twig', array(
+      return $this->render('ECommBundle:Admin:addNewProduct.html.twig', array(
         'form' => $form->createView(),
         'msg' => $msg
       ));
@@ -50,7 +50,7 @@ class AdminController extends Controller
 
     $repoProduit = $this->getDoctrine()
       ->getManager()
-      ->getRepository('ECommBundle:Produits')
+      ->getRepository('ECommBundle:Product')
     ;
 
     if ($request->isMethod('POST')) {

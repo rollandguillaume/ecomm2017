@@ -5,12 +5,12 @@ namespace ECommBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * Commandes
+ * Order
  *
- * @ORM\Table("commandes")
- * @ORM\Entity(repositoryClass="ECommeBundle\Repository\CommandesRepository")
+ * @ORM\Table("orders")
+ * @ORM\Entity(repositoryClass="ECommeBundle\Repository\OrderRepository")
  */
-class Commandes
+class Order
 {
     /**
      * @var integer
@@ -22,7 +22,7 @@ class Commandes
     private $id;
 
     /**
-     * @ORM\ManyToOne(targetEntity="ECommBundle\Entity\User", inversedBy="commandes")
+     * @ORM\ManyToOne(targetEntity="ECommBundle\Entity\User", inversedBy="orders")
      * @ORM\JoinColumn(nullable=true)
      */
     private $utilisateur;
@@ -63,7 +63,7 @@ class Commandes
      * Set valider
      *
      * @param boolean $valider
-     * @return Commandes
+     * @return Order
      */
     public function setValider($valider)
     {
@@ -86,7 +86,7 @@ class Commandes
      * Set date
      *
      * @param \DateTime $date
-     * @return Commandes
+     * @return Order
      */
     public function setDate($date)
     {
@@ -109,7 +109,7 @@ class Commandes
      * Set commande
      *
      * @param array $commande
-     * @return Commandes
+     * @return Order
      */
     public function setCommande($commande)
     {
@@ -132,7 +132,7 @@ class Commandes
      * Set utilisateur
      *
      * @param \ECommBundle\Entity\User $utilisateur
-     * @return Commandes
+     * @return Order
      */
     public function setUtilisateur(\ECommBundle\Entity\User $utilisateur = null)
     {

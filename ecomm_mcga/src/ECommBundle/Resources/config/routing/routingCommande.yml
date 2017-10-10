@@ -1,4 +1,0 @@
-commande_validation:
-  path:   /
-  defaults:
-    _controller:  ECommBundle:Commandes:validation

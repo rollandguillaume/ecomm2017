@@ -7,12 +7,12 @@ use Symfony\Component\Validator\Constraints as Assert;
 use Doctrine\Common\Collections\ArrayCollection;
 
 /**
-* Produits
+* Product
 *
-* @ORM\Table("produits")
-* @ORM\Entity(repositoryClass="ECommBundle\Repository\ProduitsRepository")
+* @ORM\Table("product")
+* @ORM\Entity(repositoryClass="ECommBundle\Repository\ProductRepository")
 */
-class Produits
+class Product
 {
   /**
   * @var integer
@@ -86,7 +86,7 @@ class Produits
   * Set nom
   *
   * @param string $nom
-  * @return Produits
+  * @return Product
   */
   public function setNom($nom)
   {
@@ -109,7 +109,7 @@ class Produits
   * Set description
   *
   * @param string $description
-  * @return Produits
+  * @return Product
   */
   public function setDescription($description)
   {
@@ -132,7 +132,7 @@ class Produits
   * Set prix
   *
   * @param float $prix
-  * @return Produits
+  * @return Product
   */
   public function setPrix($prix)
   {
@@ -156,7 +156,7 @@ class Produits
   *
   * @param Media $media
   *
-  * @return Produits
+  * @return Product
   */
   public function addMedias(Media $media)
   {
@@ -195,7 +195,7 @@ class Produits
   * Set category
   *
   * @param \ECommBundle\Entity\Category $category
-  * @return Produits
+  * @return Product
   */
   public function setCategory(\ECommBundle\Entity\Category $category = null)
   {
@@ -217,7 +217,7 @@ class Produits
      * Set quantity
      *
      * @param integer $quantity
-     * @return Produits
+     * @return Product
      */
     public function setQuantity($quantity)
     {

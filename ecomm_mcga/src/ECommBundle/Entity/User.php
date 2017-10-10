@@ -55,10 +55,10 @@ class User implements AdvancedUserInterface, \Serializable
   private $plainPassword;
 
   /**
-  * @ORM\OneToMany(targetEntity="ECommBundle\Entity\Commandes", mappedBy="utilisateur")
+  * @ORM\OneToMany(targetEntity="ECommBundle\Entity\Order", mappedBy="utilisateur")
   * @ORM\JoinColumn(nullable=true)
   */
-  private $commandes;
+  private $orders;
 
   /**
   * @ORM\Column(name="address", type="text", length=255)

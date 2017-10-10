@@ -1,21 +1,21 @@
 panier_produit:
   path:   /
   defaults:
-    _controller:  ECommBundle:Panier:panier
+    _controller:  ECommBundle:Cart:panier
 
 add_panier:
   path:   /add
   defaults:
-    _controller: ECommBundle:Panier:add
+    _controller: ECommBundle:Cart:add
 
 remove_panier:
   path:   /remove/{id}
   defaults:
-    _controller: ECommBundle:Panier:remove
+    _controller: ECommBundle:Cart:remove
   requirements:
       id: \d*
 
 emptypanier_produit:
   path:   /vider
   defaults:
-    _controller:  ECommBundle:Panier:emptyPanier
+    _controller:  ECommBundle:Cart:emptyPanier

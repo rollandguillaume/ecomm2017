@@ -12,11 +12,11 @@ use Doctrine\ORM\Mapping as ORM;
 class Media
 {
   /**
-   * @ORM\ManyToOne(targetEntity="ECommBundle\Entity\Produits", inversedBy="medias")
+   * @ORM\ManyToOne(targetEntity="ECommBundle\Entity\Product", inversedBy="medias")
    * @ORM\JoinColumn(nullable=false)
    */
   private $produit;
-  public function setProduit(Produits $produit)
+  public function setProduit(Product $produit)
   {
     $this->produit = $produit;
 

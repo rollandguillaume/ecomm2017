@@ -1,0 +1,4 @@
+commande_validation:
+  path:   /
+  defaults:
+    _controller:  ECommBundle:Order:validation

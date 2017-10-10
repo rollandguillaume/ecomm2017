@@ -6,10 +6,10 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
-use ECommBundle\Entity\Produits;
+use ECommBundle\Entity\Product;
 
 
-class PanierController extends Controller
+class CartController extends Controller
 
 {
   private $namePanier = 'panier';
@@ -54,7 +54,7 @@ class PanierController extends Controller
 
       $repoProduit = $this->getDoctrine()
       ->getManager()
-      ->getRepository('ECommBundle:Produits')
+      ->getRepository('ECommBundle:Product')
       ;
 
       if ($repoProduit->existProduit($idProduit)) {
@@ -87,7 +87,7 @@ class PanierController extends Controller
       $msgAjout = "la quantité n'est pas correcte";
     }
 
-    return $this->forward('ECommBundle:Produits:index', array(
+    return $this->forward('ECommBundle:Product:index', array(
       'page' => 1,
       'msgAjout' => $msgAjout
     ));
@@ -102,7 +102,7 @@ class PanierController extends Controller
   public function panierAction () {
     $panier = $this->getPanier();
 
-    return $this->render('ECommBundle:Panier:panier.html.twig', array(
+    return $this->render('ECommBundle:Cart:cart.html.twig', array(
       'panier' => $panier
     ));
   }
