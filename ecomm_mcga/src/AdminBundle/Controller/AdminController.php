@@ -2,7 +2,8 @@
 namespace AdminBundle\Controller;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Response;
-use ECommBundle\Entity\User;
+use ECommBundle\Entity\Product;
+use ECommBundle\Form\ProductType;
 use Symfony\Component\HttpFoundation\Request;
 
 
@@ -43,7 +44,7 @@ class AdminController extends Controller
   /**
   * Lists all Product entities.
   */
-  public function productAction(Request $req)
+  public function productAction(Request $request)
   {
     // Pour récupérer la liste de toutes les annonces : on utilise findAll()
     $em = $this->getDoctrine()->getManager();
@@ -51,46 +52,36 @@ class AdminController extends Controller
 
     $listproduct=$productRepository->findAll();
 
+    //form
+    $product = new Product();
+    $form = $this->createForm(ProductType::class, $product);
+    $form->handleRequest($request);
+
+    if ($form->isSubmitted() && $form->isValid()) {
+      // save the Product!
+      $em = $this->getDoctrine()->getManager();
+      $em->persist($product);
+      $em->flush();
+      $this->addFlash('notice', 'ajout du nouveau produit');
+    }
+
     return $this->render('AdminBundle:Admin:product.html.twig', array(
-      'listproduct' => $listproduct
+      'listproduct' => $listproduct,
+      'form' => $form->createView()
     ));
   }
 
 
-
-
-
-  public function indexttAction () {
-    return $this->render('AdminBundle:Admin:user.html.twig');
-
+  public function indexAction () {
+    return $this->render('AdminBundle:Admin:index.html.twig');
   }
 
-  /**
-   * ajouter un nouveau produit
-   */
-  public function addProductAction(Request $request)
-  {
-    $produit = new Product();
-    $form = $this->get('form.factory')
-      ->create(ProductType::class, $produit);
-      if ($request->isMethod('POST')) {
-        $form->handleRequest($request);
-        if ($form->isValid()) {
-          $em = $this->getDoctrine()->getManager();
-          $em->persist($produit);
-          $em->flush();
-          $this->addFlash('notice', 'ajout du nouveau produit');
-        }
-      }
-      return $this->render('ECommBundle:Admin:addNewProduct.html.twig', array(
-        'form' => $form->createView()
-      ));
-  }
+
   public function removeProductAction(Request $request)
   {
     $repoProduit = $this->getDoctrine()
-      ->getManager()
-      ->getRepository('ECommBundle:Product')
+    ->getManager()
+    ->getRepository('ECommBundle:Product')
     ;
     if ($request->isMethod('POST')) {
       $post = $request->request;
@@ -104,7 +95,7 @@ class AdminController extends Controller
         $this->addFlash('notice', 'produit inexistant');
       }
     }
-    return $this->render('ECommBundle:Admin:removeProduct.html.twig', array(
+    return $this->render('AdminBundle:Admin:removeProduct.html.twig', array(
       'produits' => $repoProduit->findAll()
     ));
   }

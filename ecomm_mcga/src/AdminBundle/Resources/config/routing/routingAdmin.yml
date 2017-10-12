@@ -12,6 +12,10 @@ product_admin:
   path:   /product
   defaults:
     _controller: AdminBundle:Admin:product
+index_admin:
+  path:   /
+  defaults:
+    _controller: AdminBundle:Admin:index
 
 
 

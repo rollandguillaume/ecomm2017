@@ -7,32 +7,14 @@
   <title>{% block title %}Jack & Noël{% endblock %}</title>
 
   {% block stylesheets %}{% endblock %}
-  {% block header_javascripts %}{% endblock %}
 
-  <!--    <link rel="icon" href="../favicon.ico">-->
-    <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
-
-    <!-- Bootstrap CSS File -->
-    <link rel="stylesheet" href="{{asset('vendor/bootstrap/css/bootstrap.min.css')}}">
-
-  <!-- Libraries CSS Files -->
-  <!--
-  <link href="lib/font-awesome/css/font-awesome.min.css" rel="stylesheet">
-  <link href="lib/animate-css/animate.min.css" rel="stylesheet">-->
-
-  <!-- Main Stylesheet File -->
-  <link rel="stylesheet" href="{{asset('vendor/css/style.css')}}">
 </head>
 <body>
   {% block header %}{% endblock %}
   {% block body %}{% endblock %}
   {% block footer %}{% endblock %}
   {% block javascripts %}
-  <!-- Optional JavaScript -->
-  <!-- jQuery first, then Popper.js, then Bootstrap JS -->
 
-  <script src="{{asset('vendor/js/jquery-3.2.1.min.js')}}"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
   {% endblock %}
 </body>
 </html>

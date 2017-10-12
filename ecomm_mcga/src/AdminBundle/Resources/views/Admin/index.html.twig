@@ -1,15 +1,18 @@
-{% extends "base.html.twig" %}
+
+{% extends "AdminBundle::layout.html.twig" %}
+
+{% block stylesheets %}
+{{ parent() }}
+
+{% endblock %}
+
+{% block page_content %}
+
+{% endblock page_content %}
 
 
-{% block body %}
 
-  <h2>index admin</h2>
-
-  <ul>
-    <li><a href="{{path('add_new_produit')}}">ajouter un produit</a></li>
-    <li><a href="{{path('remove_produit')}}">enlever un produit</a></li>
-  </ul>
-
-
+{% block javascripts %}
+{{ parent() }}
 
 {% endblock %}

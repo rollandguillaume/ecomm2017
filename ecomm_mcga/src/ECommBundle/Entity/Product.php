@@ -63,8 +63,8 @@ class Product
 
   /**
   * @ORM\ManyToOne(targetEntity="Category", inversedBy="products")
-  * @ORM\JoinColumn(name="category_id", referencedColumnName="id", onDelete="CASCADE")
-  **/
+  * @ORM\JoinColumn(name="category_id", referencedColumnName="id")
+  */
   private $category;
 
   public function __construct()
@@ -214,26 +214,26 @@ class Product
     return $this->category;
   }
   /**
-     * Set quantity
-     *
-     * @param integer $quantity
-     * @return Product
-     */
-    public function setQuantity($quantity)
-    {
-        $this->quantity = $quantity;
+  * Set quantity
+  *
+  * @param integer $quantity
+  * @return Product
+  */
+  public function setQuantity($quantity)
+  {
+    $this->quantity = $quantity;
 
-        return $this;
-    }
+    return $this;
+  }
 
-    /**
-     * Get quantity
-     *
-     * @return integer
-     */
-    public function getQuantity()
-    {
-        return $this->quantity;
-    }
+  /**
+  * Get quantity
+  *
+  * @return integer
+  */
+  public function getQuantity()
+  {
+    return $this->quantity;
+  }
 
 }

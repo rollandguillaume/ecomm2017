@@ -2,12 +2,29 @@
 
 {% block stylesheets %}
 {{ parent() }}
-<!-- Custom fonts for this template-->
-<link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-<!-- Page level plugin CSS-->
-<link href="vendor/datatables/dataTables.bootstrap4.css" rel="stylesheet">
-<!-- Custom styles for this template-->
-<link href="css/sb-admin.css" rel="stylesheet">
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<title>Bootstrap Dashboard by Bootstrapious.com</title>
+<meta name="description" content="">
+<meta name="robots" content="all,follow">
+<!-- Bootstrap CSS-->
+<link rel="stylesheet" href="css/bootstrap.min.css">
+<!-- Google fonts - Roboto -->
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:300,400,700">
+<!-- theme stylesheet-->
+<link rel="stylesheet" href="css/style.default.css" id="theme-stylesheet">
+<!-- Custom stylesheet - for your changes-->
+<link rel="stylesheet" href="css/custom.css">
+<!-- Favicon-->
+<link rel="shortcut icon" href="img/favicon.ico">
+<!-- Font Awesome CDN-->
+<!-- you can replace it by local Font Awesome-->
+<script src="https://use.fontawesome.com/99347ac47f.js"></script>
+<!-- Font Icons CSS-->
+<link rel="stylesheet" href="https://file.myfontastic.com/da58YPMQ7U5HY8Rb6UxkNf/icons.css">
+<!-- Tweaks for older IEs--><!--[if lt IE 9]>
+<script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+<script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script><![endif]-->
 
 {% endblock %}
 
@@ -16,29 +33,30 @@
 
 
 {% block body %}
-<body class="fixed-nav sticky-footer bg-dark" id="page-top">
-  {% include "AdminBundle:Admin:static.html.twig" %}
 
-  {% block page_content %}
-  {% endblock page_content %}
+<div class="page form-page">
+  <!-- Main Navbar-->
+  {% include "AdminBundle:Admin:header.html.twig" %}
 
-</body>
+  <div class="page-content d-flex align-items-stretch">
+    <!-- Side Navbar -->
+    {% include "AdminBundle:Admin:menu.html.twig" %}
+
+    {% block page_content %}
+    {% endblock page_content %}
+  </div>
+</div>
+
 {% endblock %}
 
 
 {% block javascripts %}
 {{ parent() }}
-
-<!-- Core plugin JavaScript-->
-<script src="vendor/jquery-easing/jquery.easing.min.js"></script>
-
-<!-- Page level plugin JavaScript-->
-<script src="vendor/chart.js/Chart.min.js"></script>
-<script src="vendor/datatables/jquery.dataTables.js"></script>
-<script src="vendor/datatables/dataTables.bootstrap4.js"></script>
-<!-- Custom scripts for all pages-->
-<script src="js/sb-admin.min.js"></script>
-<!-- Custom scripts for this page-->
-<script src="js/sb-admin-datatables.min.js"></script>
-<script src="js/sb-admin-charts.min.js"></script>
+<!-- Javascript files-->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+<script src="js/tether.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/jquery.cookie.js"> </script>
+<script src="js/jquery.validate.min.js"></script>
+<script src="js/front.js"></script>
 {% endblock %}
