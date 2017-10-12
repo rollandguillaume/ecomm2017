@@ -62,7 +62,7 @@ class User implements AdvancedUserInterface, \Serializable
   /**
   * @ORM\Column(type="string", length=255)
   */
-  private $name;
+  private $firstname;
 
   /**
   * @ORM\Column(type="string", length=255)
@@ -108,26 +108,26 @@ class User implements AdvancedUserInterface, \Serializable
   }
 
   /**
-  * Set name
+  * Set firstname
   *
-  * @param string $name
+  * @param string $firstname
   * @return User
   */
-  public function setName($name)
+  public function setFirstname($firstname)
   {
-    $this->name = $name;
+    $this->firstname = $firstname;
 
     return $this;
   }
 
   /**
-  * Get name
+  * Get firstname
   *
   * @return string
   */
-  public function getName()
+  public function getFirstname()
   {
-    return $this->name;
+    return $this->firstname;
   }
 
   /**

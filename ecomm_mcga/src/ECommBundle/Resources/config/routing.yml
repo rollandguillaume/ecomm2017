@@ -17,7 +17,3 @@ routingPanier:
 routingCommande:
   resource: "@ECommBundle/Resources/config/routing/routingOrder.yml"
   prefix: /order
-
-routingAdmin:
-  resource: "@ECommBundle/Resources/config/routing/routingAdmin.yml"
-  prefix: /admin

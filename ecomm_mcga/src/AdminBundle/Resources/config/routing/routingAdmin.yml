@@ -1,0 +1,29 @@
+user_admin:
+  path:   /user
+  defaults:
+    _controller: AdminBundle:Admin:user
+
+category_admin:
+  path:   /category
+  defaults:
+    _controller: AdminBundle:Admin:category
+
+product_admin:
+  path:   /product
+  defaults:
+    _controller: AdminBundle:Admin:product
+
+
+
+
+
+
+add_new_produit:
+  path:   /add
+  defaults:
+    _controller: AdminBundle:Admin:addProduct
+
+remove_produit:
+  path:   /remove
+  defaults:
+    _controller: AdminBundle:Admin:removeProduct

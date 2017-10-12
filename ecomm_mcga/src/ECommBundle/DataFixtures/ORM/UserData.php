@@ -10,7 +10,7 @@ class UserData extends Fixture
   public function load(ObjectManager $manager)
   {
     $user = new User();
-    $user->setName('name');
+    $user->setFirstname('name');
     $user->setLastname('lastname');
     $encoder = $this->container->get('security.password_encoder');
     $password = $encoder->encodePassword($user, 'vendeur');
@@ -20,7 +20,7 @@ class UserData extends Fixture
     $manager->persist($user);
 
     $user2 = new User();
-    $user2->setName('name');
+    $user2->setFirstname('name');
     $user2->setLastName('lastname');
     $encoder = $this->container->get('security.password_encoder');
     $password = $encoder->encodePassword($user2, 'user');
