@@ -33,14 +33,26 @@
     <div class="">
       prix total HT : {{prixHT}} €
     </div>
-    <a href="{{path('commande_validation')}}">
-      <input type="button" name="valider" value="valider le panier">
-    </a>
+
+    <div class="">
+      <p>
+        <a href="{{path('commande_validation')}}">
+          <input type="button" name="valider" value="valider le panier">
+        </a>
+      </p>
+    </div>
   {% else %}
       {# n'est pas pas un array || est vide #}
       <div class="">
         <p>Votre panier est vide</p>
       </div>
   {% endif %}
+  <div class="">
+    <p>
+      <a href="{{path('ecomm_home')}}">
+        <input type="button" name="" value="continuer les achats">
+      </a>
+    </p>
+  </div>
 
 {% endblock %}

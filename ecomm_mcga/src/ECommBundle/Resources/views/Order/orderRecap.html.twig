@@ -1,0 +1,17 @@
+{% extends "ECommBundle:Order/layout:baseOrder.html.twig" %}
+
+{% block titre %}
+  <h2>récapitulatif commande</h2>
+{% endblock %}
+
+{% block listeButton %}
+
+<div class="">
+  <p>
+    <a href="{{path('commande_confirmation_finale')}}">
+      <input type="button" name="" value="payer et confirmer la commande">
+    </a>
+  </p>
+</div>
+
+{% endblock %}

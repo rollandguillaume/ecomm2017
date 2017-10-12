@@ -66,65 +66,48 @@ class AdminController extends Controller
   }
 
   /**
-  * ajouter un nouveau produit
-  */
+   * ajouter un nouveau produit
+   */
   public function addProductAction(Request $request)
   {
     $produit = new Product();
-    $msg = "";
-
     $form = $this->get('form.factory')
-    ->create(ProductType::class, $produit);
-
-    if ($request->isMethod('POST')) {
-      $form->handleRequest($request);
-
-      if ($form->isValid()) {
-
-        $em = $this->getDoctrine()->getManager();
-        $em->persist($produit);
-        $em->flush();
-
-        $msg = "ajout du nouveau produit";
+      ->create(ProductType::class, $produit);
+      if ($request->isMethod('POST')) {
+        $form->handleRequest($request);
+        if ($form->isValid()) {
+          $em = $this->getDoctrine()->getManager();
+          $em->persist($produit);
+          $em->flush();
+          $this->addFlash('notice', 'ajout du nouveau produit');
+        }
       }
-    }
-
-    return $this->render('AdminBundle:Admin:addNewProduct.html.twig', array(
-      'form' => $form->createView(),
-      'msg' => $msg
-    ));
+      return $this->render('ECommBundle:Admin:addNewProduct.html.twig', array(
+        'form' => $form->createView()
+      ));
   }
-
   public function removeProductAction(Request $request)
   {
-    $msg = "";
-
     $repoProduit = $this->getDoctrine()
-    ->getManager()
-    ->getRepository('ECommBundle:Product')
+      ->getManager()
+      ->getRepository('ECommBundle:Product')
     ;
-
     if ($request->isMethod('POST')) {
-
       $post = $request->request;
       $produit = $repoProduit->find($post->get('id'));
-
       if ($produit) {
         $em = $this->getDoctrine()->getManager();
         $em->remove($produit);
         $em->flush();
-
-        $msg = "suppression du produit ".$produit->getNom();
+        $this->addFlash('notice', 'suppression du produit '.$produit->getNom());
       } else {
-        $msg = "produit inexistant";
+        $this->addFlash('notice', 'produit inexistant');
       }
     }
-
-    return $this->render('AdminBundle:Admin:removeProduct.html.twig', array(
-      'produits' => $repoProduit->findAll(),
-      'msg' => $msg
+    return $this->render('ECommBundle:Admin:removeProduct.html.twig', array(
+      'produits' => $repoProduit->findAll()
     ));
-
   }
+
 
 }

@@ -5,25 +5,28 @@
   header
 </header>
 {% endblock %}
-{% block body %}
-{% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
-Connecté en tant que {{ app.user.username }}
-<a href="{{ path('logout') }}">Déconnexion</a>
-{% else %}
-<a href="{{ path('login') }}">Connexion</a>
-{% endif %}
-<div>
-  <nav>
-    <ul>
-      <li><a href="{{ path('page_home') }}">Home</a></li>
-      <li><a href="{{ path('ecomm_home') }}">Les produits</a></li>
-      <li><a href="{{ path('panier_produit') }}">Panier</a></li>
-    </ul>
-  </nav>
-</div>
 
-<hr>
+{% block body %}
+  {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+    Connecté en tant que {{ app.user.username }}
+    <a href="{{ path('logout') }}">Déconnexion</a>
+  {% else %}
+    <a href="{{ path('login') }}">Connexion</a>
+  {% endif %}
+  
+  <div>
+    <nav>
+      <ul>
+        <li><a href="{{ path('page_home') }}">Home</a></li>
+        <li><a href="{{ path('ecomm_home') }}">Les produits</a></li>
+        <li><a href="{{ path('panier_produit') }}">Panier</a></li>
+      </ul>
+    </nav>
+  </div>
+
+  <hr>
 {% endblock %}
+
 {% block footer %}
 <footer>
   footer

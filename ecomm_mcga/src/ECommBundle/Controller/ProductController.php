@@ -13,17 +13,16 @@ use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 class ProductController extends Controller
 
 {
-  private $pagenotfound = 'la page demandée n\'existe pas';
 
   /**
   * Lists all Product entities.
   * @Method("GET")
   * @Template()
   */
-  public function indexAction(Request $req, $page=1, $msgAjout="")
+  public function indexAction(Request $req, $page=1)
   {
     if ($page < 1) {
-      throw new NotFoundHttpException($this->pagenotfound);
+      throw new NotFoundHttpException();
     } else {
       // Pour récupérer la liste de toutes les annonces : on utilise findAll()
       $em = $this->getDoctrine()->getManager();
@@ -36,7 +35,6 @@ class ProductController extends Controller
 
     return $this->render('ECommBundle:Product:index.html.twig', array(
       'listProduct' => $listProduct,
-      'msgAjout' => $msgAjout,
       'categories' => $categories
     ));
   }
@@ -58,7 +56,7 @@ class ProductController extends Controller
       array('produit' => $Produit,
     ));
   } else {
-    throw new NotFoundHttpException($this->pagenotfound);
+    throw new NotFoundHttpException();
   }
 }
 
@@ -67,7 +65,7 @@ class ProductController extends Controller
  * @Method("GET")
  * @Template()
  */
-public function categoryAction(Request $request, Category $category,$msgAjout="")
+public function categoryAction(Request $request, Category $category)
 {
     /**
      * @var $em EntityManager
@@ -82,7 +80,6 @@ public function categoryAction(Request $request, Category $category,$msgAjout=""
 
     return $this->render('ECommBundle:Product:index.html.twig', array(
       'listProduct' => $productsQuery,
-      'msgAjout' => $msgAjout,
       'categories' => $categories,
       'category' => $category,
     ));
