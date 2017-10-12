@@ -100,5 +100,21 @@ class AdminController extends Controller
     ));
   }
 
+  /**
+  * Lists all Categories entities.
+  */
+  public function orderAction(Request $req)
+  {
+    // Pour récupérer la liste de toutes les annonces : on utilise findAll()
+    $em = $this->getDoctrine()->getManager();
+    $orderRepository=$em->getRepository('ECommBundle:Order');
+
+    $listorder=$orderRepository->findAll();
+
+    return $this->render('AdminBundle:Admin:order.html.twig', array(
+      'listorder' => $listorder
+    ));
+  }
+
 
 }

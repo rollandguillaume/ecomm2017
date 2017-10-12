@@ -54,14 +54,22 @@
                   <thead>
                     <tr>
                       <th>name</th>
+                      <th>category</th>
                       <th>prix</th>
+                      <th>quantity</th>
                     </tr>
                   </thead>
                   <tbody>
                     {% for product in listproduct %}
                     <tr>
                       <td>{{product.nom}}</td>
+                      {% if product.category %}
+                      <td>{{product.category.name}}</td>
+                      {% else %}
+                      <td></td>
+                      {% endif %}
                       <td>{{product.prix}}</td>
+                      <td>{{product.quantity}}</td>
                     </tr>
                     {% endfor %}
                   </tbody>
@@ -117,9 +125,9 @@
                 <label class="col-sm-3 form-control-label">Quantité</label>
                 <div class="col-sm-9">
                   {{ form_widget(form.quantity, {'attr': {'class': 'form-control'}}) }}
-                    <div class="form-group row has-danger">
-                      <div class="form-control-feedback">{{ form_errors(form.quantity) }}</div>
-                    </div>
+                  <div class="form-group row has-danger">
+                    <div class="form-control-feedback">{{ form_errors(form.quantity) }}</div>
+                  </div>
                 </div>
               </div>
 
