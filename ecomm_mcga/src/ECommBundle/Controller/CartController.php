@@ -42,7 +42,6 @@ class CartController extends Controller
   * pre: l'objet ajouter doit etre existant en bdd
   */
   public function addAction (Request $req) {
-    $msgAjout = "";
     $dejaPanier = false;
 
     $post = $req->request;
@@ -53,8 +52,8 @@ class CartController extends Controller
     if ($qte > 0) {//si qte positive
 
       $repoProduit = $this->getDoctrine()
-      ->getManager()
-      ->getRepository('ECommBundle:Product')
+        ->getManager()
+        ->getRepository('ECommBundle:Product')
       ;
 
       if ($repoProduit->existProduit($idProduit)) {
@@ -75,21 +74,20 @@ class CartController extends Controller
 
         $ajout = "ajout de ".$qte." fois ".$produit->getNom();
         if ($dejaPanier) {
-          $msgAjout = "produit déjà présent dans votre panier : ".$ajout.". Quantité actuelle : ".($oldQte+$qte);
+          $this->addFlash('notice', 'produit déjà présent dans votre panier : '.$ajout.'. Quantité actuelle : '.($oldQte+$qte));
         } else {
-          $msgAjout = $ajout;
+          $this->addFlash('notice', $ajout);
         }
 
       } else {
-        $msgAjout = "produit indisponible";
+        $this->addFlash('notice', 'produit indosponible');
       }
     } else {
-      $msgAjout = "la quantité n'est pas correcte";
+      $this->addFlash('notice', 'la quantité n\'est pas correcte');
     }
 
-    return $this->forward('ECommBundle:Product:index', array(
-      'page' => 1,
-      'msgAjout' => $msgAjout
+    return $this->redirectToRoute('ecomm_home', array(
+      'page' => 1
     ));
 
   }

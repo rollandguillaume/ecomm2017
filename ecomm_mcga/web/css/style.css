@@ -1,3 +1,8 @@
 div > a:hover {
   text-decoration-line: none;
 }
+
+/* message pour l'utilisateur */
+.flash-notice {
+  
+}

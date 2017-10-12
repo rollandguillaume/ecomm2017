@@ -11,7 +11,6 @@ class AdminController extends Controller
 {
   public function indexAction () {
     return $this->render('ECommBundle:Admin:index.html.twig');
-
   }
 
   /**
@@ -20,7 +19,6 @@ class AdminController extends Controller
   public function addProductAction(Request $request)
   {
     $produit = new Product();
-    $msg = "";
 
     $form = $this->get('form.factory')
       ->create(ProductType::class, $produit);
@@ -34,20 +32,17 @@ class AdminController extends Controller
           $em->persist($produit);
           $em->flush();
 
-          $msg = "ajout du nouveau produit";
+          $this->addFlash('notice', 'ajout du nouveau produit');
         }
       }
 
       return $this->render('ECommBundle:Admin:addNewProduct.html.twig', array(
-        'form' => $form->createView(),
-        'msg' => $msg
+        'form' => $form->createView()
       ));
   }
 
   public function removeProductAction(Request $request)
   {
-    $msg = "";
-
     $repoProduit = $this->getDoctrine()
       ->getManager()
       ->getRepository('ECommBundle:Product')
@@ -63,15 +58,14 @@ class AdminController extends Controller
         $em->remove($produit);
         $em->flush();
 
-        $msg = "suppression du produit ".$produit->getNom();
+        $this->addFlash('notice', 'suppression du produit '.$produit->getNom());
       } else {
-        $msg = "produit inexistant";
+        $this->addFlash('notice', 'produit inexistant');
       }
     }
 
     return $this->render('ECommBundle:Admin:removeProduct.html.twig', array(
-      'produits' => $repoProduit->findAll(),
-      'msg' => $msg
+      'produits' => $repoProduit->findAll()
     ));
 
   }

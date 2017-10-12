@@ -10,6 +10,15 @@ use Symfony\Component\HttpKernel\Exception\UnauthorizedHttpException;
 class OrderController extends Controller
 {
   /**
+   *
+   */
+  public function recapAction() {
+    return $this->render('ECommBundle:Order:orderRecap.html.twig', array(
+      'recapitulatif' => $this->makeListCommande()
+    ));
+  }
+
+  /**
   * Page de validation
   * voir app/config/security.yml pour la redirection sur page de connection si non authentifié
   */
@@ -27,7 +36,7 @@ class OrderController extends Controller
         //sinon creer l'objet commande dans la bdd
         $commande = new Order();
         $commande->setDate(new \DateTime());
-        $commande->setValider(0);
+        $commande->setValider(1);
         $commande->setUtilisateur($userLog);
         $listCommande = $this->makeListCommande();
         $commande->setCommande($listCommande);
@@ -39,8 +48,9 @@ class OrderController extends Controller
         //vider le panier
         $this->get('session')->set('panier', array());
 
-        return $this->render('ECommBundle:Order:order.html.twig', array(
-          'msg' => 'commande validée',
+        $this->addFlash('notice', 'commande validée');
+
+        return $this->render('ECommBundle:Order:orderValid.html.twig', array(
           'recapitulatif' => $listCommande
         ));
       }

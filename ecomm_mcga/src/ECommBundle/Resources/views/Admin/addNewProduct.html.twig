@@ -1,14 +1,19 @@
-{{msg}}
+{% for message in app.flashes('notice') %}
+    <div class="flash-notice">
+        {{ message }}
+    </div>
+{% endfor %}
 
-<br>
-<br>
-
-{{ form_start(form) }}
+<div class="">
+  {{ form_start(form) }}
 
 
   {{ form_row(form.nom) }}
   {{ form_row(form.description) }}
   {{ form_row(form.prix) }}
+  {{ form_row(form.quantity) }}
 
-  <input type="submit" name="" value="créer noveau produit">
-{{ form_end(form) }}
+  <input type="submit" name="" value="créer nouveau produit">
+  {{ form_end(form) }}
+
+</div>
