@@ -36,22 +36,22 @@
 
         {% for produit in listProduct %}
         <div class="col-lg-4 col-md-6 mb-4">
-          <div class="card h-100">
             <a href="{{ path('consultation_produit',{'id':produit.id }) }}">
+              <div class="card h-100">
               {% set firstimg = produit.medias|first %}
               {% if firstimg %}
               <img class="card-img-top " src="{{firstimg.url}}" alt="{{firstimg.alt}}">
               {% endif %}
+                <div class="card-body">
+                  <h4 class="card-title">
+                    {{ produit.nom }}
+                  </h4>
+                  <p class="card-price">
+                    {{ produit.prix }}
+                  </p>
+                </div>
+              </div>
             </a>
-            <div class="card-body">
-              <h4 class="card-title">
-                <a href="{{ path('consultation_produit',{'id':produit.id}) }}">{{ produit.nom }}</a>
-              </h4>
-              <h5 class="card-price">
-                <p>{{ produit.prix }}</p>
-              </h5>
-            </div>
-          </div>
         </div>
 
         {% else %}
