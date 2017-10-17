@@ -3,46 +3,100 @@
 {% block stylesheets %}
 {{ parent() }}
 
-  <!-- Main Stylesheet File -->
-  <link rel="stylesheet" href="{{asset('vendor/css/style.css')}}">
+<!-- Main Stylesheet File -->
+<link rel="stylesheet" href="{{asset('vendor/css/style.css')}}">
+<link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
 
 {% endblock %}
 
 {% block header %}
 <header>
-  header
+  <!--  navbar-light bg-light -->
+  <nav class="navbar navbar-default fixed-top navbar-expand-lg">
+    <div class="container">
+
+    <a class="navbar-brand" href="{{ path('page_home') }}"><img src="/vendor/img/JNLogo.png" alt="JNLogo" width="230"></a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse " id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item active">
+          <a class="nav-link" href="{{ path('page_home') }}">Home<span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{{ path('ecomm_home') }}">Les produits</a>
+        </li>
+        <li class=" nav-item">
+          <a class="nav-link" href="{{ path('panier_produit') }}"><span class="fa fa-shopping-cart">Panier</span></a>
+        </li>
+      </ul>
+      <button class="btn btn-success" type="submit">
+        {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+        Connecté en tant que {{ app.user.username }}
+        <a href="{{ path('logout') }}">Se déconnecter</a>
+        {% else %}
+        <a href="{{ path('login') }}">Se connecter</a>
+        {% endif %}
+      </button>
+
+    </div>
+  </div>
+  </nav>
 </header>
 {% endblock %}
 
 {% block body %}
-  {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
-    Connecté en tant que {{ app.user.username }}
-    <a href="{{ path('logout') }}">Déconnexion</a>
-  {% else %}
-    <a href="{{ path('login') }}">Connexion</a>
-  {% endif %}
 
-  <div>
-    <nav>
-      <ul>
-        <li><a href="{{ path('page_home') }}">Home</a></li>
-        <li><a href="{{ path('ecomm_home') }}">Les produits</a></li>
-        <li><a href="{{ path('panier_produit') }}">Panier</a></li>
-      </ul>
-    </nav>
-  </div>
 
-  <hr>
 {% endblock %}
 
 {% block footer %}
-<footer>
-  footer
-</footer>
-{% endblock %}
+<footer class="main-footer">
+      <div class="container">
+        <div class="row">
+          <div class="about col-md-4">
+            <h3>Boutique</h3>
+            <ul class="list-unstyled">
+              <li> <a href="index.html">Vin</a></li>
+              <li> <a href="category.html">Cidre</a></li>
+              <li> <a href="{{ path('ecomm_home') }}">Voir tous nos produits</a></li>
+            </ul>
+          </div>
+          <div class="site-links col-md-4">
+            <h3>Mon compte</h3>
+              <ul class="list-unstyled">
+                <li> <a href="detail.html">Se connecter</a></li>
+                <li> <a href="index.html">Mon panier</a></li>
+                <li> <a href="category.html">Mes informations</a></li>
+              </ul>
+          </div>
+          <div class="contact col-md-4">
+            <h3>Nous contacter</h3>
+            <div class="info">
+              <p>Jack&Noël Corporation</p>
+              <p>35000 Rennes</p>
+              <p>Email: <a href="mailto:contact@jack-noel.bzh">contact@jack-noel.bzh</a></p>
+              <ul class="social-menu lisy-inline">
+                <li class="list-inline-item"><a href="#" target="_blank" title="Facebook"><i class="fa fa-facebook">                        </i></a></li>
+                <li class="list-inline-item"><a href="#" target="_blank" title="Twitter"><i class="fa fa-twitter">                        </i></a></li>
+                <li class="list-inline-item"><a href="#" target="_blank" title="Pinterest"><i class="fa fa-pinterest">                        </i></a></li>
+                <li class="list-inline-item"><a href="https://www.instagram.com/perenoellaponie/" target="_blank" title="Instagram"><i class="fa fa-instagram">                        </i></a></li>
+                <li class="list-inline-item"><a href="#" target="_blank" title="Vimeo"><i class="fa fa-vimeo">                        </i></a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="copyrights text-center">
+        <p>© 2017 <span class="text-success">ENSIBS</span> - Projet E-commerce.</p>
+      </div>
+    </footer>
+  {% endblock %}
 
-{% block javascripts %}
-{{ parent() }}
+  {% block javascripts %}
+  {{ parent() }}
 
 
-{% endblock %}
+  {% endblock %}

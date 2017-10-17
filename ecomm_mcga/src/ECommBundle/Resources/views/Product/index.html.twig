@@ -11,13 +11,15 @@
 {% endfor %}
 
 <!-- Page Content -->
+<section>
+
 <div class="container">
 
   <div class="row">
 
     <div class="col-lg-3">
 
-      <h1 class="my-4">Shop Categories</h1>
+      <h1 class="my-4">Les produits</h1>
       <div class="list-group">
         {% for categorytab in categories %}
         <a href="{{ path('category', {'slug' : categorytab.slug}) }}"
@@ -47,13 +49,16 @@
               <img class="card-img-top " src="{{firstimg.url}}" alt="{{firstimg.alt}}">
               {% endif %}
                 <div class="card-body">
-                  <h4 class="card-title">
+                  <p class="card-title">
                     {{ produit.nom }}
-                  </h4>
-                  <p class="card-price">
-                    {{ produit.prix }}
                   </p>
+                  <p class="card-price">
+                    €{{ produit.prix }} 
+                  </p>
+                  <button type="button" class="fa fa-cart-plus btn btn-success"> Ajouter au panier</button>
+
                 </div>
+
               </div>
             </a>
         </div>
@@ -74,4 +79,5 @@
 
 </div>
 <!-- /.container -->
+</section>
 {% endblock %}

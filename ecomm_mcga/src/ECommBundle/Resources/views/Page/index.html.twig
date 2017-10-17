@@ -1,15 +1,232 @@
 {% extends ":layout:layoutbase.html.twig" %}
 
 {% block title %}
-  Page d'accueil - {{ parent() }}
+J&N - Accueil {{ parent() }}
 {% endblock %}
 
 {% block body %}
 {{ parent() }}
 
-  <h2>Page d'accueil de notre site</h2>
-  <p>vendeur@vendeur.fr mdp: vendeur</p>
-  <p>user@user.fr   mdp: user</p>
+<!--==========================
+Hero Section
+============================-->
+<section id="hero">
+  <div class="hero-container">
+    <div class="hero-logo">
+      <img class="" src="/vendor/img/JNLogoMotoWhite.png" alt="JandNLogo">
+    </div>
+
+    <p class="lead">Amoureux de la Bretagne et de la Normandie ? <br /> Retrouvez ici leurs meilleurs vins et cidres !</p>
+    <div class="actions">
+      <a href="#intro" class="btn-get-started">En savoir plus</a>
+      <a class="nav-link btn-services" href="{{ path('ecomm_home') }}">Nos produits</a>
+
+    </div>
+  </div>
+</section>
+
+<!-- Intro Section -->
+<section id="intro">
+  <div class="container text-center">
+    <h2 class="heading-center">Qui sont Jack et Noël ?</h2>
+    <h3>Le début d'une longue amitié entre un viticulteur breton et un cidrier normand...</h3>
+    <p class="lead">C'est au <span class="text-success">Salon de l'Agriculture de Paris</span> que les deux amis se rencontrent pour la première fois. Comme chaque année, leurs produits sont primés et remportent un vif succès auprès du grand public, à tel point que Jack et Noël décident de lancer leur propre entreprise de vente. C'est en voulant <span class="text-success">promouvoir</span> davantage les <span class="text-success">produits du terroir</span> qu'ils fondent <span class="text-success">Jack&Noël</span> : On y retrouve le vin de <span class="text-success">Bretagne</span> produit par le vignoble de Jack, et le cidre issu des vergers de Noël en <span class="text-success">Normandie</span>.</p>
+  </div>
+</section>
+
+<!-- Features Section -->
+<section id="extra-features" class="extra-features bg-primary">
+  <div class="container text-center">
+    <header>
+      <h2>Des produits de qualité</h2>
+      <div class="row">
+        <p class="lead col-lg-8 mx-auto">Soucieux de transmettre aux consommateurs le goût du terroir, Jack & Noël ont a coeur de vous vendre des produits de hautes qualités.</p>
+      </div>
+    </header>
+  </div>
+</section>
+
+<section class="extra-features">
+  <div class="container text-center">
+    <div class="grid row">
+      <div class="item col-lg-4 col-md-6">
+        <div class="icon"> <i class="fa fa-leaf fa-lg"></i></div>
+        <h3 class="h5">100% Bio</h3>
+      </div>
+      <div class="item col-lg-4 col-md-6">
+        <div class="icon"> <i class="fa fa-map-signs fa-lg"></i></div>
+        <h3 class="h5">Produit localement</h3>
+      </div>
+      <div class="item col-lg-4 col-md-6">
+        <div class="icon"> <i class="fa fa-truck fa-lg"></i></div>
+        <h3 class="h5">Des circuits courts de distribution</h3>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- End Features Section -->
+<!-- End Intro Section -->
+
+<!-- Divider Section -->
+<section class="divider">
+  <div class="container">
+    <h2>Des produits du terroir, sur votre table !</h2>
+    <p class="lead">N'attendez plus : Commandez aujourd'hui votre bouteille préférée !</p><a href="{{ path('ecomm_home') }}" class="btn btn-success has-shadow has-wide-padding">Voir nos produits</a>
+  </div>
+</section>
+<!-- End Divider Section -->
+
+<!-- Testimonials Section -->
+<!--
+<section class="testimonial">
+  <div class="container">
+    <div class="row text-center match-my-cols">
+
+      <div class="col-md-3">
+        <div class="col-md-12 box">
+            <p>
+              Meilleur alcool
+            </p>
+            <div class="icon"><i class="fa fa-quote-left"></i></div>
+            <div class="name-picture">
+              <h5>John McIntyre</h5>
+              <p>CEO, TransTech</p>
+            </div>
+        </div>
+      </div>
+
+      <div class="col-md-3">
+        <div class="col-md-12 box">
+          <div class="text">
+            <p>
+              Meilleur alcool
+            </p>
+          </div>
+          <div class="bottom">
+            <div class="icon"><i class="fa fa-quote-left"></i></div>
+            <div class="name-picture">
+              <h5>John McIntyre</h5>
+              <p>CEO, TransTech</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-3">
+        <div class="col-md-12 box">
+          <div class="text">
+            <p>
+              Meilleur alcool
+            </p>
+          </div>
+          <div class="bottom">
+            <div class="icon"><i class="fa fa-quote-left"></i></div>
+            <div class="name-picture">
+              <h5>John McIntyre</h5>
+              <p>CEO, TransTech</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-3">
+        <div class="col-md-12 box">
+          <div class="text">
+            <p>
+              Meilleur alcool
+            </p>
+          </div>
+          <div class="bottom">
+            <div class="icon"><i class="fa fa-quote-left"></i></div>
+            <div class="name-picture">
+              <h5>John McIntyre</h5>
+              <p>CEO, TransTech</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+</section>
+-->
+<!-- End Testimonials Section -->
+
+<!-- Services Section -->
+<section class="services">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-4">
+        <div class="service">
+          <div class="icon">
+            <i class="icon-truck"></i>
+          </div>
+          <div class="text">
+            <h4>Advanced Shipping</h4>
+            <p>Free shipping over 300$</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-4">
+        <div class="service">
+          <div class="icon">
+            <i class="icon-headset"></i>
+          </div>
+          <div class="text">
+            <h4>Premium Support</h4>
+            <p>Free shipping over 300$</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-4">
+        <div class="service">
+          <div class="icon">
+            <i class="icon-replay-arrow"></i>
+          </div>
+          <div class="text">
+            <h4>30 Day Return</h4>
+            <p>Free shipping over 300$</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- End Services Section -->
+
+
+<!-- Brands Section -->
+<section class="brands">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-3">
+        <h2 class="heading-left">Our Brands</h2>
+      </div>
+
+      <div class="col-md-9">
+        <div class="row">
+          <div class="col-sm-3 col-xs-6">
+            <img src="img/logo-1.png" class="img-responsive" alt="logo">
+          </div>
+          <div class="col-sm-3 col-xs-6">
+            <img src="img/logo-2.png" class="img-responsive" alt="logo">
+          </div>
+          <div class="col-sm-3 col-xs-6">
+            <img src="img/logo-3.png" class="img-responsive" alt="logo">
+          </div>
+          <div class="col-sm-3 col-xs-6">
+            <img src="img/logo-4.png" class="img-responsive" alt="logo">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- End Brands Section -->
+
 
 
 

@@ -1,11 +1,13 @@
-{% extends "base.html.twig" %}
+{% extends ":layout:layoutbase.html.twig" %}
 
 {% block body %}
 
 {% if error %}
     <div>{{ error.messageKey|trans(error.messageData, 'security') }}</div>
 {% endif %}
+<section class="login-page">
 
+<div class="form">
 <form action="{{ path('login') }}" method="post">
     <label for="username">Adresse e-mail</label>
     <input type="text" id="username" name="_username" value="{{ last_username }}" />
@@ -24,5 +26,9 @@
 
     <button type="submit">login</button>
 </form>
+</div>
+</section>
+<p>vendeur@vendeur.fr mdp: vendeur</p>
+<p>user@user.fr   mdp: user</p>
 
 {% endblock %}
