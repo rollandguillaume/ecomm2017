@@ -10,12 +10,9 @@ use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 /**
 * Category
 *
-* @ORM\Table()
+* @ORM\Table("category")
 * @ORM\Entity(repositoryClass="ECommBundle\Repository\CategoryRepository")
-* @UniqueEntity("slug"),
-*     errorPath="slug",
-*     message="This slug is already in use."
-* @ORM\HasLifecycleCallbacks()
+* @UniqueEntity(fields="name", message="name already taken")
 */
 class Category
 {
@@ -28,16 +25,13 @@ class Category
   */
   private $id;
 
-  /**
-  * @var string
-  *
-  * @ORM\Column(name="slug", type="string", length=255, nullable=false, unique=true)
-  */
-  private $slug;
 
   /**
   * @var string
-  *
+  * @Assert\Regex(
+  *     pattern     = "/^[a-z]+$/i",
+  *     htmlPattern = "^[a-zA-Z]+$"
+  * )
   * @ORM\Column(name="name", type="string", length=255)
   */
   private $name;
@@ -122,28 +116,4 @@ class Category
   {
     return $this->products;
   }
-
-  /**
-  * Set slug
-  *
-  * @param string $slug
-  * @return Category
-  */
-  public function setSlug($slug)
-  {
-    $this->slug = $slug;
-
-    return $this;
-  }
-
-  /**
-  * Get slug
-  *
-  * @return string
-  */
-  public function getSlug()
-  {
-    return $this->slug;
-  }
-
 }

@@ -13,13 +13,13 @@
   <!-- Page Header-->
   <header class="page-header">
     <div class="container-fluid">
-      <h2 class="no-margin-bottom">User</h2>
+      <h2 class="no-margin-bottom">Catégorie</h2>
     </div>
   </header>
   <ul class="breadcrumb">
     <div class="container-fluid">
-      <li class="breadcrumb-item"><a href="index.html">Home</a></li>
-      <li class="breadcrumb-item active">Forms</li>
+      <li class="breadcrumb-item"><a href="{{path('index_admin')}}">Home</a></li>
+      <li class="breadcrumb-item active">Catégorie</li>
     </div>
   </ul>
   <!-- Forms Section-->
@@ -29,14 +29,8 @@
         <!-- Form Elements -->
         <div class="col-lg-12">
           <div class="card">
-            <div class="card-close">
-              <div class="dropdown">
-                <button type="button" id="closeCard" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="dropdown-toggle"><i class="fa fa-ellipsis-v"></i></button>
-                <div aria-labelledby="closeCard" class="dropdown-menu has-shadow"><a href="#" class="dropdown-item remove"> <i class="fa fa-times"></i>Close</a><a href="#" class="dropdown-item edit"> <i class="fa fa-gear"></i>Edit</a></div>
-              </div>
-            </div>
             <div class="card-header d-flex align-items-center">
-              <h3 class="h4">All User</h3>
+              <h3 class="h4">Catégorie</h3>
             </div>
             <div class="card-body">
               <div class="table-responsive">
@@ -58,6 +52,31 @@
             </div>
           </div>
         </div>
+
+        <!-- Basic Form-->
+        <div class="col-lg-6">
+          <div class="card">
+            <div class="card-header d-flex align-items-center">
+              <h3 class="h4">Ajouter une catégorie</h3>
+            </div>
+            <div class="card-body">
+              {{ form_start(form, {'class': 'form-horizontal'} ) }}
+              {{ form_errors(form) }}
+                <div class="form-group">
+                  <label class="form-control-label">Catégorie</label>
+                  {{ form_widget(form.name, {'attr': {'class': 'form-control'}}) }}
+                  <div class="form-group row has-danger">
+                    <div class="form-control-feedback">{{ form_errors(form.name) }}</div>
+                  </div>
+                </div>
+                <div class="form-group">
+                  {{ form_widget(form.save, {'attr': {'class': 'btn btn-primary'}}) }}
+                </div>
+              {{ form_end(form) }}
+            </div>
+          </div>
+        </div>
+
       </div>
     </div>
   </section>
@@ -76,6 +95,14 @@
     </div>
   </footer>
 </div>
+
+
+
+
+{{ form_start(form) }}
+{{ form_errors(form) }}
+{{ form_end(form) }}
+
 {% endblock page_content %}
 
 

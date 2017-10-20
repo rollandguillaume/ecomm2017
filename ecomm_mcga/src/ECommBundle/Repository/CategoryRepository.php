@@ -31,17 +31,17 @@ class CategoryRepository extends EntityRepository
   }
 
   /**
-  * @param $slug string
+  * @param $name string
   * @return mixed (null or slu)
   */
-  public function findBySlug($slug)
+  public function findByName($name)
   {
     return $this->getEntityManager()
     ->createQueryBuilder()
     ->select('c')
     ->from('ECommBundle:Category', 'c')
-    ->where('c.slug = :slug')
-    ->setParameter('slug', $slug)
+    ->where('c.name = :name')
+    ->setParameter('name', $name)
     ->getQuery()
     ->getOneOrNullResult();
   }

@@ -22,7 +22,7 @@
       <h1 class="my-4">Les produits</h1>
       <div class="list-group">
         {% for categorytab in categories %}
-        <a href="{{ path('category', {'slug' : categorytab.slug}) }}"
+        <a href="{{ path('category', {'name' : categorytab.name}) }}"
         {% if category is defined and category==categorytab %}
         class="list-group-item active"
         {% else %}
@@ -53,7 +53,7 @@
                     {{ produit.nom }}
                   </p>
                   <p class="card-price">
-                    €{{ produit.prix }} 
+                    €{{ produit.prix }}
                   </p>
                   <button type="button" class="fa fa-cart-plus btn btn-success"> Ajouter au panier</button>
 

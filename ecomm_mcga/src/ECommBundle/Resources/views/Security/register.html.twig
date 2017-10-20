@@ -1,9 +1,45 @@
-{{ form_start(form) }}
-    {{ form_row(form.firstname) }}
-        {{ form_row(form.lastname) }}
-    {{ form_row(form.email) }}
-    {{ form_row(form.plainPassword.first) }}
-    {{ form_row(form.plainPassword.second) }}
+{% extends ":layout:layoutbase.html.twig" %}
 
-    <button type="submit">Register!</button>
-{{ form_end(form) }}
+{% block body %}
+
+<section class="login-page">
+  {{ form_start(form, {'class': 'form'} ) }}
+  {{ form_errors(form) }}
+    <div class="form">
+      <label class="form-control-label">Prénom</label>
+      {{ form_widget(form.firstname, {'attr': {'class': 'form-control'}}) }}
+      <div class="form-group row has-danger">
+        <div class="form-control-feedback">{{ form_errors(form.firstname) }}</div>
+      </div>
+
+    <div class="form-group">
+      <label class="form-control-label">Nom</label>
+      {{ form_widget(form.lastname, {'attr': {'class': 'form-control'}}) }}
+      <div class="form-group row has-danger">
+        <div class="form-control-feedback">{{ form_errors(form.lastname) }}</div>
+      </div>
+    </div>
+    <div class="form-group">
+      <label class="form-control-label">email</label>
+      {{ form_widget(form.email, {'attr': {'class': 'form-control'}}) }}
+      <div class="form-group row has-danger">
+        <div class="form-control-feedback">{{ form_errors(form.email) }}</div>
+      </div>
+    </div>
+    <div class="form-group">
+      <label class="form-control-label">mot de passe</label>
+      {{ form_widget(form.plainPassword.first, {'attr': {'class': 'form-control'}}) }}
+      <label class="form-control-label">Confirmation du mot de passe</label>
+      {{ form_widget(form.plainPassword.second, {'attr': {'class': 'form-control'}}) }}
+      <div class="form-group row has-danger">
+        <div class="form-control-feedback">{{ form_errors(form.plainPassword) }}</div>
+      </div>
+    </div>
+    <div class="form-group">
+      {{ form_widget(form.save, {'attr': {'class': 'btn btn-primary'}}) }}
+    </div>
+  {{ form_end(form) }}
+      </div>
+</section>
+
+{% endblock %}
