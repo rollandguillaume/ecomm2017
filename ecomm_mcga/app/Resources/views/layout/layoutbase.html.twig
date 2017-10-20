@@ -34,12 +34,10 @@
       </ul>
         {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
         {#Connecté en tant que {{ app.user.username }}#}
-        <a href="{{ path('logout') }}" role="button" class="btn btn-success">Se déconnecter</a>
+        <a href="{{ path('logout') }}" role="button" class="btn btn-success" data-toggle="tooltip" data-placement="bottom" title="Connecté en tant que {{ app.user.username }}">Se déconnecter</a>
         {% else %}
         <a href="{{ path('login') }}" role="button" class="btn btn-success">Se connecter</a>
         {% endif %}
-
-
     </div>
   </div>
   </nav>
@@ -58,17 +56,16 @@
           <div class="about col-md-4">
             <h3>Boutique</h3>
             <ul class="list-unstyled">
-              <li> <a href="index.html">Vin</a></li>
-              <li> <a href="category.html">Cidre</a></li>
-              <li> <a href="{{ path('ecomm_home') }}">Voir tous nos produits</a></li>
+
+              <li> <a href="{{ path('ecomm_home') }}">Nos produits</a></li>
             </ul>
           </div>
           <div class="site-links col-md-4">
             <h3>Mon compte</h3>
               <ul class="list-unstyled">
-                <li> <a href="detail.html">Se connecter</a></li>
-                <li> <a href="index.html">Mon panier</a></li>
-                <li> <a href="category.html">Mes informations</a></li>
+                <li> <a href="{{ path('login') }}">Se connecter</a></li>
+                <li> <a href="{{ path('panier_produit') }}">Mon panier</a></li>
+                <!--<li> <a href="category.html">Mes informations</a></li>-->
               </ul>
           </div>
           <div class="contact col-md-4">

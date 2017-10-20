@@ -94,7 +94,9 @@ nav.navbar {
 .divider {
 background: url(../img/4.jpeg) fixed;
 background-size: 100% auto;
-color:#457F45;
+}
+.divider h2 {
+  color:green;
 }
 /*--------------------------------------------------------------
 # Hero Welcome
@@ -192,7 +194,7 @@ height: 15em;
 }
 
 
-section:not(#hero) {
+section:not(#hero):not(.services) {
     position: relative;
     padding-top: 90px;
     padding-bottom: 90px;
@@ -231,9 +233,9 @@ footer h3::after {
 }
 
 
-/*
-Features
-*/
+/*--------------------------------------------------------------
+# Features
+--------------------------------------------------------------*/
 
 #extra-features {
     color: #fff;
@@ -258,9 +260,9 @@ section.extra-features {
     background-color: #228B22 !important;
 }
 
-/* ===============================
-products
-================ */
+/*--------------------------------------------------------------
+# Products
+--------------------------------------------------------------*/
 .card {
   text-align: center;
   color: black;
@@ -367,9 +369,17 @@ login-page
   font-family: "Open Sans", sans-serif;
 }
 
-/* ==
-testimonial
-== */
+/*--------------------------------------------------------------
+# Services
+--------------------------------------------------------------*/
+.services {
+  background-color: rgb(235, 235, 237);
+  padding: 20px 0px 20px 0px;
+}
+
+/*--------------------------------------------------------------
+# Testimonial
+--------------------------------------------------------------*/
 .quote {
     color: rgba(0,0,0,.1);
     text-align: center;
@@ -381,9 +391,9 @@ testimonial
   color: grey;
 }
 
-/* ==
-Gallery
-== */
+/*--------------------------------------------------------------
+# Gallery
+--------------------------------------------------------------*/
 .gallery .item {
     position: relative;
     max-height: 230px;
@@ -392,4 +402,9 @@ Gallery
 .no-padding {
   padding-left: 0;
   padding-right: 0;
+}
+#brands img {
+  max-height: 200px;
+  width: auto%;
+  margin: 20px 5px 20px 5px;
 }
