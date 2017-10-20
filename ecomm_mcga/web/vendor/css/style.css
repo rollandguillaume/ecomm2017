@@ -370,39 +370,26 @@ login-page
 /* ==
 testimonial
 == */
-/*
-.testimonial {
-background: #f7f7f7;
+.quote {
+    color: rgba(0,0,0,.1);
+    text-align: center;
+    margin-top: 30px;
+    margin-bottom: 20px;
 }
 
-.testimonial .box {
-  background: #fff !important;
-}
-.testimonial .text {
-    color: #999999;
-    margin-bottom: 40px;
+.quote-author {
+  color: grey;
 }
 
-.testimonial .bottom .icon {
-    color: blue;
-    font-size: 30px;
-    float: left;
-    width: 20%;
-}
-
-.testimonial .name-picture {
-    float: right;
-    width: 80%;
-    text-align: right;
-}
-*/
-/*
-.row.match-my-cols {
+/* ==
+Gallery
+== */
+.gallery .item {
+    position: relative;
+    max-height: 230px;
     overflow: hidden;
 }
-
-.row.match-my-cols [class*="col-"]{
-    margin-bottom: -99999px;
-    padding-bottom: 99999px;
+.no-padding {
+  padding-left: 0;
+  padding-right: 0;
 }
-*/
