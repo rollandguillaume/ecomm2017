@@ -6,38 +6,72 @@ use ECommBundle\Entity\Product;
 use ECommBundle\Form\ProductType;
 use Symfony\Component\HttpFoundation\Request;
 
+use ECommBundle\Entity\Category;
+use ECommBundle\Form\ProductCategoryType;
+
+use ECommBundle\Entity\User;
+use ECommBundle\Form\UserType;
+
 
 class AdminController extends Controller
 {
   /**
   * Lists all User entities.
   */
-  public function userAction(Request $req)
+  public function userAction(Request $request)
   {
     // Pour récupérer la liste de toutes les annonces : on utilise findAll()
     $em = $this->getDoctrine()->getManager();
     $userRepository=$em->getRepository('ECommBundle:User');
 
+    //form
+    $user = new User();
+    $form = $this->createForm(UserType::class, $user);
+    $form->handleRequest($request);
+
+    if ($form->isSubmitted() && $form->isValid()) {
+      // save the Product!
+      $em = $this->getDoctrine()->getManager();
+      $em->persist($user);
+      $em->flush();
+      $this->addFlash('notice', 'utilisateur ajouté ');
+    }
+
     $listUser=$userRepository->findAll();
 
     return $this->render('AdminBundle:Admin:user.html.twig', array(
-      'listuser' => $listUser
+      'listuser' => $listUser,
+      'form' => $form->createView()
     ));
   }
 
   /**
   * Lists all Categories entities.
   */
-  public function categoryAction(Request $req)
+  public function categoryAction(Request $request)
   {
     // Pour récupérer la liste de toutes les annonces : on utilise findAll()
     $em = $this->getDoctrine()->getManager();
     $categoryRepository=$em->getRepository('ECommBundle:Category');
 
+    //form
+    $category = new Category();
+    $form = $this->createForm(ProductCategoryType::class, $category);
+    $form->handleRequest($request);
+
+    if ($form->isSubmitted() && $form->isValid()) {
+      // save the Product!
+      $em = $this->getDoctrine()->getManager();
+      $em->persist($category);
+      $em->flush();
+      $this->addFlash('notice', 'catégorie ajouté');
+    }
+
     $listcategory=$categoryRepository->findAll();
 
     return $this->render('AdminBundle:Admin:category.html.twig', array(
-      'listcategory' => $listcategory
+      'listcategory' => $listcategory,
+      'form' => $form->createView()
     ));
   }
 
@@ -50,8 +84,6 @@ class AdminController extends Controller
     $em = $this->getDoctrine()->getManager();
     $productRepository=$em->getRepository('ECommBundle:Product');
 
-    $listproduct=$productRepository->findAll();
-
     //form
     $product = new Product();
     $form = $this->createForm(ProductType::class, $product);
@@ -62,8 +94,10 @@ class AdminController extends Controller
       $em = $this->getDoctrine()->getManager();
       $em->persist($product);
       $em->flush();
-      $this->addFlash('notice', 'ajout du nouveau produit');
+      $this->addFlash('notice', 'produit ajouté');
     }
+
+    $listproduct=$productRepository->findAll();
 
     return $this->render('AdminBundle:Admin:product.html.twig', array(
       'listproduct' => $listproduct,

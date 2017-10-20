@@ -32,14 +32,13 @@
           <a class="nav-link" href="{{ path('panier_produit') }}"><span class="fa fa-shopping-cart">Panier</span></a>
         </li>
       </ul>
-      <button class="btn btn-success" type="submit">
         {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
-        Connecté en tant que {{ app.user.username }}
-        <a href="{{ path('logout') }}">Se déconnecter</a>
+        {#Connecté en tant que {{ app.user.username }}#}
+        <a href="{{ path('logout') }}" role="button" class="btn btn-success">Se déconnecter</a>
         {% else %}
-        <a href="{{ path('login') }}">Se connecter</a>
+        <a href="{{ path('login') }}" role="button" class="btn btn-success">Se connecter</a>
         {% endif %}
-      </button>
+
 
     </div>
   </div>

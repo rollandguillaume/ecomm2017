@@ -19,7 +19,7 @@ class ProductData extends AbstractFixture implements OrderedFixtureInterface
     // $produit1->setDisponible('1');
     $produit1->setNom('cidre');
     $produit1->setPrix('1.99');
-    $produit1->setCategory($categoryRepository->findBySlug('cidre'));
+    $produit1->setCategory($categoryRepository->findByName('cidre'));
     $produit1->setQuantity(mt_rand(1, 10));
     // Création de l'entité Image
     $image = new Media();
@@ -41,7 +41,7 @@ class ProductData extends AbstractFixture implements OrderedFixtureInterface
     // $produit2->setDisponible('1');
     $produit2->setNom('vin');
     $produit2->setPrix('1.99');
-    $produit2->setCategory($categoryRepository->findBySlug('vin'));
+    $produit2->setCategory($categoryRepository->findByName('vin'));
     $produit2->setQuantity(mt_rand(1, 10));
     $manager->persist($produit2);
 
@@ -50,7 +50,7 @@ class ProductData extends AbstractFixture implements OrderedFixtureInterface
     // $produit3->setDisponible('1');
     $produit3->setNom('vin2');
     $produit3->setPrix('1.99');
-    $produit3->setCategory($categoryRepository->findBySlug('vin'));
+    $produit3->setCategory($categoryRepository->findByName('vin'));
     $produit3->setQuantity(mt_rand(1, 10));
     // Création de l'entité Image
     $image3 = new Media();

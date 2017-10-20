@@ -13,13 +13,13 @@
       <!-- Page Header-->
       <header class="page-header">
         <div class="container-fluid">
-          <h2 class="no-margin-bottom">User</h2>
+          <h2 class="no-margin-bottom">Utilisateur</h2>
         </div>
       </header>
       <ul class="breadcrumb">
         <div class="container-fluid">
-          <li class="breadcrumb-item"><a href="index.html">Home</a></li>
-          <li class="breadcrumb-item active">Forms</li>
+          <li class="breadcrumb-item"><a href="{{path('index_admin')}}">Home</a></li>
+          <li class="breadcrumb-item active">Utilisateur</li>
         </div>
       </ul>
       <!-- Forms Section-->
@@ -36,7 +36,7 @@
                   </div>
                 </div>
                 <div class="card-header d-flex align-items-center">
-                  <h3 class="h4">All User</h3>
+                  <h3 class="h4">Utilisateur</h3>
                 </div>
                 <div class="card-body">
                   <div class="table-responsive">
@@ -62,6 +62,54 @@
                 </div>
               </div>
             </div>
+
+            <!-- Basic Form-->
+            <div class="col-lg-6">
+              <div class="card">
+                <div class="card-header d-flex align-items-center">
+                  <h3 class="h4">Ajouter un Utilisateur</h3>
+                </div>
+                <div class="card-body">
+                  {{ form_start(form, {'class': 'form-horizontal'} ) }}
+                  {{ form_errors(form) }}
+                    <div class="form-group">
+                      <label class="form-control-label">Prénom</label>
+                      {{ form_widget(form.firstname, {'attr': {'class': 'form-control'}}) }}
+                      <div class="form-group row has-danger">
+                        <div class="form-control-feedback">{{ form_errors(form.firstname) }}</div>
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <label class="form-control-label">Nom</label>
+                      {{ form_widget(form.lastname, {'attr': {'class': 'form-control'}}) }}
+                      <div class="form-group row has-danger">
+                        <div class="form-control-feedback">{{ form_errors(form.lastname) }}</div>
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <label class="form-control-label">email</label>
+                      {{ form_widget(form.email, {'attr': {'class': 'form-control'}}) }}
+                      <div class="form-group row has-danger">
+                        <div class="form-control-feedback">{{ form_errors(form.email) }}</div>
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <label class="form-control-label">mot de passe</label>
+                      {{ form_widget(form.plainPassword.first, {'attr': {'class': 'form-control'}}) }}
+                      <label class="form-control-label">Confirmation du mot de passe</label>
+                      {{ form_widget(form.plainPassword.second, {'attr': {'class': 'form-control'}}) }}
+                      <div class="form-group row has-danger">
+                        <div class="form-control-feedback">{{ form_errors(form.plainPassword) }}</div>
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      {{ form_widget(form.save, {'attr': {'class': 'btn btn-primary'}}) }}
+                    </div>
+                  {{ form_end(form) }}
+                </div>
+              </div>
+            </div>
+
           </div>
         </div>
       </section>

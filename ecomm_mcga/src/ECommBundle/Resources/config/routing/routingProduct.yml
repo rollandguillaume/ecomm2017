@@ -13,6 +13,6 @@ consultation_produit:
 
 
 category:
-  path:   category/{slug}
+  path:   category/{name}
   defaults:
       _controller: ECommBundle:Product:category
