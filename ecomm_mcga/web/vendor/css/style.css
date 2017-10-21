@@ -408,3 +408,56 @@ login-page
   width: auto%;
   margin: 20px 5px 20px 5px;
 }
+
+
+
+/*-----------------------
+Panier
+----------*/
+.box {
+    background: #fff;
+    margin: 0 0 30px;
+    border: solid 1px #e6e6e6;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    padding: 30px;
+    -webkit-box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+
+}
+
+.box .box-footer {
+    background: #f7f7f7;
+    margin: 30px -30px -30px;
+    padding: 20px;
+    border-top: solid 1px #eeeeee;
+}
+
+.box .box-header {
+    background: #f7f7f7;
+    margin: -30px -30px 30px;
+    padding: 20px;
+    border-bottom: solid 2px #eeeeee;
+}
+#order-summary table {
+    margin-top: 20px;
+}
+
+#order-summary table td {
+    color: #999999;
+}
+
+#order-summary table tr.total td, #order-summary table tr.total th {
+    font-size: 18px;
+    color: #555555;
+    font-weight: 700;
+}
+
+.text-muted {
+    color: #777;
+}
+
+#cart {
+  background-color: #f0f0f0;
+}

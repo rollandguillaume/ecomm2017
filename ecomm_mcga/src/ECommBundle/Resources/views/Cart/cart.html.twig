@@ -4,55 +4,182 @@
 {% block body %}
 {{ parent() }}
 
-  <h2>panier</h2>
+
+
+
+
+<section id="cart">
   {% for flashMessage in app.session.flashbag.get('success') %}
-    <div class="alert alert-success">
+  <div class="alert alert-success">
     {{ flashMessage }}
-    </div>
-  {% endfor %}
-
-
-
-  {% if (panier is iterable) and (panier|length > 0) %}
-    <a href="{{path('emptypanier_produit')}}">
-      <input type="button" name="vider" value="vider le panier">
-    </a>
-    <ul>
-      {% set prixHT = 0 %}{# declaration de variable #}
-      {% for item in panier %}
-      {# item est un produit + sa qte #}
-        {% if item.qte > 0 %}
-          <li>
-            {{item.produit.nom}} * {{item.qte}} = {{item.qte * item.produit.prix}} € HT
-            <a href="{{path('remove_panier', {id:item.produit.id})}}">x</a>
-          </li>
-          {% set prixHT = prixHT + (item.qte * item.produit.prix)%}{# calcul twig#}
-        {% endif %}
-      {% endfor %}
-    </ul>
-    <div class="">
-      prix total HT : {{prixHT}} €
-    </div>
-
-    <div class="">
-      <p>
-        <a href="{{path('commande_validation')}}">
-          <input type="button" name="valider" value="valider le panier">
-        </a>
-      </p>
-    </div>
-  {% else %}
-      {# n'est pas pas un array || est vide #}
-      <div class="">
-        <p>Votre panier est vide</p>
-      </div>
-  {% endif %}
-  <div class="">
-    <p>
-      <a href="{{path('ecomm_home')}}">
-        <input type="button" name="" value="continuer les achats">
-      </a>
-    </p>
   </div>
+  {% endfor %}
+  <div class="container">
+
+    <div class="col-md-12">
+      <div class="container text-center">
+        <h2 class="heading-center">Votre panier</h2>
+      </div>
+    </div>
+    <div class="row">
+
+      <div class="col-md-9" id="basket">
+
+        <div class="box">
+
+          <form method="post" action="checkout1.html">
+
+            <h3>Contenu de votre panier</h3>
+            {% if (panier is iterable) and (panier|length > 0) %}
+            <p class="text-muted">La liste des produits que vous avez ajoutés à votre panier.</p>
+            <div class="table-responsive">
+
+              <table class="table">
+
+                <thead>
+                  <tr>
+                    <th colspan="2">Produit</th>
+                    <th>Quantité</th>
+                    <th>Prix unitaire</th>
+                    <th>Réduction</th>
+                    <th colspan="2">Total</th>
+                  </tr>
+                </thead>
+
+                {% set prixHT = 0 %}{# declaration de variable #}
+                {% for item in panier %}
+                {# item est un produit + sa qte #}
+                {% if item.qte > 0 %}
+                <tbody>
+                  <tr>
+                    <td>
+                      <a href="#">
+                        <img src="http://via.placeholder.com/80x130" alt="img de {{item.produit.nom}} ">
+                      </a>
+                    </td>
+
+                    <td>{{item.produit.nom}}</td>
+                    <td>{{item.qte}}
+
+                      <!--
+                      <input type="number" name="qte" value="{{item.qte}}" min="1" placeholder="quantite">
+                    -->
+                  </td>
+
+                  <td>€{{item.produit.prix}}</td>
+                  <td>$0.00</td>
+                  <td>€{{item.qte * item.produit.prix}}</td>
+                  <td><a href="{{path('remove_panier', {id:item.produit.id})}}"><i class="fa fa-trash-o"></i></a>
+                  </td>
+                </tr>
+                <tr>
+                </tbody>
+                {% set prixHT = prixHT + (item.qte * item.produit.prix)%}{# calcul twig#}
+                {% endif %}
+                {% endfor %}
+
+
+                <tfoot>
+                  <tr>
+                    <th colspan="5">Total</th>
+                    <th colspan="2">€{{prixHT}}</th>
+                  </tr>
+                </tfoot>
+              </table>
+
+
+              <!-- /.table-responsive -->
+              <div class="row box-footer">
+                <div class="col-md-6">
+                  <div class="pull-left">
+
+
+                    <a class="btn btn-secondary" href="{{path('ecomm_home')}}" role="button"><i class="fa fa-chevron-left"></i> Poursuivre ses achats</a>
+
+
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="pull-right">
+
+                    <a class="btn btn-danger" href="{{path('emptypanier_produit')}}" role="button">Vider le panier <i class="fa fa-chevron-right"></i></a>
+
+
+
+                    <a class="btn btn-success" href="{{path('commande_validation')}}" role="button">Valider la commande <i class="fa fa-chevron-right"></i></a>
+
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </form>
+
+        </div>
+        <!-- /.box -->
+
+      </div>
+      <!-- /.col-md-9 -->
+
+      <div class="col-md-3">
+        <div class="box" id="order-summary">
+          <div class="box-header text-center">
+            <h3>Résumé de la commande</h3>
+          </div>
+          <p class="text-muted"> Le montant TTC est calculé en fonction du contenu de votre panier. Il tient compte des frais de port fixes.</p>
+
+          <div class="table-responsive">
+            <table class="table">
+              <tbody>
+                <tr>
+                  <td>Total (HT)</td>
+                  <th>€{{prixHT}}</th>
+                </tr>
+                <tr>
+                  <td>TVA (20%)</td>
+                  <th>€{{prixHT * 0.20}}</th>
+                </tr>
+                <tr>
+                  <td>Frais de port (fixes)</td>
+                  <th>€15.00</th>
+                </tr>
+                <tr class="total">
+
+                  <td><span class="text-success">Total TTC</span></td>
+
+                  <th><span class="text-success">€{{15 + prixHT * (1 + (20 / 100))}}</span></th>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+        </div>
+      </div>
+      {% else %}
+      {# n'est pas pas un array || est vide #}
+
+      <p><span class="lead text-success">Votre panier est vide</span>.</p>
+      <div class="row box-footer">
+        <div class="col-md-6">
+          <div class="pull-left">
+
+
+            <a class="btn btn-secondary" href="{{path('ecomm_home')}}" role="button"><i class="fa fa-chevron-left"></i> Voir nos produits</a>
+          </div>
+        </div>
+      </div>
+      {% endif %}
+
+      <!-- /.col-md-3 -->
+    </div>
+
+
+  </div>
+</section>
+
+
+
+
+
 
 {% endblock %}

@@ -8,10 +8,11 @@
 
 {{produit.nom}}
 <form class="" action="{{path('add_panier')}}" method="post">
-         <input type="text" name="nomProduit" value="{{produit.id}}" hidden>
-         <input type="number" name="qte" value="" min="1" placeholder="quantite">
-         <input type="submit" name="" value="ajouter au panier">
+  <input type="text" name="nomProduit" value="{{produit.id}}" hidden>
+  <input type="number" name="qte" value="" min="1" placeholder="quantite">
+  <input type="submit" name="" value="ajouter au panier">
 </form>
+
 
 
 {% endblock %}
