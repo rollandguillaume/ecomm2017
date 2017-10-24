@@ -1,17 +1,45 @@
 {% extends "ECommBundle:Order/layout:baseOrder.html.twig" %}
 
-{% block titre %}
-  <h2>commande terminée</h2>
-{% endblock %}
+{% block body %}
+{{ parent() }}
 
-{% block listeButton %}
 
-<div class="">
-  <p>
-    <a href="{{path('page_home')}}">
-      <input type="button" name="" value="homepage">
-    </a>
-  </p>
-</div>
+<!-- confirmation section -->
+<section id="confirmation">
+  <div class="container">
 
+    <div class="col-md-12">
+      <div class="container text-center">
+        <h2 class="heading-center">Commande effectuée !</h2>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-12 box">
+
+        <div class="alert alert-success" role="alert">
+          {% for message in app.flashes('notice') %}
+          <div class="flash-notice">
+            {{ message }}
+          </div>
+          {% endfor %}
+        </div>
+        <!-- end alert-success -->
+        <div class="">
+
+          <p>
+            Vous recevrez votre commande dans les plus brefs délais. Merci d'avoir fait confiance à Jack&Noel !
+          </p>
+
+          <p>
+            <a class="btn btn-secondary" href="{{path('page_home')}}" role="button"><i class="fa fa-chevron-left"></i> Retour à l'accueil</a>
+          </p>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
 {% endblock %}

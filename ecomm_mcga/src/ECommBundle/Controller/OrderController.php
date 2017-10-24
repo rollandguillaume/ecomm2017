@@ -48,14 +48,14 @@ class OrderController extends Controller
         //vider le panier
         $this->get('session')->set('panier', array());
 
-        $this->addFlash('notice', 'commande validée');
+        $this->addFlash('notice', 'Votre commande a été validée');
 
         return $this->render('ECommBundle:Order:orderValid.html.twig', array(
           'recapitulatif' => $listCommande
         ));
       }
     } else {
-      throw new UnauthorizedHttpException(null, "non connecté");
+      throw new UnauthorizedHttpException(null, "Non connecté");
     }
 
   }

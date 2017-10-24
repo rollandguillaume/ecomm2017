@@ -4,80 +4,93 @@
 {% block body %}
 {{ parent() }}
 
-{% for message in app.flashes('notice') %}
-    <div class="flash-notice">
-        {{ message }}
-    </div>
-{% endfor %}
-
 <!-- Page Content -->
-<section>
+<section id="product">
+  <div class="container">
 
-<div class="container">
-
-  <div class="row">
-
-    <div class="col-lg-3">
-
-      <h1 class="my-4">Les produits</h1>
-      <div class="list-group">
-        {% for categorytab in categories %}
-        <a href="{{ path('category', {'name' : categorytab.name}) }}"
-        {% if category is defined and category==categorytab %}
-        class="list-group-item active"
-        {% else %}
-        class="list-group-item"
-        {% endif %}
-
-        >{{ categorytab.name }}</a>
-        {% endfor %}
+    <div class="col-md-12">
+      <div class="container text-center">
+        <h2 class="heading-center">Notre gamme de produits</h2>
       </div>
-
     </div>
-    <!-- /.col-lg-3 -->
+    <div class="col-md-12">
+    <!-- /.col-md-12 heading -->
+      {% for message in app.flashes('notice') %}
+      <div class="alert alert-success" role="alert">
+      <div class="flash-notice">
+        {{ message }}
+      </div>
+    </div>
+      {% endfor %}
+  </div>
 
-    <div class="col-lg-9">
+    <!-- end alert-success -->
+    <div class="row">
+      <div class="col-md-3">
+        <div class="box form-holder">
+          <h3 class="my-4">Catégories</h3>
+          <div class="list">
+            <ul class=" list-unstyled text-capitalize">
+              {% for categorytab in categories %}
+              <li>  <a href="{{ path('category', {'name' : categorytab.name}) }}"
 
-      <div class="row">
+                {% if category is defined and category==categorytab %}
+                class="ml-4 active"
+                {% else %}
+                class="ml-4"
+                {% endif %}
 
-        {% for produit in listProduct %}
-        <div class="col-lg-4 col-md-6 mb-4">
-            <a href="{{ path('consultation_produit',{'id':produit.id }) }}">
-              <div class="card h-100">
-              {% set firstimg = produit.medias|first %}
-              {% if firstimg %}
-              <img class="card-img-top " src="{{firstimg.url}}" alt="{{firstimg.alt}}">
-              {% endif %}
-                <div class="card-body">
-                  <p class="card-title">
-                    {{ produit.nom }}
-                  </p>
-                  <p class="card-price">
-                    €{{ produit.prix }}
-                  </p>
-                  <button type="button" class="fa fa-cart-plus btn btn-success"> Ajouter au panier</button>
+                ><i class="fa fa-minus"> </i>  {{ categorytab.name }}</a>
+              </li>
 
-                </div>
-
-              </div>
-            </a>
+            {% endfor %}
+          </div>
         </div>
-
-        {% else %}
-        <p>Pas (encore !) d'annonces</p>
-        {% endfor %}
-
+        <!-- /.col-md-4 product categories -->
 
       </div>
-      <!-- /.row -->
+      <div class="col-md-9">
+        <div class="box form-holder">
+
+          <div class="row">
+
+            {% for produit in listProduct %}
+            <div class="col-lg-4 col-md-6 mb-4">
+                <a href="{{ path('consultation_produit',{'id':produit.id }) }}">
+                  <div class="card h-100">
+                  {% set firstimg = produit.medias|first %}
+                  {% if firstimg %}
+                  <img class="card-img-top " src="{{firstimg.url}}" alt="{{firstimg.alt}}">
+                  {% endif %}
+                    <div class="card-body">
+                      <p class="card-title">
+                        {{ produit.nom }}
+                      </p>
+                      <p class="card-price">
+                        €{{ produit.prix }}
+                      </p>
+                      <button type="button" class="btn btn-success"><i class="fa fa-cart-plus"> Ajouter au panier</i></button>
+
+                    </div>
+
+                  </div>
+                </a>
+            </div>
+
+            {% else %}
+            <p>Pas (encore !) d'annonces</p>
+            {% endfor %}
+
+
+          </div>
+        </div>
+      </div>
+      <!-- /.col-md-8 product list -->
 
     </div>
-    <!-- /.col-lg-9 -->
+    <!-- /row -->
 
   </div>
-  <!-- /.row -->
-
-</div>
-<!-- /.container -->
 </section>
+
 {% endblock %}

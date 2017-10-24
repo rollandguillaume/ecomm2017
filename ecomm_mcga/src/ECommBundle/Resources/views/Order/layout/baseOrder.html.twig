@@ -3,31 +3,8 @@
 
 {% block body %}
 {{ parent() }}
-<div class="">
 
-  {% for message in app.flashes('notice') %}
-      <div class="flash-notice">
-          {{ message }}
-      </div>
-  {% endfor %}
-  
   {% block titre %}{% endblock %}
-
-  <ul>
-    {% for produit in recapitulatif.produits %}
-    <li>
-      {{produit.nom}} :
-      {{produit.prix}} *
-      {{produit.qte}} =
-      {{produit.prixLot}} €
-    </li>
-    {% endfor %}
-  </ul>
-
-  <p>
-    total : {{recapitulatif.prixTot}} €
-  </p>
-</div>
 
   {% block listeButton %}{% endblock %}
 

@@ -21,6 +21,8 @@
         <h2 class="heading-center">Votre panier</h2>
       </div>
     </div>
+    <!-- end col-md-12 heading-->
+
     <div class="row">
 
       <div class="col-md-9" id="basket">
@@ -31,7 +33,7 @@
 
             <h3>Contenu de votre panier</h3>
             {% if (panier is iterable) and (panier|length > 0) %}
-            <p class="text-muted">La liste des produits que vous avez ajoutés à votre panier.</p>
+            <p class="text-muted">La liste des produits que vous avez ajoutés à votre panier. </p>
             <div class="table-responsive">
 
               <table class="table">
@@ -92,25 +94,19 @@
               <div class="row box-footer">
                 <div class="col-md-6">
                   <div class="pull-left">
-
-
                     <a class="btn btn-secondary" href="{{path('ecomm_home')}}" role="button"><i class="fa fa-chevron-left"></i> Poursuivre ses achats</a>
-
-
                   </div>
                 </div>
                 <div class="col-md-6">
                   <div class="pull-right">
-
                     <a class="btn btn-danger" href="{{path('emptypanier_produit')}}" role="button">Vider le panier <i class="fa fa-chevron-right"></i></a>
-
-
-
                     <a class="btn btn-success" href="{{path('commande_validation')}}" role="button">Valider la commande <i class="fa fa-chevron-right"></i></a>
 
                   </div>
                 </div>
               </div>
+              <!-- end row box-footer -->
+
 
             </div>
           </form>
@@ -119,7 +115,7 @@
         <!-- /.box -->
 
       </div>
-      <!-- /.col-md-9 -->
+      <!-- end col-md-9 basket-->
 
       <div class="col-md-3">
         <div class="box" id="order-summary">
@@ -155,31 +151,34 @@
 
         </div>
       </div>
-      {% else %}
-      {# n'est pas pas un array || est vide #}
+      <!-- end col-3 order-summary -->
+    </div>
 
-      <p><span class="lead text-success">Votre panier est vide</span>.</p>
-      <div class="row box-footer">
-        <div class="col-md-6">
-          <div class="pull-left">
+    {% else %}
+    {# n'est pas pas un array || est vide #}
+    <div class="row">
+      <div class="col-md-12" id="basket">
+
+        <p><span class="lead text-success">Votre panier est vide</span>.</p>
+        <div class="row box-footer">
+          <div class="col-md-6">
+            <div class="pull-left">
 
 
-            <a class="btn btn-secondary" href="{{path('ecomm_home')}}" role="button"><i class="fa fa-chevron-left"></i> Voir nos produits</a>
+              <a class="btn btn-secondary" href="{{path('ecomm_home')}}" role="button"><i class="fa fa-chevron-left"></i> Voir nos produits</a>
+            </div>
           </div>
         </div>
       </div>
-      {% endif %}
-
-      <!-- /.col-md-3 -->
+      <!-- end col-md-12 empty basket-->
     </div>
+
+    {% endif %}
+
+    <!-- /.col-md-3 -->
 
 
   </div>
 </section>
-
-
-
-
-
 
 {% endblock %}

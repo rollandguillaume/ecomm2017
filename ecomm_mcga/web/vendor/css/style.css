@@ -76,7 +76,7 @@ nav.navbar {
     border-bottom-color: transparent;
 }
 
-.navbar li>a{
+.navbar li>a, .navbar .fa{
   color:#228B22;
   font-weight: bold;
 }
@@ -277,6 +277,11 @@ section.extra-features {
   font-weight: bold;
 }
 
+#product ul li{
+  font-size: 1.2em;
+  margin-bottom: 10px;
+}
+
 /* ===============================
 login-page
 ================ */
@@ -458,6 +463,83 @@ Panier
     color: #777;
 }
 
-#cart {
+#cart, .shipping, #confirmation, #product {
   background-color: #f0f0f0;
+}
+
+/* =============================
+Page de livraison
+================================*/
+
+section.shipping div[class*=col-] {
+    margin-bottom: 25px;
+}
+
+section.shipping input {
+    padding: 0 20px;
+    height: 60px;
+    line-height: 60px;
+    border-radius: 10px;
+    font-size: 1.4em;
+    font-weight: 400;
+    box-shadow: none;
+}
+
+section.shipping input {
+    padding: 0 20px;
+    height: 45px;
+    line-height: 60px;
+    border-radius: 10px;
+    font-size: 1em;
+    font-weight: 400;
+    box-shadow: none;
+}
+.section.shipping input[type=checkbox]+label {
+    font-size: 1.3em;
+    font-weight: 400;
+    color: #666;
+    padding-left: 30px;
+    cursor: pointer;
+}
+
+section.shipping button {
+    border: none;
+}
+
+.btn-unique.btn-lg {
+    padding: 10px 40px;
+    font-size: 19px;
+    line-height: 1.33;
+    border-radius: 40px;
+}
+
+.btn-unique.btn {
+    padding: 6px 40px;
+    font-size: 15px;
+    line-height: 1.55;
+    border-radius: 40px;
+}
+
+.btn-lg {
+    padding: 10px 16px;
+    font-size: 19px;
+    line-height: 1.33;
+    border-radius: 0;
+}
+
+.btn-unique {
+    color: #fff;
+    background-color: #228B22;
+    border-color: #228B22;
+    text-transform: uppercase;
+    letter-spacing: .1em;
+    font-weight: 600;
+}
+.btn {
+    font-weight: 700;
+    font-family: "Open Sans",sans-serif;
+    padding: 6px 12px;
+    font-size: 15px;
+    line-height: 1.55;
+    border-radius: 0;
 }

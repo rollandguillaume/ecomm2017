@@ -1,17 +1,141 @@
 {% extends "ECommBundle:Order/layout:baseOrder.html.twig" %}
 
-{% block titre %}
-  <h2>récapitulatif commande</h2>
-{% endblock %}
+{% block body %}
+{{ parent() }}
 
-{% block listeButton %}
 
-<div class="">
-  <p>
-    <a href="{{path('commande_confirmation_finale')}}">
-      <input type="button" name="" value="payer et confirmer la commande">
-    </a>
-  </p>
+<!-- Shipping section -->
+<section class="shipping">
+  <div class="container">
+
+    <div class="col-md-12">
+      <div class="container text-center">
+        <h2 class="heading-center">Détails de livraison</h2>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-12">
+
+        <div class="box form-holder">
+          <form id="shipping-address-form" action="#" method="post">
+            <div class="shipping-main">
+              <div class="box-header">
+                <h3><span class="text-success">1.</span> Adresse de livraison</h3>
+              </div>
+              <div class="row">
+                <div class="col-sm-6">
+                  <input type="text" name="firstname" class="form-control" placeholder="Prénom*" required>
+                </div>
+                <div class="col-sm-6">
+                  <input type="text" name="lastname" class="form-control" placeholder="Nom*" required>
+                </div>
+                <div class="col-sm-6">
+                  <input type="email" name="email" class="form-control" placeholder="E-mail*" required>
+                </div>
+                <div class="col-sm-6">
+                  <input type="text" name="number" class="form-control" placeholder="Numéro de téléphone">
+                </div>
+                <div class="col-sm-8">
+                  <input type="text" name="address-1" class="form-control" placeholder="Rue, société, etc.*" required>
+                </div>
+                <div class="col-sm-4">
+                  <input type="text" name="address-2" class="form-control" placeholder="Apt, étage, etc." required>
+                </div>
+                <div class="col-sm-6">
+                  <input type="text" name="city" class="form-control" placeholder="Ville*" required>
+                </div>
+                <div class="col-sm-6">
+                  <input type="text" name="postalcode" class="form-control" placeholder="Code postal*" maxlength="5"required>
+                </div>
+                <div class="col-sm-12">
+                  <input type="checkbox" id="another-address">
+                  <label for="another-address">Adresse de facturation différente</label>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+      <div class="row">
+<div class="col-md-7">
+
+        <div class="box payment-method">
+          <div class="box-header">
+
+            <h3><span class="text-success">2.</span> Méthode de paiement <i class="fa fa-lock pull-right text-success"></i></h3>
+          </div>
+          <div class="payment-method">
+            <ul class="list-unstyled list-inline">
+              <li><img src="img/visa.svg" alt="visa" width="50"></li>
+              <li><img src="img/mastercard.svg" alt="mastercard" width="50"></li>
+              <li><img src="img/amex.svg" alt="amex" width="40"></li>
+            </ul>
+          </div>
+          <div class="row">
+            <div class="col-sm-12">
+              <input type="text" name="cardname" class="form-control" placeholder="Nom du titulaire de la carte" required>
+            </div>
+            <div class="col-sm-6">
+              <input type="text" name="cardnumber" class="form-control" placeholder="Numéro de carte" maxlength="14" required>
+            </div>
+            <div class="col-sm-">
+              <input type="text" name="expirymonth" class="form-control" placeholder="Mois d'expiration" required>
+            </div>
+            <div class="col-sm-4">
+              <input type="text" name="expiryyear" class="form-control" placeholder="Année d'expiration" required>
+            </div>
+            <div class="col-sm-4">
+              <input type="text" name="cvv" class="form-control" placeholder="Cryptogramme" maxlength="3" required>
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+    <div class="col-md-5">
+      <div class="box" id="order-summary">
+        <div class="box-header text-center">
+          <h3><span class="text-success">3.</span> Montant de la commande</h3>
+        </div>
+        <p class="text-muted"> Le montant TTC est calculé en fonction du contenu de votre panier. Il tient compte des frais de port fixes.</p>
+
+        <div class="table-responsive">
+          <table class="table">
+            <tbody>
+              <tr>
+                <td>Total (HT)</td>
+                <th>€{{recapitulatif.prixTot}}</th>
+              </tr>
+              <tr>
+                <td>TVA (20%)</td>
+                <th>€{{recapitulatif.prixTot * 0.20}}</th>
+              </tr>
+              <tr>
+                <td>Frais de port (fixes)</td>
+                <th>€15.00</th>
+              </tr>
+              <tr class="total">
+
+                <td><span class="text-success">Total TTC</span></td>
+
+                <th><span class="text-success">€{{15 + recapitulatif.prixTot * (1 + (20 / 100))}}</span></th>
+              </tr>
+            </tbody>
+          </table>
+
+          <div class="col-sm-12">
+          <a href="{{path('commande_confirmation_finale')}}" >
+            <input class="oder-now btn btn-unique btn-lg text-center" id="shipping-submit" type="button" name="" value="Commander">
+          </a>
+        </div>
+        </div>
+
+      </div>
+</div>
+  </div>
+  </div>
+</section>
+<!-- End Shipping section -->
 </div>
 
 

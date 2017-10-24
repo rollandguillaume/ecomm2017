@@ -37,9 +37,9 @@ class CartController extends Controller
   }
 
   /**
-  * Ajouter l'article choisi par l'utilisateur en quantite demander au panier
+  * Ajouter l'article choisi par l'utilisateur en quantite demandée au panier
   *
-  * pre: l'objet ajouter doit etre existant en bdd
+  * pre: l'objet ajouté doit etre existant en bdd
   */
   public function addAction (Request $req) {
     $dejaPanier = false;
@@ -74,16 +74,16 @@ class CartController extends Controller
 
         $ajout = "ajout de ".$qte." fois ".$produit->getNom();
         if ($dejaPanier) {
-          $this->addFlash('notice', 'produit déjà présent dans votre panier : '.$ajout.'. Quantité actuelle : '.($oldQte+$qte));
+          $this->addFlash('notice', 'Ce produit est déjà présent dans votre panier : '.$ajout.'. Quantité actuelle : '.($oldQte+$qte));
         } else {
           $this->addFlash('notice', $ajout);
         }
 
       } else {
-        $this->addFlash('notice', 'produit indosponible');
+        $this->addFlash('notice', 'Le produit est actuellement indisponible.');
       }
     } else {
-      $this->addFlash('notice', 'la quantité n\'est pas correcte');
+      $this->addFlash('notice', 'La quantité n\'est pas correcte');
     }
 
     return $this->redirectToRoute('ecomm_home', array(
