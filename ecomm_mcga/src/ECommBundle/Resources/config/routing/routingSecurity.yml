@@ -5,4 +5,4 @@ logout:
     path: /logout
 user_registration:
     path:     /register
-    defaults: { _controller: ECommBundle:Security:register }
+    defaults: { _controller:ECommBundle:Security:register }

@@ -282,6 +282,24 @@ section.extra-features {
   margin-bottom: 10px;
 }
 
+
+/*--------------------------------------------------------------
+# Consultation Produit
+--------------------------------------------------------------*/
+
+#consultation .prodName {
+  font-size: 2.3em;
+}
+
+#consultation .prodPrice {
+  font-weight: bold;
+  font-size: 2em;
+}
+
+#consultation .prodDescript {
+font-weight: 600;
+}
+
 /* ===============================
 login-page
 ================ */
@@ -463,7 +481,7 @@ Panier
     color: #777;
 }
 
-#cart, .shipping, #confirmation, #product {
+#cart, .shipping, #confirmation, #product, #consultation {
   background-color: #f0f0f0;
 }
 

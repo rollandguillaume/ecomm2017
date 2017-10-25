@@ -4,15 +4,74 @@
 {% block body %}
 {{ parent() }}
 
-<h2>consultation {{produit.nom}}</h2>
 
-{{produit.nom}}
-<form class="" action="{{path('add_panier')}}" method="post">
-  <input type="text" name="nomProduit" value="{{produit.id}}" hidden>
-  <input type="number" name="qte" value="" min="1" placeholder="quantite">
-  <input type="submit" name="" value="ajouter au panier">
-</form>
+<!-- consultation section -->
+<section id="consultation">
+  <div class="container">
+    <!--
+    <div class="col-md-12">
+    <div class="container text-center">
+    <h2 class="heading-center">Fiche produit</h2>
+  </div>
+</div>
+<!-- End heading -->
 
+<div class="row">
+  <div class="col-md-4">
+    <p>
+      image du produit
+    </p>
+    <p>
+      <a class="btn btn-secondary" href="{{path('page_home')}}" role="button"><i class="fa fa-chevron-left"></i> Retour à l'accueil</a>
+    </p>
+  </div>
+  <!-- End product image -->
+
+  <div class="col-md-8">
+
+    <p>
+      <span class="prodName text-capitalize">{{produit.nom}}</span>
+    </p>
+    <p>
+      <span class="prodPrice text-success">€{{produit.prix}}</span>
+    </p>
+    <p>
+      <span class="prodDescript text-muted text-capitalize">{{produit.description}}</span>
+    </p>
+
+
+    <p>
+      <hr />
+      <form class="" action="{{path('add_panier')}}" method="post">
+        <input type="text" name="nomProduit" value="{{produit.id}}" hidden>
+        <input type="number" name="qte" value="" min="1" placeholder="Quantité">
+        <input class="btn btn-success" type="submit" name="" value="Ajouter au panier">
+      </form>
+    <hr />
+    </p>
+    <div class="product-share">
+      <span>Parlez-en autour de vous : </span>
+      <div class="social-bar">
+        <a href="#" class="fa fa-facebook" data-toggle="tooltip" data-placement="top" title="" data-original-title="Facebook">
+          <i class="socicon-facebook"></i>
+        </a>
+        <a href="#" class="fa fa-twitter" data-toggle="tooltip" data-placement="top" title="" data-original-title="Twitter">
+          <i class="socicon-twitter"></i>
+        </a>
+        <a href="#" class="fa fa-instagram" data-toggle="tooltip" data-placement="top" title="" data-original-title="Instagram">
+          <i class="socicon-instagram"></i>
+        </a>
+      </div>
+    </div>
+  </div>
+  <!-- End product details -->
+
+</div>
+<!-- End row product record -->
+
+</div>
+
+</section>
 
 
 {% endblock %}

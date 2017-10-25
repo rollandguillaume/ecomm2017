@@ -72,9 +72,9 @@ class CartController extends Controller
         );
         $this->setPanier($panier);
 
-        $ajout = "ajout de ".$qte." fois ".$produit->getNom();
+        $ajout = "Ajout de ".$qte." unité(s) de ".$produit->getNom()." dans votre panier.";
         if ($dejaPanier) {
-          $this->addFlash('notice', 'Ce produit est déjà présent dans votre panier : '.$ajout.'. Quantité actuelle : '.($oldQte+$qte));
+          $this->addFlash('notice', 'Le produit '.$produit->getNom().' était déjà présent dans votre panier. '.$ajout.' Quantité actuelle de '.$produit->getNom().': '.($oldQte+$qte));
         } else {
           $this->addFlash('notice', $ajout);
         }
@@ -83,7 +83,7 @@ class CartController extends Controller
         $this->addFlash('notice', 'Le produit est actuellement indisponible.');
       }
     } else {
-      $this->addFlash('notice', 'La quantité n\'est pas correcte');
+      $this->addFlash('noticeFail', 'La quantité demandée n\'est pas correcte. Merci de réessayer.');
     }
 
     return $this->redirectToRoute('ecomm_home', array(

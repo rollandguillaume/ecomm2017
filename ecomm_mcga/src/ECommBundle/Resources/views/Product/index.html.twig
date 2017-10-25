@@ -12,9 +12,6 @@
       <div class="container text-center">
         <h2 class="heading-center">Notre gamme de produits</h2>
       </div>
-    </div>
-    <div class="col-md-12">
-    <!-- /.col-md-12 heading -->
       {% for message in app.flashes('notice') %}
       <div class="alert alert-success" role="alert">
       <div class="flash-notice">
@@ -22,7 +19,17 @@
       </div>
     </div>
       {% endfor %}
-  </div>
+      {% for message in app.flashes('noticeFail') %}
+      <div class="alert alert-danger" role="alert">
+      <div class="flash-notice">
+        {{ message }}
+      </div>
+    </div>
+      {% endfor %}
+
+    </div>
+    <!-- /.col-md-12 heading -->
+
 
     <!-- end alert-success -->
     <div class="row">
