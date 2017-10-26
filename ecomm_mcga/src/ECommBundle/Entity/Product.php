@@ -50,7 +50,9 @@ class Product
   * @ORM\Column(name="quantity", type="integer", nullable=false)
   * @Assert\Range(
   *      min = 0,
-  *      minMessage = "Must be at least {{ limit }}",
+  *      minMessage = "Quantité min {{ limit }}",
+  *      max = 2147483647,
+  *      maxMessage = "Quantité max : {{ limit }}"
   * )
   */
   private $quantity;
