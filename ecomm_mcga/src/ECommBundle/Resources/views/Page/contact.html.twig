@@ -1,0 +1,21 @@
+{% extends ":layout:layoutbase.html.twig" %}
+
+
+{% block body %}
+{{ parent() }}
+
+<br>
+<br>
+
+<form action="{{path('contact')}}" id="contactform" method="post">
+  Sujet : <input type="text" name="subject">
+  <input type="submit" value="Envoyer">
+</form>
+<br>
+<textarea rows="4" cols="50" name="contenu" form="contactform" ></textarea>
+
+<br>
+<br>
+
+
+{% endblock %}
