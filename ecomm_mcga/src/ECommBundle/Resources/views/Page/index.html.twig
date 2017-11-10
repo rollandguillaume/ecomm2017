@@ -7,6 +7,14 @@ J&N - Accueil {{ parent() }}
 {% block body %}
 {{ parent() }}
 
+{% for message in app.flashes('notice') %}
+<div class="alert alert-success" role="alert">
+<div class="flash-notice">
+  {{ message }}
+</div>
+</div>
+{% endfor %}
+
 <!--==========================
 Hero Section
 ============================-->

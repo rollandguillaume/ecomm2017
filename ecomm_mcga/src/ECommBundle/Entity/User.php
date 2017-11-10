@@ -53,11 +53,7 @@ class User implements AdvancedUserInterface, \Serializable
   */
   private $orders;
 
-  /**
-  * @ORM\Column(type="string", nullable=true)
-  * @Assert\NotBlank
-  */
-  private $address=null;
+
 
   /**
   * @ORM\Column(type="string", length=255)
@@ -241,27 +237,4 @@ class User implements AdvancedUserInterface, \Serializable
       // allows for chaining
       return $this;
     }
-    /**
-    * Set address
-    *
-    * @param string $address
-    * @return User
-    */
-    public function setAddress($address)
-    {
-      $this->address = $address;
-
-      return $this;
-    }
-
-    /**
-    * Get address
-    *
-    * @return string
-    */
-    public function getAddress()
-    {
-      return $this->address;
-    }
-
   }
