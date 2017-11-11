@@ -29,11 +29,22 @@
           <a class="nav-link" href="{{ path('panier_produit') }}"><span class="fa fa-shopping-cart">Panier</span></a>
         </li>
       </ul>
+
+
+
         {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
-        {#Connecté en tant que {{ app.user.username }}#}
-        <a href="{{ path('logout') }}" role="button" class="btn btn-success" data-toggle="tooltip" data-placement="bottom" title="Connecté en tant que {{ app.user.username }}">Se déconnecter</a>
+        <div class="dropdown">
+          <button class="btn btn-outline-secondary dropdown-toggle" type="button" id="dropdownMenu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Bonjour {{ app.user.firstname }}
+          </button>
+          <div class="dropdown-menu" aria-labelledby="dropdownMenu">
+            <a class="dropdown-item" href="{{ path('logout') }}">Se déconnecter</a>
+            <a class="dropdown-item" href="{{ path('contact') }}">Nous contacter</a>
+            <a class="dropdown-item" href="{{ path('panier_produit') }}">Voir votre panier</a>
+          </div>
+        </div>
         {% else %}
-        <a href="{{ path('login') }}" role="button" class="btn btn-success">Se connecter</a>
+        <a href="{{ path('login') }}" role="button" class="btn">Identifiez-vous >></a>
         {% endif %}
     </div>
   </div>

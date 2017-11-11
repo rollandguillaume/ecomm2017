@@ -65,7 +65,6 @@ nav.navbar {
 }
 .navbar {
     font-family: 'Open Sans', serif;
-    text-transform: uppercase;
     letter-spacing: 0.1em;
     min-height: 100px;
     border-top: none;
@@ -79,6 +78,8 @@ nav.navbar {
 .navbar li>a, .navbar .fa{
   color:#228B22;
   font-weight: bold;
+  text-transform: uppercase;
+
 }
 
 .bg-light {
@@ -283,11 +284,11 @@ section.extra-features {
   font-weight: bold;
 }
 
-#product ul li{
+#product .list{
   font-size: 1.2em;
   margin-bottom: 10px;
+  color:#228B22;
 }
-
 
 /*--------------------------------------------------------------
 # Consultation Produit
@@ -451,6 +452,18 @@ Panier
     -moz-box-sizing: border-box;
     box-sizing: border-box;
     padding: 30px;
+    -webkit-box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+
+}
+
+#cartButton {
+    background: #228B22;
+    margin: 0 0 30px;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    padding: 40px;
     -webkit-box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1);
     box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
 

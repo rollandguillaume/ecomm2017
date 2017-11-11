@@ -34,7 +34,7 @@ class AdminController extends Controller
       $em = $this->getDoctrine()->getManager();
       $em->persist($user);
       $em->flush();
-      $this->addFlash('notice', 'utilisateur ajouté ');
+      $this->addFlash('notice', 'Utilisateur ajouté ');
     }
 
     $listUser=$userRepository->findAll();
@@ -64,7 +64,7 @@ class AdminController extends Controller
       $em = $this->getDoctrine()->getManager();
       $em->persist($category);
       $em->flush();
-      $this->addFlash('notice', 'catégorie ajouté');
+      $this->addFlash('notice', 'Catégorie ajoutée');
     }
 
     $listcategory=$categoryRepository->findAll();
@@ -94,7 +94,7 @@ class AdminController extends Controller
       $em = $this->getDoctrine()->getManager();
       $em->persist($product);
       $em->flush();
-      $this->addFlash('notice', 'produit ajouté');
+      $this->addFlash('notice', 'Produit ajouté');
     }
 
     $listproduct=$productRepository->findAll();
@@ -124,9 +124,9 @@ class AdminController extends Controller
         $em = $this->getDoctrine()->getManager();
         $em->remove($produit);
         $em->flush();
-        $this->addFlash('notice', 'suppression du produit '.$produit->getNom());
+        $this->addFlash('notice', 'Suppression du produit '.$produit->getNom());
       } else {
-        $this->addFlash('notice', 'produit inexistant');
+        $this->addFlash('notice', 'Produit inexistant');
       }
     }
     return $this->render('AdminBundle:Admin:removeProduct.html.twig', array(

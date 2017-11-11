@@ -33,29 +33,36 @@
 
     <!-- end alert-success -->
     <div class="row">
+      <!-- start of left menu -->
       <div class="col-md-3">
+
+          <a id="cartButton" class="btn btn-success" role="button" href="{{ path('panier_produit') }}">
+            <span class="fa fa-shopping-cart fa-lg"> </br></br>Votre panier</span>
+          </a>
+
         <div class="box form-holder">
           <h3 class="my-4">Catégories</h3>
           <div class="list">
-            <ul class=" list-unstyled text-capitalize">
+            <ul class=" list-unstyled text-capitalize" >
+              <li>
+                <i class="fa fa-repeat"></i>  <a href="{{ path('ecomm_home') }}">Tous nos produits</a>
               {% for categorytab in categories %}
-              <li>  <a href="{{ path('category', {'name' : categorytab.name}) }}"
-
+             <a href="{{ path('category', {'name' : categorytab.name}) }}"
                 {% if category is defined and category==categorytab %}
                 class="ml-4 active"
                 {% else %}
                 class="ml-4"
                 {% endif %}
-
-                ><i class="fa fa-minus"> </i>  {{ categorytab.name }}</a>
+                ><i class="fa fa-minus"></i>  {{ categorytab.name }}</a>
               </li>
 
             {% endfor %}
           </div>
         </div>
         <!-- /.col-md-4 product categories -->
-
       </div>
+      <!-- end of left menu -->
+
       <div class="col-md-9">
         <div class="box form-holder">
 
@@ -76,7 +83,7 @@
                       <p class="card-price">
                         €{{ produit.prix }}
                       </p>
-                      <button type="button" class="btn btn-success"><i class="fa fa-cart-plus"> Ajouter au panier</i></button>
+                      <button type="button" class="btn btn-outline-success">Voir fiche produit</i></button>
 
                     </div>
 
