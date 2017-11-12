@@ -5,16 +5,35 @@ use Symfony\Component\HttpFoundation\Response;
 use ECommBundle\Entity\Order;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 use Symfony\Component\HttpKernel\Exception\UnauthorizedHttpException;
+use Symfony\Component\HttpFoundation\Request;
+
+use ECommBundle\Form\UserAddressType;
+use ECommBundle\Entity\UserAddress;
 
 
 class OrderController extends Controller
 {
   /**
-   *
-   */
-  public function recapAction() {
+  *
+  */
+  public function recapAction(Request $request) {
+    // 1) build the form
+    $address = new UserAddress();
+    $form = $this->createForm(UserAddressType::class, $address);
+
+    // 2) handle the submit (will only happen on POST)
+    $form->handleRequest($request);
+    if ($form->isSubmitted() && $form->isValid()) {
+      $em = $this->getDoctrine()->getManager();
+      $em->persist($address);
+      $em->flush();
+
+      return $this->validationAction();
+    }
+
     return $this->render('ECommBundle:Order:orderRecap.html.twig', array(
-      'recapitulatif' => $this->makeListCommande()
+      'recapitulatif' => $this->makeListCommande(),
+      'form' => $form->createView()
     ));
   }
 

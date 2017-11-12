@@ -70,6 +70,12 @@ class User implements AdvancedUserInterface, \Serializable
   */
   private $roles = array();
 
+  /**
+  *@ORM\OneToOne(targetEntity="ECommBundle\Entity\UserAddress", cascade={"persist"})
+  *@ORM\JoinColumn(nullable=true)
+  */
+  private $address;
+
 
   public function __construct()
   {
@@ -236,5 +242,15 @@ class User implements AdvancedUserInterface, \Serializable
 
       // allows for chaining
       return $this;
+    }
+
+    public function setAddress(UserAddress $address = null)
+    {
+      $this->address = $address;
+    }
+
+    public function getAddress()
+    {
+      return $this->address;
     }
   }

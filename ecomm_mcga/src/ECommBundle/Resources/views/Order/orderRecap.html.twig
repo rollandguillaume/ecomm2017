@@ -17,7 +17,10 @@
       <div class="col-md-12">
 
         <div class="box form-holder">
-          <form id="shipping-address-form" action="#" method="post">
+            {{ form_start(form, {'id': 'shipping-address-form'} ) }}
+            {{ form_errors(form) }}
+            <button type="submit">login</button>
+            {{ form_end(form) }}
             <div class="shipping-main">
               <div class="box-header">
                 <h3><span class="text-success">1.</span> Adresse de livraison</h3>
@@ -54,6 +57,7 @@
               </div>
             </div>
           </div>
+
 
         </div>
       </div>
@@ -124,7 +128,7 @@
           </table>
 
           <div class="col-sm-12">
-          <a href="{{path('commande_confirmation_finale')}}" >
+           {#<a href="{{path('commande_confirmation_finale')}}" #}
             <input class="oder-now btn btn-unique btn-lg text-center" id="shipping-submit" type="button" name="" value="Commander">
           </a>
         </div>

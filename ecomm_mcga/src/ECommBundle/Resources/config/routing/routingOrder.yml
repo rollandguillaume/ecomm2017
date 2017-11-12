@@ -2,8 +2,3 @@ commande_validation:
   path:   /
   defaults:
     _controller:  ECommBundle:Order:recap
-
-commande_confirmation_finale:
-  path:   /confirm
-  defaults:
-    _controller:  ECommBundle:Order:validation
