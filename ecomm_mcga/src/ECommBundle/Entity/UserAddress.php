@@ -37,12 +37,6 @@ class UserAddress
   */
   private $lastname;
 
-  /**
-  *@ORM\Column(name="email", type="text", length=125)
-  *@Assert\NotBlank()
-  *@Assert\Email()
-  */
-  protected $email;
 
   /**
   *
@@ -60,7 +54,10 @@ class UserAddress
   */
   protected $address2;
 
-
+  /**
+  * @ORM\Column(name="state", type="text", length=125)
+  */
+  protected $state;
 
   /**
   * @ORM\Column(name="zip", type="integer", length=125)
@@ -129,30 +126,6 @@ class UserAddress
   public function getLastname()
   {
     return $this->lastname;
-  }
-
-  /**
-  * Set email
-  *
-  * @param string $email
-  *
-  * @return UserAddress
-  */
-  public function setEmail($email)
-  {
-    $this->email = $email;
-
-    return $this;
-  }
-
-  /**
-  * Get email
-  *
-  * @return string
-  */
-  public function getEmail()
-  {
-    return $this->email;
   }
 
   /**
@@ -225,6 +198,30 @@ class UserAddress
   public function getAddress2()
   {
     return $this->address2;
+  }
+
+  /**
+  * Set state
+  *
+  * @param string $state
+  *
+  * @return UserAddress
+  */
+  public function setState($state)
+  {
+    $this->state = $state;
+
+    return $this;
+  }
+
+  /**
+  * Get state
+  *
+  * @return string
+  */
+  public function getState()
+  {
+    return $this->state;
   }
 
   /**

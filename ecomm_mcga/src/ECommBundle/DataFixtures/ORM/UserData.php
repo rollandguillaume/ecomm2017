@@ -13,7 +13,7 @@ class UserData extends Fixture
     $user->setFirstname('name');
     $user->setLastname('lastname');
     $encoder = $this->container->get('security.password_encoder');
-    $password = $encoder->encodePassword($user, 'vendeur');
+    $password = $encoder->encodePassword($user, 'admin');
     $user->setPassword($password);
     $user->setEmail('admin@admin.fr');
     $user->setRoles(array('ROLE_VENDEUR'));

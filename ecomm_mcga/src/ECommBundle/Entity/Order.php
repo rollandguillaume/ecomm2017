@@ -48,6 +48,13 @@ class Order
      */
     private $commande;
 
+    /**
+     * @var array
+     *
+     * @ORM\Column(name="useraddress", type="array")
+     */
+    private $useraddress;
+
 
     /**
      * Get id
@@ -126,6 +133,29 @@ class Order
     public function getCommande()
     {
         return $this->commande;
+    }
+
+    /**
+     * Set useraddress
+     *
+     * @param array $useraddress
+     * @return Order
+     */
+    public function setUseraddress($useraddress)
+    {
+        $this->useraddress = $useraddress;
+
+        return $this;
+    }
+
+    /**
+     * Get useraddress
+     *
+     * @return array
+     */
+    public function getUseraddress()
+    {
+        return $this->useraddress;
     }
 
     /**

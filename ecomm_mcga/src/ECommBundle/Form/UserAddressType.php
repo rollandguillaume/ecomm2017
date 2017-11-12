@@ -6,7 +6,6 @@ use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\NumberType;
-use Symfony\Component\Form\Extension\Core\Type\EmailType;
 
 use ECommBundle\Entity\UserAddress;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
@@ -18,7 +17,7 @@ class UserAddressType extends AbstractType
     $builder
     ->add('name', TextType::class)
     ->add('lastname', TextType::class)
-    ->add('email', EmailType::class)
+    ->add('state', TextType::class)
     ->add('phone', NumberType::class)
     ->add('address', TextType::class)
     ->add('address2', TextType::class)

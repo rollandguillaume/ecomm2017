@@ -17,24 +17,37 @@ class OrderController extends Controller
   *
   */
   public function recapAction(Request $request) {
-    // 1) build the form
-    $address = new UserAddress();
-    $form = $this->createForm(UserAddressType::class, $address);
 
-    // 2) handle the submit (will only happen on POST)
-    $form->handleRequest($request);
-    if ($form->isSubmitted() && $form->isValid()) {
-      $em = $this->getDoctrine()->getManager();
-      $em->persist($address);
-      $em->flush();
+    if ($this->get('security.authorization_checker')->isGranted('ROLE_USER')) {
+      $userLog = $this->get('security.token_storage')->getToken()->getUser();
+      $address =$userLog->getAddress();
 
-      return $this->validationAction();
+      if (!$address) {//pas d'address alors initialisation
+        $address = new UserAddress();
+      }
+
+      // 1) build the form
+      $form = $this->createForm(UserAddressType::class, $address);
+
+      // 2) handle the submit (will only happen on POST)
+      $form->handleRequest($request);
+      if ($form->isSubmitted() && $form->isValid()) {
+        $userLog->SetAddress($address);
+        $em = $this->getDoctrine()->getManager();
+        $em->persist($userLog);
+        $em->flush();
+
+        return $this->validationAction();
+      }
+
+      return $this->render('ECommBundle:Order:orderRecap.html.twig', array(
+        'recapitulatif' => $this->makeListCommande(),
+        'form' => $form->createView()
+      ));
+
+    }else {
+      throw new UnauthorizedHttpException(null, "Non connecté");
     }
-
-    return $this->render('ECommBundle:Order:orderRecap.html.twig', array(
-      'recapitulatif' => $this->makeListCommande(),
-      'form' => $form->createView()
-    ));
   }
 
   /**
@@ -55,10 +68,12 @@ class OrderController extends Controller
         //sinon creer l'objet commande dans la bdd
         $commande = new Order();
         $commande->setDate(new \DateTime());
-        $commande->setValider(1);
+        $commande->setValider(0);
         $commande->setUtilisateur($userLog);
         $listCommande = $this->makeListCommande();
         $commande->setCommande($listCommande);
+        $listUserAddress = $this->makeListUserAddress();
+        $commande->setUseraddress($listUserAddress);
 
         $em = $this->getDoctrine()->getManager();
         $em->persist($commande);
@@ -104,6 +119,28 @@ class OrderController extends Controller
     $listCommande["prixTot"] = $prixTot;
 
     return $listCommande;
+  }
+
+  /**
+  * pre: utilisateur doit avoir une address et etre connecté
+  */
+  private function makeListUserAddress () {
+    $userLog = $this->get('security.token_storage')->getToken()->getUser();
+    $address =$userLog->getAddress();
+    $listUserAddress = array();
+
+    $listUserAddress['address'] = array(
+      "name" => $address->getName(),
+      "lastname" => $address->getLastName(),
+      "state" => $address->getState(),
+      "phone" => $address->getPhone(),
+      "address" => $address->getAddress(),
+      "address2" => $address->getAddress2(),
+      "zip" => $address->getZip(),
+      "city" => $address->getCity()
+    );
+
+    return $listUserAddress;
   }
 
 
