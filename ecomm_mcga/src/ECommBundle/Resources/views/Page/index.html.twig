@@ -1,19 +1,11 @@
 {% extends ":layout:layoutbase.html.twig" %}
 
 {% block title %}
-J&N - Accueil {{ parent() }}
+J&amp;N - Accueil {{ parent() }}
 {% endblock %}
 
 {% block body %}
 {{ parent() }}
-
-{% for message in app.flashes('notice') %}
-<div class="alert alert-success" role="alert">
-<div class="flash-notice">
-  {{ message }}
-</div>
-</div>
-{% endfor %}
 
 <!--==========================
 Hero Section
@@ -36,9 +28,9 @@ Hero Section
 <!-- Intro Section -->
 <section id="intro">
   <div class="container text-center">
-    <h2 class="heading-center">Qui sont Jack et Noël ?</h2>
+    <h2 class="heading-center">Qui sont Jack et No&euml;l ?</h2>
     <h3>Le début d'une longue amitié entre un viticulteur breton et un cidrier normand...</h3>
-    <p class="lead">C'est au <span class="text-success">Salon de l'Agriculture de Paris</span> que les deux amis se rencontrent pour la première fois. Comme chaque année, leurs produits sont primés et remportent un vif succès auprès du grand public, à tel point que Jack et Noël décident de lancer leur propre entreprise de vente. C'est en voulant <span class="text-success">promouvoir</span> davantage les <span class="text-success">produits du terroir</span> qu'ils fondent <span class="text-success">Jack&Noël</span> : On y retrouve le vin de <span class="text-success">Bretagne</span> produit par le vignoble de Jack, et le cidre issu des vergers de Noël en <span class="text-success">Normandie</span>.</p>
+    <p class="lead">C'est au <span class="text-success">Salon de l'Agriculture de Paris</span> que les deux amis se rencontrent pour la première fois. Comme chaque année, leurs produits sont primés et remportent un vif succès auprès du grand public, à tel point que Jack et No&euml;l décident de lancer leur propre entreprise de vente. C'est en voulant <span class="text-success">promouvoir</span> davantage les <span class="text-success">produits du terroir</span> qu'ils fondent <span class="text-success">Jack&amp;No&euml;l</span> : On y retrouve le vin de <span class="text-success">Bretagne</span> produit par le vignoble de Jack, et le cidre issu des vergers de No&euml;l en <span class="text-success">Normandie</span>.</p>
   </div>
 </section>
 
@@ -48,7 +40,7 @@ Hero Section
     <header>
       <h2>Des produits de qualité</h2>
       <div class="row">
-        <p class="lead col-lg-8 mx-auto">Soucieux de transmettre aux consommateurs le goût du terroir, Jack & Noël ont a coeur de vous vendre des produits de hautes qualités.</p>
+        <p class="lead col-lg-8 mx-auto">Soucieux de transmettre aux consommateurs le goût du terroir, Jack&amp;No&euml;l ont à c&oelig;ur de vous vendre des produits de haute qualité.</p>
       </div>
     </header>
   </div>
@@ -63,7 +55,7 @@ Hero Section
       </div>
       <div class="item col-lg-4 col-md-6">
         <div class="icon"> <i class="fa fa-map-signs fa-lg"></i></div>
-        <h3 class="h5">Produit localement</h3>
+        <h3 class="h5">Des produits locaux</h3>
       </div>
       <div class="item col-lg-4 col-md-6">
         <div class="icon"> <i class="fa fa-trophy fa-lg"></i></div>
@@ -149,16 +141,16 @@ Hero Section
       </div>
       <div class="col-md-4">
         <div class="quote"><i class="fa fa-quote-left fa-3x"></i></div>
-        <p>C'est simple : une journée sans vin est une journée sans soleil ! Depuis que je connais Jack&Noel, je ne peux plus me passer de leurs produits, tant le rapport qualité/prix est incomparable.
+        <p>C'est simple : une journée sans vin est une journée sans soleil ! Depuis que je connais Jack&amp;No&euml;l, je ne peux plus me passer de leurs produits, tant le rapport qualité/prix est incomparable.
         </p>
         <p class="quote-author">Par Félix B.</p>
       </div>
     <div class="col-md-4">
       <div class="quote"><i class="fa fa-quote-left fa-3x"></i></div>
-        <p>Voilà comment définir le cidre de Noel : À l'oeil, un fin cordon de bulles ; au nez, des senteurs terriennes de sous-bois précieux, de la mousse, de la truffe noire ; en bouche, une attaque finement acidulée, de l'ampleur, une texture confortable, avec, en finale, une noble amertume qui fait saliver.
+        <p>Voilà comment définir le cidre de No&euml;l : À l'oeil, un fin cordon de bulles ; au nez, des senteurs terriennes de sous-bois précieux, de la mousse, de la truffe noire ; en bouche, une attaque finement acidulée, de l'ampleur, une texture confortable, avec, en finale, une noble amertume qui fait saliver.
         </p>
         <p>
-          Avec le cidre de Noel, quel plaisir de tomber dans les pommes !
+          Avec le cidre de No&euml;l, quel plaisir de tomber dans les pommes !
         </p>
         <p class="quote-author">Par Blanche-Neige</p>
     </div>
@@ -170,8 +162,8 @@ Hero Section
 <!-- End Divider Section -->
 <section class="gallery">
   <div class="container text-center">
-    <h2 class="heading-center">Gallerie</h2>
-    <h3>Jack&Noel en toute transparence</h3>
+    <h2 class="heading-center">Galerie</h2>
+    <h3>Jack&amp;No&euml;l en toute transparence</h3>
   </br>
   </div>
     <div class="container-fluid">
@@ -205,7 +197,7 @@ Hero Section
 <!-- Brands Section -->
 <section id="brands">
   <div class="container text-center">
-    <h2 class="heading-center">Labels & Partenaires</h2>
+    <h2 class="heading-center">Labels &amp; Partenaires</h2>
   </br>
   </div>
   <div class="container text-center">

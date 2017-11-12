@@ -2,10 +2,22 @@
 
 {% block body %}
 
-{% if error %}
-    <div>{{ error.messageKey|trans(error.messageData, 'security') }}</div>
-{% endif %}
 <section class="login-page">
+
+
+  {% for message in app.flashes('notice') %}
+  <div class="container-fluid alert alert-success" role="alert">
+  <div class="flash-notice">
+    {{ message }}
+  </div>
+  </div>
+  {% endfor %}
+
+  {% if error %}
+      <div>{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+  {% endif %}
+
+
 
 <div class="form">
 <form action="{{ path('login') }}" method="post">
@@ -24,7 +36,7 @@
        value="{{ csrf_token('authenticate') }}"
    >
 
-    <button type="submit">login</button>
+    <button type="submit">Se connecter</button>
 </form>
 <a class="pull-right" href="{{ path('user_registration') }}">Pas encore inscrit ?</a>
 </div>
