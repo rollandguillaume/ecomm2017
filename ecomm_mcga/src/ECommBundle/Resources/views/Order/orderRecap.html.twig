@@ -55,7 +55,7 @@
                 </div>
               </div>
               <div class="col-sm-4">
-                {{ form_widget(form.address2, {'attr': {'class': 'form-control', 'placeholder': 'Apt, étage, etc.'}}) }}
+                {{ form_widget(form.address2, {'attr': {'class': 'form-control', 'placeholder': 'Apt, étage, etc.*'}}) }}
                 <div class="form-group row has-danger">
                   <div class="form-control-feedback">{{ form_errors(form.address2) }}</div>
                 </div>
@@ -72,10 +72,12 @@
                   <div class="form-control-feedback">{{ form_errors(form.zip) }}</div>
                 </div>
               </div>
+              <!--
               <div class="col-sm-12">
                 <input type="checkbox" id="another-address">
                 <label for="another-address">Adresse de facturation différente</label>
               </div>
+            -->
             </div>
           </div>
         </div>
@@ -88,31 +90,28 @@
 
         <div class="box payment-method">
           <div class="box-header">
-
             <h3><span class="text-success">2.</span> Méthode de paiement <i class="fa fa-lock pull-right text-success"></i></h3>
           </div>
-          <div class="payment-method">
-            <ul class="list-unstyled list-inline">
-              <li><img src="img/visa.svg" alt="visa" width="50"></li>
-              <li><img src="img/mastercard.svg" alt="mastercard" width="50"></li>
-              <li><img src="img/amex.svg" alt="amex" width="40"></li>
-            </ul>
-          </div>
+          <p class="payment-method text-secondary">
+              <i class="fa fa-cc-visa fa-3x">  </i>
+              <i class="fa fa-cc-mastercard fa-3x">  </i>
+              <i class="fa fa-cc-amex fa-3x">  </i>
+          </p>
           <div class="row">
             <div class="col-sm-12">
               <input type="text" name="cardname" class="form-control" placeholder="Nom du titulaire de la carte" required>
             </div>
-            <div class="col-sm-6">
+            <div class="col-sm-7">
               <input type="text" name="cardnumber" class="form-control" placeholder="Numéro de carte" maxlength="14" required>
             </div>
-            <div class="col-sm-">
-              <input type="text" name="expirymonth" class="form-control" placeholder="Mois d'expiration" required>
+            <div class="col-sm-5">
+              <input type="password" name="cvv" class="form-control" placeholder="Cryptogramme" maxlength="3" required>
             </div>
-            <div class="col-sm-4">
-              <input type="text" name="expiryyear" class="form-control" placeholder="Année d'expiration" required>
+            <div class="col-sm-6">
+              <input type="text" name="expirymonth" class="form-control" placeholder="Mois d'expiration" maxlength="2" required>
             </div>
-            <div class="col-sm-4">
-              <input type="text" name="cvv" class="form-control" placeholder="Cryptogramme" maxlength="3" required>
+            <div class="col-sm-6">
+              <input type="text" name="expiryyear" class="form-control" placeholder="Année d'expiration" maxlength="4" required>
             </div>
           </div>
         </div>
