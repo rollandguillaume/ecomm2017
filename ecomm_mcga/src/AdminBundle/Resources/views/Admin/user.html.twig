@@ -3,8 +3,10 @@
 
 {% block stylesheets %}
 {{ parent() }}
-<link rel="stylesheet" href="https://cdn.datatables.net/responsive/2.2.0/css/responsive.bootstrap4.min.css">
-<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/bs4/dt-1.10.16/datatables.min.css"/>
+<!-- https://cdn.datatables.net/responsive/2.2.0/css/responsive.bootstrap4.min.css -->
+<link rel="stylesheet" href="{{asset('admin/tablecss_js/responsive.bootstrap4.min.css')}}">
+<!-- <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/bs4/dt-1.10.16/datatables.min.css"/> -->
+<link rel="stylesheet" href="{{asset('admin/tablecss_js/datatables.min.css')}}">
 {% endblock %}
 
 {% block page_content %}
@@ -136,11 +138,15 @@
 
 {% block javascripts %}
 {{ parent() }}
-<script src="{{ asset('admin/table.js') }}"></script>
-<script src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
-<script src="https://cdn.datatables.net/1.10.16/js/dataTables.bootstrap4.min.js"></script>
-<script src="https://cdn.datatables.net/responsive/2.2.0/js/dataTables.responsive.min.js"></script>
-<script src="https://cdn.datatables.net/responsive/2.2.0/js/responsive.bootstrap4.min.js"></script>
-<script type="text/javascript" src="https://cdn.datatables.net/v/bs4/dt-1.10.16/datatables.min.js"></script>
-
+<script src="{{ asset('admin/tablecss_js/table.js') }}"></script>
+<!-- <script src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script> -->
+<script src="{{ asset('admin/tablecss_js/jquery.dataTables.min.js') }}"></script>
+<!-- <script src="https://cdn.datatables.net/1.10.16/js/dataTables.bootstrap4.min.js"></script> -->
+<script src="{{ asset('admin/tablecss_js/dataTables.bootstrap4.min.js') }}"></script>
+<!-- <script src="https://cdn.datatables.net/responsive/2.2.0/js/dataTables.responsive.min.js"></script> -->
+<script src="{{ asset('admin/tablecss_js/dataTables.bootstrap4.min.js') }}"></script>
+<!-- <script src="https://cdn.datatables.net/responsive/2.2.0/js/responsive.bootstrap4.min.js"></script> -->
+<script src="{{ asset('admin/tablecss_js/responsive.bootstrap4.min.js') }}"></script>
+<!-- <script type="text/javascript" src="https://cdn.datatables.net/v/bs4/dt-1.10.16/datatables.min.js"></script> -->
+<script src="{{ asset('admin/tablecss_js/datatables.min.js') }}"></script>
 {% endblock %}

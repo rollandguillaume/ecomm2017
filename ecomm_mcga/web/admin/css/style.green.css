@@ -1492,11 +1492,12 @@ section.charts div[class*="col-"] {
 *     FORM ELEMENTS
 * ==========================================================
 */
-.form-control {
+
+/*.form-control {
   border: 1px solid #e6e6e6;
   border-radius: 0;
   padding: 10px 15px;
-}
+}*/
 
 .form-control::-moz-placeholder {
   font-size: 0.9em;
