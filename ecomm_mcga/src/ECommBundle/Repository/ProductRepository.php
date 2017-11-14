@@ -30,8 +30,6 @@ class ProductRepository extends EntityRepository
   {
     $query = $this->createQueryBuilder('a')
     // Jointure sur l'attribut image
-    ->leftJoin('a.medias', 'm')
-    ->addSelect('m')
     ;
 
     return $query
@@ -48,10 +46,9 @@ class ProductRepository extends EntityRepository
   {
       $qb = $this->getEntityManager()->createQueryBuilder();
 
-      $qb->select(['p', 'pm',])
+      $qb->select(['p',])
           ->from('ECommBundle:Product', 'p')
           ->innerJoin('p.category', 'ca')
-          ->leftJoin('p.medias', 'pm')
           ->where('ca = :category')
           ->andWhere('p.quantity <> 0')
           ->setParameter('category', $category);

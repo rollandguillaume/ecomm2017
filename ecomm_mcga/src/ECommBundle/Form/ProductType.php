@@ -8,6 +8,7 @@ use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\IntegerType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\Extension\Core\Type\MoneyType;
+use Symfony\Component\Form\Extension\Core\Type\FileType;
 use ECommBundle\Entity\Product;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 
@@ -28,6 +29,7 @@ class ProductType extends AbstractType
 
       'choice_label' => 'name',
     ))
+    ->add('imagefile', FileType::class)
     ->add('save', SubmitType::class)
     ;
   }

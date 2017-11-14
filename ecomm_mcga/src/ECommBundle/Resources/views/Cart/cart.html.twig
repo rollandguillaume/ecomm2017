@@ -54,13 +54,13 @@
                 {% if item.qte > 0 %}
                 <tbody>
                   <tr>
-                    <!-- Image du produit. N'a finalement pas été implémenté.
+
                     <td>
                       <a href="#">
-                        <img src="http://via.placeholder.com/80x130" alt="img de {{item.produit.nom}} ">
+                        <img src="{{ asset('uploads/images/' ~ item.produit.imagefile) }}" >
                       </a>
                     </td>
-                  -->
+
                     <td colspan="2" class="text-capitalize">{{item.produit.nom}}</td>
                     <td>{{item.qte}}
 

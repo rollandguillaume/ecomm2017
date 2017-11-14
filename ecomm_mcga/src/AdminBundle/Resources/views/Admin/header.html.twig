@@ -11,7 +11,7 @@
       <div class="navbar-holder d-flex align-items-center justify-content-between">
         <!-- Navbar Header-->
         <div class="navbar-header">
-          <!-- Navbar Brand --><a href="index.html" class="navbar-brand">
+          <!-- Navbar Brand --><a href="{{ path('page_home') }}" class="navbar-brand">
             <div class="brand-text brand-big hidden-lg-down"><span>Jack</span><strong>&</strong><span>Noël</span></div>
             <div class="brand-text brand-small"><strong>J&N</strong></div></a>
           <!-- Toggle Button--><a id="toggle-btn" href="#" class="menu-btn active"><span></span><span></span><span></span></a>
@@ -68,7 +68,7 @@
             </ul>
           </li>
           <!-- Logout    -->
-          <li class="nav-item"><a href="login.html" class="nav-link logout">Logout<i class="fa fa-sign-out"></i></a></li>
+          <li class="nav-item"><a href="{{ path('logout') }}" class="nav-link logout">Logout<i class="fa fa-sign-out"></i></a></li>
         </ul>
       </div>
     </div>

@@ -20,19 +20,7 @@ order_admin:
   path:   /order
   defaults:
     _controller: AdminBundle:Admin:order
-
-
-
-
-
-
-
-add_new_produit:
-  path:   /add
+ordershow_admin:
+  path:   /order/{id}
   defaults:
-    _controller: AdminBundle:Admin:addProduct
-
-remove_produit:
-  path:   /remove
-  defaults:
-    _controller: AdminBundle:Admin:removeProduct
+    _controller: AdminBundle:Admin:ordershow

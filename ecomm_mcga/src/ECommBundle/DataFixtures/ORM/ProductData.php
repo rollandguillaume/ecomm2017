@@ -7,6 +7,9 @@ use Doctrine\Common\Persistence\ObjectManager;
 use ECommBundle\Entity\Product;
 use ECommBundle\Entity\Media;
 use Eshop\ShopBundle\Entity\Category;
+use Symfony\Component\HttpFoundation\File\File;
+use Symfony\Component\Filesystem\Filesystem;
+use Symfony\Component\Filesystem\Exception\IOExceptionInterface;
 
 class ProductData extends AbstractFixture implements OrderedFixtureInterface
 {
@@ -14,61 +17,72 @@ class ProductData extends AbstractFixture implements OrderedFixtureInterface
   {
     $categoryRepository = $manager->getRepository('ECommBundle:Category');
 
-    $produit1 = new Product();
-    $produit1->setDescription("excellent cidre");
-    // $produit1->setDisponible('1');
-    $produit1->setNom('cidre');
-    $produit1->setPrix('1.99');
-    $produit1->setCategory($categoryRepository->findByName('cidre'));
-    $produit1->setQuantity(mt_rand(1, 10));
-    // Création de l'entité Image
-    $image = new Media();
-    $image->setUrl('http://placehold.it/800x400');
-    $image->setAlt('cidre');
-    // On lie l'image à l'annonce
-    $produit1->addMedias($image);
+    $ormurl='src/ECommBundle/DataFixtures/ORM/image/';
+    $tabproduct= array(
+      array('nom' => 'Les Lanes rouge Domaine de la Baronne',
+      'description' => "Bouche ronde, vive et gouleyante, une matière gourmande sur un fruit juteux et les épices, accompagnée par une belle fraîcheur, des tanins souples, une finale friande.",
+      'prix' => '11',
+      'category' => 'Vin',
+      'image' => 'les-lanes-rouge-domaine-de-la-baronne.jpg',
+      'quantity' => mt_rand(1, 10)
+    ),
+    array('nom' => "Cuvée lArdoise Château Fardel Laurens",
+    'description' => "Robe grenat évolué. Nez mûr, ambiance forestière, touche de cuir, d'épices, de fruits noirs confitures. Bouche à maturité, assez souple. Les parfums sont présents, le boisé déjà fondu. Médaillé d'Or aux Vinalies Internationales 2016",
+    'prix' => '7.90',
+    'category' => 'Vin',
+    'image' => 'chateau-fardel-laurens.jpg',
+    'quantity' => mt_rand(1, 10)
+  ),
+  array('nom' => 'CIDRE LE BRUN BREIZH BRUT',
+  'description' => "Cidre fermier Brut - LE BRUN - cidre fermier - Vendu à l'unité - 1x 75cl - Cidre Breton - Pommes issues des vergers du propriétaire récoltant",
+  'prix' => '3.90',
+  'category' => 'Cidre',
+  'image' => 'cidre-le-brun-breizh-brut.jpg',
+  'quantity' => mt_rand(1, 10)
+),
+array('nom' => 'Cidre Kerisac doux 2° 70cl',
+'description' => "cidre fermier - Vendu à l'unité - 1x 70cl - Cidre Breton - Pommes issues des vergers du propriétaire récoltant",
+'prix' => '3.90',
+'category' => 'Cidre',
+'image' => 'cidre-kerisac-doux-2deg-70cl.jpg',
+'quantity' => mt_rand(1, 10)
+)
 
-    $image2 = new Media();
-    $image2->setUrl('http://placehold.it/700x400');
-    $image2->setAlt('cidre');
-    // On lie l'image à l'annonce
-    $produit1->addMedias($image2);
+);
 
-    $manager->persist($produit1);
 
-    $produit2 = new Product();
-    $produit2->setDescription("excellent vin");
-    // $produit2->setDisponible('1');
-    $produit2->setNom('vin');
-    $produit2->setPrix('1.99');
-    $produit2->setCategory($categoryRepository->findByName('vin'));
-    $produit2->setQuantity(mt_rand(1, 10));
-    $manager->persist($produit2);
+$fs = new Filesystem();
+$fs->remove(array('symlink','web/uploads/images', 'activity.log'));
+foreach ($tabproduct as $value) {
+  $produit = new Product();
+  $produit->setNom($value['nom']);
+  $produit->setPrix($value['prix']);
+  $produit->setDescription($value['description']);
+  $produit->setCategory($categoryRepository->findByName($value['category']));
+  $produit->setQuantity($value['quantity']);
 
-    $produit3 = new Product();
-    $produit3->setDescription("excellent vin");
-    // $produit3->setDisponible('1');
-    $produit3->setNom('vin2');
-    $produit3->setPrix('1.99');
-    $produit3->setCategory($categoryRepository->findByName('vin'));
-    $produit3->setQuantity(mt_rand(1, 10));
-    // Création de l'entité Image
-    $image3 = new Media();
-    $image3->setUrl('http://placehold.it/900x1000');
-    $image3->setAlt('vin');
+  $file = new File($ormurl.$value['image']);
+  $fileName = md5(uniqid()).'.'.$file->guessExtension();
+  $fs->copy($file,
+  'web/uploads/images/'.$fileName
+);
+$produit->setImagefile($fileName);
 
-    // On lie l'image à l'annonce
-    $produit3->addMedias($image3);
-    $manager->persist($produit3);
 
-    $manager->flush();
-  }
+$manager->persist($produit);
 
-  /**
-  * @return int
-  */
-  public function getOrder()
-  {
-    return 3; // the order in which fixtures will be loaded
-  }
+}
+$manager->flush();
+}
+
+
+
+
+/**
+* @return int
+*/
+public function getOrder()
+{
+  return 3; // the order in which fixtures will be loaded
+}
 }

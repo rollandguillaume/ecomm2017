@@ -14,11 +14,11 @@ class CategoryData implements FixtureInterface, OrderedFixtureInterface
   public function load(ObjectManager $manager)
   {
     $category = new Category();
-    $category->setName('vin ');
+    $category->setName('Vin');
     $manager->persist($category);
 
     $category2 = new Category();
-    $category2->setName('cidre1');
+    $category2->setName('Cidre');
     $manager->persist($category2);
 
     $manager->flush();

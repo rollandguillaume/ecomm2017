@@ -58,12 +58,6 @@ class Product
   private $quantity;
 
   /**
-  * @ORM\OneToMany(targetEntity="ECommBundle\Entity\Media", cascade={"persist", "remove"}, mappedBy="produit")
-  * @Assert\Valid()
-  */
-  private $medias;
-
-  /**
   * @ORM\ManyToOne(targetEntity="Category", inversedBy="products")
   * @ORM\JoinColumn(name="category_id", referencedColumnName="id")
   */
@@ -71,7 +65,6 @@ class Product
 
   public function __construct()
   {
-    $this->medias = new ArrayCollection();
   }
 
   /**
@@ -154,46 +147,6 @@ class Product
   }
 
   /**
-  * Add media
-  *
-  * @param Media $media
-  *
-  * @return Product
-  */
-  public function addMedias(Media $media)
-  {
-    $this->medias[] = $media;
-
-    // On lie l'annonce à la candidature
-    $media->setProduit($this);
-
-    return $this;
-  }
-
-  /**
-  * Remove medias
-  *
-  * @param Media $media
-  */
-  public function removeMedias(Media $media)
-  {
-    $this->medias->removeElement($media);
-
-    // Et si notre relation était facultative (nullable=true, ce qui n'est pas notre cas ici attention) :
-    // $media->setAdvert(null);
-  }
-
-  /**
-  * Get media
-  *
-  * @return ArrayCollection
-  */
-  public function getMedias()
-  {
-    return $this->medias;
-  }
-
-  /**
   * Set category
   *
   * @param \ECommBundle\Entity\Category $category
@@ -237,5 +190,26 @@ class Product
   {
     return $this->quantity;
   }
+
+  /**
+  * @ORM\Column(type="string", nullable=true)
+  *
+  * @Assert\NotBlank(message="Please, upload the product image as jpeg or png file.")
+  * @Assert\File(mimeTypes={ "image/jpeg","image/png","image/jpg" })
+  */
+  private $imagefile;
+
+  public function getImagefile()
+  {
+    return $this->imagefile;
+  }
+
+  public function setImagefile($imagefile)
+  {
+    $this->imagefile = $imagefile;
+
+    return $this;
+  }
+
 
 }

@@ -90,6 +90,14 @@ class AdminController extends Controller
     $form->handleRequest($request);
 
     if ($form->isSubmitted() && $form->isValid()) {
+      /** @var Symfony\Component\HttpFoundation\File\UploadedFile $file */
+      $file = $product->getImagefile();
+      $fileName = md5(uniqid()).'.'.$file->guessExtension();
+      $file->move(
+        $this->getParameter('images_directory'),
+        $fileName
+      );
+      $product->setImagefile($fileName);
       // save the Product!
       $em = $this->getDoctrine()->getManager();
       $em->persist($product);
@@ -147,6 +155,20 @@ class AdminController extends Controller
 
     return $this->render('AdminBundle:Admin:order.html.twig', array(
       'listorder' => $listorder
+    ));
+  }
+
+
+  public function ordershowAction(Request $req,$id)
+  {
+    // Pour récupérer la liste de toutes les annonces : on utilise findAll()
+    $em = $this->getDoctrine()->getManager();
+    $orderRepository=$em->getRepository('ECommBundle:Order');
+
+    $order=$orderRepository->find($id);
+
+    return $this->render('AdminBundle:Admin:ordershow.html.twig', array(
+      'order' => $order
     ));
   }
 

@@ -72,10 +72,7 @@
             <div class="col-lg-4 col-md-6 mb-4">
                 <a href="{{ path('consultation_produit',{'id':produit.id }) }}">
                   <div class="card h-100">
-                  {% set firstimg = produit.medias|first %}
-                  {% if firstimg %}
-                  <img class="card-img-top " src="{{firstimg.url}}" alt="{{firstimg.alt}}">
-                  {% endif %}
+                  <img class="card-img-top " src="{{ asset('uploads/images/' ~ produit.imagefile) }}" >
                     <div class="card-body">
                       <p class="card-title">
                         {{ produit.nom }}
