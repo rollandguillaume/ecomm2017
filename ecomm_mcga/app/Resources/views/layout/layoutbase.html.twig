@@ -40,6 +40,9 @@
           <div class="dropdown-menu" aria-labelledby="dropdownMenu">
             {% if is_granted('ROLE_VENDEUR') %}
             <a class="dropdown-item" href="{{ path ('index_admin')}}">Administration</a>
+            {% else %}
+            <a class="dropdown-item" href="{{ path ('user_user')}}">Mon Compte</a>
+            <a class="dropdown-item" href="{{ path ('order_user')}}">Mes Commandes</a>
             {% endif %}
             <a class="dropdown-item" href="{{ path('logout') }}">Se déconnecter</a>
             <a class="dropdown-item" href="{{ path('contact') }}">Nous contacter</a>
@@ -55,6 +58,7 @@
       <span class="fa fa-bars"></span>
     </button>
   </nav>
+  
 </header>
 {% endblock %}
 

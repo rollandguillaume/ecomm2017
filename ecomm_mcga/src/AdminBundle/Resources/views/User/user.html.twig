@@ -1,0 +1,110 @@
+{% extends ":layout:layoutbase.html.twig" %}
+
+
+{% block body %}
+{{ parent() }}
+
+<!-- Page Content -->
+<section id="product">
+  <div class="container">
+
+    <div class="col-md-12">
+      <div class="container text-center">
+        <h2 class="heading-center">Notre gamme de produits</h2>
+      </div>
+      {% for message in app.flashes('notice') %}
+      <div class="alert alert-success" role="alert">
+      <div class="flash-notice">
+        {{ message }}
+      </div>
+    </div>
+      {% endfor %}
+      {% for message in app.flashes('noticeFail') %}
+      <div class="alert alert-danger" role="alert">
+      <div class="flash-notice">
+        {{ message }}
+      </div>
+    </div>
+      {% endfor %}
+
+    </div>
+    <!-- /.col-md-12 heading -->
+
+
+    <!-- end alert-success -->
+    <div class="row">
+      <!-- start of left menu -->
+      <div class="col-md-3">
+        <div class="box form-holder">
+          <div class="list">
+            <ul class=" list-unstyled text-capitalize" >
+              <li><a href="{{ path ('user_user')}}">Mon compte</a></li>
+              <li><a href="{{ path ('order_user')}}">Mes Commandes</a></li>
+              </ul>
+          </div>
+        </div>
+        <!-- /.col-md-4 product categories -->
+      </div>
+      <!-- end of left menu -->
+
+      <div class="col-md-9">
+        <div class="box form-holder">
+
+          <div class="row">
+
+            <div class="card">
+              <div class="card-body">
+                {{ form_start(form, {'class': 'form-horizontal'} ) }}
+                {{ form_errors(form) }}
+                  <div class="form-group">
+                    <label class="form-control-label">Prénom</label>
+                    {{ form_widget(form.firstname, {'attr': {'class': 'form-control'}}) }}
+                    <div class="form-group row has-danger">
+                      <div class="form-control-feedback">{{ form_errors(form.firstname) }}</div>
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label class="form-control-label">Nom</label>
+                    {{ form_widget(form.lastname, {'attr': {'class': 'form-control'}}) }}
+                    <div class="form-group row has-danger">
+                      <div class="form-control-feedback">{{ form_errors(form.lastname) }}</div>
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label class="form-control-label">email</label>
+                    {{ form_widget(form.email, {'attr': {'class': 'form-control'}}) }}
+                    <div class="form-group row has-danger">
+                      <div class="form-control-feedback">{{ form_errors(form.email) }}</div>
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label class="form-control-label">mot de passe</label>
+                    {{ form_widget(form.plainPassword.first, {'attr': {'class': 'form-control'}}) }}
+                    <label class="form-control-label">Confirmation du mot de passe</label>
+                    {{ form_widget(form.plainPassword.second, {'attr': {'class': 'form-control'}}) }}
+                    <div class="form-group row has-danger">
+                      <div class="form-control-feedback">{{ form_errors(form.plainPassword) }}</div>
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    {{ form_widget(form.save, {'attr': {'class': 'btn btn-primary'}}) }}
+                  </div>
+                {{ form_end(form) }}
+              </div>
+            </div>
+            <a href="{{ path('userdelete_user')}}">Suprimer le compte</a>
+
+
+
+          </div>
+        </div>
+      </div>
+      <!-- /.col-md-8 product list -->
+
+    </div>
+    <!-- /row -->
+
+  </div>
+</section>
+
+{% endblock %}

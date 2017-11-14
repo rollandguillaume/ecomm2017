@@ -1,0 +1,16 @@
+user_user:
+  path:   /
+  defaults:
+    _controller: AdminBundle:User:user
+userdelete_user:
+  path:   /del
+  defaults:
+    _controller: AdminBundle:User:userdelete
+order_user:
+  path:   /order
+  defaults:
+    _controller: AdminBundle:User:order
+ordershow_user:
+  path:   /order/{id}
+  defaults:
+    _controller: AdminBundle:User:ordershow

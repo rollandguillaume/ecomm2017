@@ -1,3 +1,6 @@
 routingAdmin:
   resource: "@AdminBundle/Resources/config/routing/routingAdmin.yml"
   prefix: /admin
+routingUser:
+  resource: "@AdminBundle/Resources/config/routing/routingUser.yml"
+  prefix: /user
