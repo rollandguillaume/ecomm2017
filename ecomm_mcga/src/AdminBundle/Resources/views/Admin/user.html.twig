@@ -46,6 +46,7 @@
                           <th>First name</th>
                           <th>Last name</th>
                           <th>E-mail</th>
+                          <th>Actions</th>
                         </tr>
                       </thead>
                       <tbody>
@@ -54,6 +55,7 @@
                           <td>{{user.firstname}}</td>
                           <td>{{user.lastname}}</td>
                           <td>{{user.email}}</td>
+                          <td><a href="{{ path('useredit_admin',{'id':user.id }) }}">Edit</a></td>
                         </tr>
                         {% endfor %}
                       </tbody>

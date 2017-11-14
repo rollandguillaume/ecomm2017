@@ -12,20 +12,30 @@ use ECommBundle\Form\ProductCategoryType;
 use ECommBundle\Entity\User;
 use ECommBundle\Form\UserType;
 
+use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
+
 
 class AdminController extends Controller
 {
   /**
   * Lists all User entities.
   */
-  public function userAction(Request $request)
+  public function userAction(Request $request,$id=null)
   {
     // Pour récupérer la liste de toutes les annonces : on utilise findAll()
     $em = $this->getDoctrine()->getManager();
     $userRepository=$em->getRepository('ECommBundle:User');
 
+    if (null === $id) {
+      $user = new User();
+    }else {
+      $user=$userRepository->find($id);
+      if (null === $user) {
+        throw new NotFoundHttpException();
+      }
+    }
+
     //form
-    $user = new User();
     $form = $this->createForm(UserType::class, $user);
     $form->handleRequest($request);
 
@@ -48,14 +58,22 @@ class AdminController extends Controller
   /**
   * Lists all Categories entities.
   */
-  public function categoryAction(Request $request)
+  public function categoryAction(Request $request,$id=null)
   {
     // Pour récupérer la liste de toutes les annonces : on utilise findAll()
     $em = $this->getDoctrine()->getManager();
     $categoryRepository=$em->getRepository('ECommBundle:Category');
 
+    if (null === $id) {
+      $category = new Category();
+    }else {
+      $category=$categoryRepository->find($id);
+      if (null === $category) {
+        throw new NotFoundHttpException();
+      }
+    }
+
     //form
-    $category = new Category();
     $form = $this->createForm(ProductCategoryType::class, $category);
     $form->handleRequest($request);
 
@@ -78,14 +96,22 @@ class AdminController extends Controller
   /**
   * Lists all Product entities.
   */
-  public function productAction(Request $request)
+  public function productAction(Request $request,$id=null)
   {
     // Pour récupérer la liste de toutes les annonces : on utilise findAll()
     $em = $this->getDoctrine()->getManager();
     $productRepository=$em->getRepository('ECommBundle:Product');
 
+    if (null === $id) {
+      $product = new Product();
+    }else {
+      $product =$productRepository->find($id);
+      if (null === $product ) {
+        throw new NotFoundHttpException();
+      }
+    }
+
     //form
-    $product = new Product();
     $form = $this->createForm(ProductType::class, $product);
     $form->handleRequest($request);
 
@@ -167,6 +193,9 @@ class AdminController extends Controller
 
     $order=$orderRepository->find($id);
 
+    if (null === $order) {
+      throw new NotFoundHttpException();
+    }
     return $this->render('AdminBundle:Admin:ordershow.html.twig', array(
       'order' => $order
     ));

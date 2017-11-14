@@ -38,12 +38,14 @@
                   <thead>
                     <tr>
                       <th>name</th>
+                      <th>Actions</th>
                     </tr>
                   </thead>
                   <tbody>
                     {% for category in listcategory %}
                     <tr>
                       <td>{{category.name}}</td>
+                      <td><a href="{{ path('categoryedit_admin',{'id':category.id }) }}">Edit</a></td>
                     </tr>
                     {% endfor %}
                   </tbody>

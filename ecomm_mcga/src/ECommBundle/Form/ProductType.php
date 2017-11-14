@@ -29,7 +29,9 @@ class ProductType extends AbstractType
 
       'choice_label' => 'name',
     ))
-    ->add('imagefile', FileType::class)
+    ->add('imagefile', FileType::class, array(
+                    'data_class' => null
+                    ))
     ->add('save', SubmitType::class)
     ;
   }

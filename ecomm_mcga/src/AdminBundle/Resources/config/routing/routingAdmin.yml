@@ -2,14 +2,26 @@ user_admin:
   path:   /user
   defaults:
     _controller: AdminBundle:Admin:user
+useredit_admin:
+  path:   /user/{id}
+  defaults:
+    _controller: AdminBundle:Admin:user
 
 category_admin:
   path:   /category
   defaults:
     _controller: AdminBundle:Admin:category
+categoryedit_admin:
+  path:   /category/{id}
+  defaults:
+    _controller: AdminBundle:Admin:category
 
 product_admin:
   path:   /product
+  defaults:
+    _controller: AdminBundle:Admin:product
+productedit_admin:
+  path:   /product/{id}
   defaults:
     _controller: AdminBundle:Admin:product
 index_admin:
