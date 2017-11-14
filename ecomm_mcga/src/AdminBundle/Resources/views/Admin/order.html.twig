@@ -24,6 +24,11 @@
       <li class="breadcrumb-item active">Commande</li>
     </div>
   </ul>
+  {% for message in app.flashes('notice') %}
+  <div class="alert alert-success" role="alert">
+    {{ message }}
+  </div>
+  {% endfor %}
   <!-- Forms Section-->
   <section class="forms">
     <div class="container-fluid">
@@ -57,7 +62,10 @@
                       <td>{{order.utilisateur.firstname}} {{order.utilisateur.lastname}}</td>
                       <td>{{ order.date|date('Y-m-d H:i') }}</td>
                       <td>{{ order.commande.prixTot }}</td>
-                      <td><a href="{{ path('ordershow_admin',{'id':order.id }) }}">Détails</a></td>
+                      <td>
+                      <a href="{{ path('ordershow_admin',{'id':order.id }) }}">Détails</a>
+                      <a href="{{ path('orderdelete_admin',{'id':order.id }) }}">Suprimer</a>
+                      </td>
                     </tr>
                     {% endfor %}
                   </tbody>

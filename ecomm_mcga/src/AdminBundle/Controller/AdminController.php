@@ -93,6 +93,73 @@ class AdminController extends Controller
     ));
   }
 
+  public function categorydeleteAction(Request $request,$id)
+{
+    $em = $this->getDoctrine()->getManager();
+    $categoryRepository=$em->getRepository('ECommBundle:Category');
+    $category=$categoryRepository->find($id);
+
+    if (null === $category) {
+      throw new NotFoundHttpException();
+    }
+    else {
+      //
+      //
+      // $em->remove($category);
+      // $em->flush();
+      $this->addFlash('notice', 'Ne marche pas');
+      return $this->redirect($this->generateUrl('category_admin'));
+    }
+}
+  public function userdeleteAction(Request $request,$id)
+{
+    $em = $this->getDoctrine()->getManager();
+    $userRepository=$em->getRepository('ECommBundle:User');
+    $user=$userRepository->find($id);
+
+    if (null === $user) {
+      throw new NotFoundHttpException();
+    }
+    else {
+      $em->remove($user);
+      $em->flush();
+      $this->addFlash('notice', 'Utilisateur supprimé');
+      return $this->redirect($this->generateUrl('user_admin'));
+    }
+}
+  public function productdeleteAction(Request $request,$id)
+{
+    $em = $this->getDoctrine()->getManager();
+    $productRepository=$em->getRepository('ECommBundle:Product');
+    $product=$productRepository->find($id);
+
+    if (null === $product) {
+      throw new NotFoundHttpException();
+    }
+    else {
+      $em->remove($product);
+      $em->flush();
+      $this->addFlash('notice', 'Produit supprimé');
+      return $this->redirect($this->generateUrl('product_admin'));
+    }
+}
+  public function orderdeleteAction(Request $request,$id)
+{
+    $em = $this->getDoctrine()->getManager();
+    $orderRepository=$em->getRepository('ECommBundle:Order');
+    $order=$orderRepository->find($id);
+
+    if (null === $order) {
+      throw new NotFoundHttpException();
+    }
+    else {
+      $em->remove($order);
+      $em->flush();
+      $this->addFlash('notice', 'Commande supprimé');
+      return $this->redirect($this->generateUrl('order_admin'));
+    }
+}
+
   /**
   * Lists all Product entities.
   */
@@ -145,28 +212,6 @@ class AdminController extends Controller
   }
 
 
-  public function removeProductAction(Request $request)
-  {
-    $repoProduit = $this->getDoctrine()
-    ->getManager()
-    ->getRepository('ECommBundle:Product')
-    ;
-    if ($request->isMethod('POST')) {
-      $post = $request->request;
-      $produit = $repoProduit->find($post->get('id'));
-      if ($produit) {
-        $em = $this->getDoctrine()->getManager();
-        $em->remove($produit);
-        $em->flush();
-        $this->addFlash('notice', 'Suppression du produit '.$produit->getNom());
-      } else {
-        $this->addFlash('notice', 'Produit inexistant');
-      }
-    }
-    return $this->render('AdminBundle:Admin:removeProduct.html.twig', array(
-      'produits' => $repoProduit->findAll()
-    ));
-  }
 
   /**
   * Lists all Categories entities.

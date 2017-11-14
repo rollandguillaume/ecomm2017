@@ -6,6 +6,10 @@ useredit_admin:
   path:   /user/{id}
   defaults:
     _controller: AdminBundle:Admin:user
+userdelete_admin:
+  path:   /user/del/{id}
+  defaults:
+    _controller: AdminBundle:Admin:userdelete
 
 category_admin:
   path:   /category
@@ -15,6 +19,12 @@ categoryedit_admin:
   path:   /category/{id}
   defaults:
     _controller: AdminBundle:Admin:category
+categorydelete_admin:
+  path:   /category/del/{id}
+  defaults:
+    _controller: AdminBundle:Admin:categorydelete
+
+
 
 product_admin:
   path:   /product
@@ -24,6 +34,10 @@ productedit_admin:
   path:   /product/{id}
   defaults:
     _controller: AdminBundle:Admin:product
+productdelete_admin:
+  path:   /product/del/{id}
+  defaults:
+    _controller: AdminBundle:Admin:productdelete
 index_admin:
   path:   /
   defaults:
@@ -36,3 +50,7 @@ ordershow_admin:
   path:   /order/{id}
   defaults:
     _controller: AdminBundle:Admin:ordershow
+orderdelete_admin:
+  path:   /order/del/{id}
+  defaults:
+    _controller: AdminBundle:Admin:orderdelete
