@@ -10,23 +10,14 @@ class UserData extends Fixture
   public function load(ObjectManager $manager)
   {
     $user = new User();
-    $user->setFirstname('name');
-    $user->setLastname('lastname');
+    $user->setFirstname('admin_name');
+    $user->setLastname('admin_lastname');
     $encoder = $this->container->get('security.password_encoder');
-    $password = $encoder->encodePassword($user, 'admin');
+    $password = $encoder->encodePassword($user,$this->container->getParameter('Password_Admin'));
     $user->setPassword($password);
-    $user->setEmail('admin@admin.fr');
+    $user->setEmail($this->container->getParameter('Email_Admin'));
     $user->setRoles(array('ROLE_VENDEUR'));
     $manager->persist($user);
-
-    $user2 = new User();
-    $user2->setFirstname('name');
-    $user2->setLastName('lastname');
-    $encoder = $this->container->get('security.password_encoder');
-    $password = $encoder->encodePassword($user2, 'user');
-    $user2->setPassword($password);
-    $user2->setEmail('user@user.fr');
-    $manager->persist($user2);
 
     $manager->flush();
   }

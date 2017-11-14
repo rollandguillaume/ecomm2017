@@ -4,10 +4,6 @@
 {% block body %}
 {{ parent() }}
 
-
-
-
-
 <section id="cart">
   {% for flashMessage in app.session.flashbag.get('success') %}
   <div class="alert alert-success">
@@ -61,7 +57,7 @@
                       </a>
                     </td>
 
-                    <td colspan="2" class="text-capitalize">{{item.produit.nom}}</td>
+                    <td  class="text-capitalize">{{item.produit.nom}}</td>
                     <td>{{item.qte}}
 
                       <!--
