@@ -12,21 +12,26 @@
     </div>
   </div>
   <div class="container">
-
     <div class="row box">
       <div class="col-md-12">
 
         <form action="{{path('contact')}}" id="contactform" method="post">
+          <input class="btn btn-success btn-lg text-center" type="submit" value="Envoyer">
+        </br>
+        </br>
          <input class="form-control" type="text" name="subject" placeholder=" Objet de votre message">
-       </br>
-     <input class="btn btn-success btn-lg text-center" type="submit" value="Envoyer">
         </form>
         <br>
         <textarea class="form-control" rows="4" cols="50" name="contenu" form="contactform" placeholder="Votre message" ></textarea>
+        <p>
+        </br>
+          En cas de problème, merci d'écrire à ticket@dsi.bzh
+        </p>
 
       </div>
     </div>
   </div>
-  <!-- Merci d'avoir analyser ce code. Effectivement, cette page ne sert à rien : C'est pas pour rien qu'elle n'est pas accessible via le menu déroulant de l'accueil ! -->
+  <!-- Merci d'avoir analyser ce code : Effectivement, cette page ne fait pas grand chose.
+  Ce n'est pas pour rien qu'elle n'est pas accessible via le menu déroulant de l'accueil ! ;-) -->
 </section>
 {% endblock %}

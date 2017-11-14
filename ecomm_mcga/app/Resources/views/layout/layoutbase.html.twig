@@ -39,14 +39,17 @@
           </button>
           <div class="dropdown-menu" aria-labelledby="dropdownMenu">
             {% if is_granted('ROLE_VENDEUR') %}
+            <li class="dropdown-header">> Gestion du site</li>
             <a class="dropdown-item" href="{{ path ('index_admin')}}">Administration</a>
             {% else %}
-            <a class="dropdown-item" href="{{ path ('user_user')}}">Mon Compte</a>
+            <li class="dropdown-header">> Espace Client</li>
+            <a class="dropdown-item" href="{{ path ('user_user')}}">Mon compte</a>
             <a class="dropdown-item" href="{{ path ('order_user')}}">Mes Commandes</a>
-            {% endif %}
-            <a class="dropdown-item" href="{{ path('logout') }}">Se déconnecter</a>
-            <a class="dropdown-item" href="{{ path('contact') }}">Nous contacter</a>
             <a class="dropdown-item" href="{{ path('panier_produit') }}">Voir votre panier</a>
+            {% endif %}
+            <li class="dropdown-header">> Autre</li>
+            <a class="dropdown-item" href="{{ path('logout') }}">Se déconnecter</a>
+            <a class="dropdown-item disabled inactiveLink" href="#">Nous contacter</a>
           </div>
         </div>
         {% else %}
@@ -58,7 +61,7 @@
       <span class="fa fa-bars"></span>
     </button>
   </nav>
-  
+
 </header>
 {% endblock %}
 
@@ -69,42 +72,64 @@
 
 {% block footer %}
 <footer class="main-footer">
+
   <div class="container">
     <div class="row">
-      <div class="about col-md-4">
+
+      <div class="about col-md-6">
         <h3>Boutique</h3>
         <ul class="list-unstyled">
-
           <li> <a href="{{ path('ecomm_home') }}">Nos produits</a></li>
         </ul>
-      </div>
-      <div class="site-links col-md-4">
-        <h3>Mon compte</h3>
+      {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+      {% if is_granted('ROLE_VENDEUR') %}
+      <h3>Gestion du site</h3>
+      <ul class="list-unstyled">
+      <li><a href="{{ path ('index_admin')}}">Panneau d'administration</a></li>
+      </ul>
+
+    {% else %}
+    <div class="site-links col-md-6">
+        <h3>Espace client</h3>
         <ul class="list-unstyled">
-          <li> <a href="{{ path('login') }}">Se connecter</a></li>
+          <li> <a href="{{ path ('user_user')}}">Mon compte</a></li>
+          <li> <a href="{{ path ('order_user')}}">Mes Commandes</a></li>
           <li> <a href="{{ path('panier_produit') }}">Mon panier</a></li>
-          <!--<li> <a href="category.html">Mes informations</a></li>-->
         </ul>
       </div>
-      <div class="contact col-md-4">
+        {% endif %}
+      {% else %}
+        <ul class="list-unstyled">
+          <li> <a href="{{ path ('login')}}">Identifiez-vous</a></li>
+        </ul>
+      {% endif %}
+    </div>
+  </div>
+  <div class="container">
+
+    <div class="row">
+
+      <div class="contact col-md-12">
         <h3>Nous contacter</h3>
         <div class="info">
           <p>Jack&Noël Corporation</p>
           <p>35000 Rennes</p>
           <p>Email: <a href="mailto:contact@jack-noel.bzh">contact@jack-noel.bzh</a></p>
           <ul class="social-menu lisy-inline">
-            <li class="list-inline-item"><a href="#" target="_blank" title="Facebook"><i class="fa fa-facebook">                        </i></a></li>
-            <li class="list-inline-item"><a href="#" target="_blank" title="Twitter"><i class="fa fa-twitter">                        </i></a></li>
-            <li class="list-inline-item"><a href="#" target="_blank" title="Pinterest"><i class="fa fa-pinterest">                        </i></a></li>
-            <li class="list-inline-item"><a href="#" target="_blank" title="Instagram"><i class="fa fa-instagram">                        </i></a></li>
-            <li class="list-inline-item"><a href="#" target="_blank" title="Vimeo"><i class="fa fa-vimeo">                        </i></a></li>
+            <li class="list-inline-item"><a href="#" target="_blank" title="Facebook"><i class="fa fa-facebook"></i></a></li>
+            <li class="list-inline-item"><a href="#" target="_blank" title="Twitter"><i class="fa fa-twitter"></i></a></li>
+            <li class="list-inline-item"><a href="#" target="_blank" title="Pinterest"><i class="fa fa-pinterest"></i></a></li>
+            <li class="list-inline-item"><a href="#" target="_blank" title="Instagram"><i class="fa fa-instagram"></i></a></li>
+            <li class="list-inline-item"><a href="https://vimeo.com/64086472?autoplay=1" target="_blank" title="En l'honneur de maxime"><i class="fa fa-vimeo"></i></a></li>
           </ul>
         </div>
       </div>
     </div>
   </div>
+</div>
+
   <div class="copyrights text-center">
-    <p>© 2017 <span class="text-success">ENSIBS</span> - Projet E-commerce. L'abus d'alcool est dangereux pour la santé : Privilégiez le Champomy.</p>
+    <p>© 2017 <span class="text-success">ENSIBS</span> - Projet E-commerce made with <span class="text-success">&hearts;</span>. L'abus d'alcool est dangereux pour la santé : Privilégiez le Champomy.</p>
   </div>
 </footer>
 {% endblock %}

@@ -10,7 +10,7 @@
 
     <div class="col-md-12">
       <div class="container text-center">
-        <h2 class="heading-center">Notre gamme de produits</h2>
+        <h2 class="heading-center">Modifier votre compte</h2>
       </div>
       {% for message in app.flashes('notice') %}
       <div class="alert alert-success" role="alert">
@@ -43,12 +43,40 @@
               </ul>
           </div>
         </div>
+
+
+        <!-- Button trigger modal -->
+        <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#exampleModal">
+          Supprimer votre compte
+        </button>
+
+        <!-- Modal -->
+        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Supprimer votre compte</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+                Attention : La suppression est irréversible. Etes-vous sûr de vouloir définitivement supprimer votre compte ?
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Annuler</button>
+                <a class="btn btn-danger" type="button" href="{{ path('userdelete_user')}}">Confirmer</a>
+
+              </div>
+            </div>
+          </div>
+        </div>
         <!-- /.col-md-4 product categories -->
       </div>
       <!-- end of left menu -->
 
       <div class="col-md-9">
-        <div class="box form-holder">
+        <div class="form-holder">
 
           <div class="row">
 
@@ -71,14 +99,14 @@
                     </div>
                   </div>
                   <div class="form-group">
-                    <label class="form-control-label">email</label>
+                    <label class="form-control-label">E-mail</label>
                     {{ form_widget(form.email, {'attr': {'class': 'form-control'}}) }}
                     <div class="form-group row has-danger">
                       <div class="form-control-feedback">{{ form_errors(form.email) }}</div>
                     </div>
                   </div>
                   <div class="form-group">
-                    <label class="form-control-label">mot de passe</label>
+                    <label class="form-control-label">Mot de passe</label>
                     {{ form_widget(form.plainPassword.first, {'attr': {'class': 'form-control'}}) }}
                     <label class="form-control-label">Confirmation du mot de passe</label>
                     {{ form_widget(form.plainPassword.second, {'attr': {'class': 'form-control'}}) }}
@@ -87,12 +115,11 @@
                     </div>
                   </div>
                   <div class="form-group">
-                    {{ form_widget(form.save, {'attr': {'class': 'btn btn-primary'}}) }}
+                    {{ form_widget(form.save, {'attr': {'class': 'btn btn-success'}}) }}
                   </div>
                 {{ form_end(form) }}
               </div>
             </div>
-            <a href="{{ path('userdelete_user')}}">Suprimer le compte</a>
 
 
 
