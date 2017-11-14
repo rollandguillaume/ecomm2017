@@ -48,7 +48,11 @@
                         <label>Client :</label>
                     </td>
                     <td class="col-md-10 ">
-                        {{order.utilisateur.firstname}} {{order.utilisateur.lastname}}
+                      {% if order.utilisateur %}
+                          {{order.utilisateur.firstname}} {{order.utilisateur.lastname}}
+                      {% else %}
+                          Utilisateur supprimé
+                      {% endif %}
                     </td>
                 </tr>
                 <tr>

@@ -59,7 +59,13 @@
                   <tbody>
                     {% for order in listorder %}
                     <tr>
-                      <td>{{order.utilisateur.firstname}} {{order.utilisateur.lastname}}</td>
+                      <td>
+                        {% if order.utilisateur %}
+                            {{order.utilisateur.firstname}} {{order.utilisateur.lastname}}
+                        {% else %}
+                            Utilisateur supprimé
+                        {% endif %}
+                        </td>
                       <td>{{ order.date|date('Y-m-d H:i') }}</td>
                       <td>{{ order.commande.prixTot }}</td>
                       <td>

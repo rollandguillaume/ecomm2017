@@ -12,6 +12,8 @@ use ECommBundle\Form\ProductCategoryType;
 use ECommBundle\Entity\User;
 use ECommBundle\Form\UserType;
 
+use ECommBundle\Entity\Order;
+
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
 
@@ -103,11 +105,15 @@ class AdminController extends Controller
       throw new NotFoundHttpException();
     }
     else {
-      //
-      //
-      // $em->remove($category);
-      // $em->flush();
-      $this->addFlash('notice', 'Ne marche pas');
+      $ProductCategoryRepository=$em->getRepository('ECommBundle:Product');
+      $listproductcategory=$ProductCategoryRepository->findByCategory($category);
+      foreach ($listproductcategory as $product) {
+        $product->setCategory(null);
+        $em->persist($product);
+      }
+      $em->remove($category);
+      $em->flush();
+      $this->addFlash('notice', 'Catégorie supprimé');
       return $this->redirect($this->generateUrl('category_admin'));
     }
 }
@@ -121,6 +127,12 @@ class AdminController extends Controller
       throw new NotFoundHttpException();
     }
     else {
+      $userorderRepository=$em->getRepository('ECommBundle:Order');
+      $listuserorder=$userorderRepository->findByUtilisateur($user);
+      foreach ($listuserorder as $order) {
+        $order->setUtilisateur(null);
+        $em->persist($order);
+      }
       $em->remove($user);
       $em->flush();
       $this->addFlash('notice', 'Utilisateur supprimé');
