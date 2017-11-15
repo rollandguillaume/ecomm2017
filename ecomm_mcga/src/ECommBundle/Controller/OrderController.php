@@ -137,7 +137,8 @@ class OrderController extends Controller
       "address" => $address->getAddress(),
       "address2" => $address->getAddress2(),
       "zip" => $address->getZip(),
-      "city" => $address->getCity()
+      "city" => $address->getCity(),
+      "email"=>$userLog->getEmail()
     );
 
     return $listUserAddress;
