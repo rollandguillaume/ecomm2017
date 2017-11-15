@@ -13,9 +13,9 @@ class UserData extends Fixture
     $user->setFirstname('admin_name');
     $user->setLastname('admin_lastname');
     $encoder = $this->container->get('security.password_encoder');
-    $password = $encoder->encodePassword($user,$this->container->getParameter('Password_Admin'));
+    $password = $encoder->encodePassword($user,'admin');
     $user->setPassword($password);
-    $user->setEmail($this->container->getParameter('Email_Admin'));
+    $user->setEmail('admin@admin.fr');
     $user->setRoles(array('ROLE_VENDEUR'));
     $manager->persist($user);
 
