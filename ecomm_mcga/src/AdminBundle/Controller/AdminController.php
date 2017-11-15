@@ -96,7 +96,7 @@ class AdminController extends Controller
   }
 
   public function categorydeleteAction(Request $request,$id)
-{
+  {
     $em = $this->getDoctrine()->getManager();
     $categoryRepository=$em->getRepository('ECommBundle:Category');
     $category=$categoryRepository->find($id);
@@ -116,9 +116,9 @@ class AdminController extends Controller
       $this->addFlash('notice', 'Catégorie supprimé');
       return $this->redirect($this->generateUrl('category_admin'));
     }
-}
+  }
   public function userdeleteAction(Request $request,$id)
-{
+  {
     $em = $this->getDoctrine()->getManager();
     $userRepository=$em->getRepository('ECommBundle:User');
     $user=$userRepository->find($id);
@@ -138,9 +138,9 @@ class AdminController extends Controller
       $this->addFlash('notice', 'Utilisateur supprimé');
       return $this->redirect($this->generateUrl('user_admin'));
     }
-}
+  }
   public function productdeleteAction(Request $request,$id)
-{
+  {
     $em = $this->getDoctrine()->getManager();
     $productRepository=$em->getRepository('ECommBundle:Product');
     $product=$productRepository->find($id);
@@ -154,9 +154,9 @@ class AdminController extends Controller
       $this->addFlash('notice', 'Produit supprimé');
       return $this->redirect($this->generateUrl('product_admin'));
     }
-}
+  }
   public function orderdeleteAction(Request $request,$id)
-{
+  {
     $em = $this->getDoctrine()->getManager();
     $orderRepository=$em->getRepository('ECommBundle:Order');
     $order=$orderRepository->find($id);
@@ -170,7 +170,7 @@ class AdminController extends Controller
       $this->addFlash('notice', 'Commande supprimé');
       return $this->redirect($this->generateUrl('order_admin'));
     }
-}
+  }
 
   /**
   * Lists all Product entities.
@@ -195,14 +195,17 @@ class AdminController extends Controller
     $form->handleRequest($request);
 
     if ($form->isSubmitted() && $form->isValid()) {
-      /** @var Symfony\Component\HttpFoundation\File\UploadedFile $file */
-      $file = $product->getImagefile();
-      $fileName = md5(uniqid()).'.'.$file->guessExtension();
-      $file->move(
-        $this->getParameter('images_directory'),
-        $fileName
-      );
-      $product->setImagefile($fileName);
+
+      if (null != $product->getImagefile() ) {
+        /** @var Symfony\Component\HttpFoundation\File\UploadedFile $file */
+        $file = $product->getImagefile();
+        $fileName = md5(uniqid()).'.'.$file->guessExtension();
+        $file->move(
+          $this->getParameter('images_directory'),
+          $fileName
+        );
+        $product->setImagefile($fileName);
+      }
       // save the Product!
       $em = $this->getDoctrine()->getManager();
       $em->persist($product);

@@ -138,6 +138,9 @@
                 <label class="col-sm-3 form-control-label">Image</label>
                 <div class="col-sm-9 select">
                   {{ form_widget(form.imagefile, {'attr': {'class': 'form-control'}}) }}
+                  <div class="form-group row has-danger">
+                    <div class="form-control-feedback">{{ form_errors(form.imagefile) }}</div>
+                  </div>
                 </div>
               </div>
 
