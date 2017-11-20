@@ -52,6 +52,11 @@ class User implements AdvancedUserInterface, \Serializable
   * @ORM\JoinColumn(nullable=true)
   */
   private $orders;
+  /**
+  * @ORM\OneToMany(targetEntity="ECommBundle\Entity\BigBrowser", mappedBy="utilisateur", cascade={"remove"})
+  * @ORM\JoinColumn(nullable=true)
+  */
+  private $bigbrowser;
 
 
 
@@ -75,7 +80,6 @@ class User implements AdvancedUserInterface, \Serializable
   *@ORM\JoinColumn(nullable=true)
   */
   private $address;
-
 
   public function __construct()
   {

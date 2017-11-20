@@ -13,4 +13,10 @@ use Doctrine\ORM\QueryBuilder;
 */
 class OrderRepository extends EntityRepository
 {
+  public function count()
+  {
+      $qb = $this->createQueryBuilder('o');
+      $qb ->select($qb->expr()->count('o'));
+      return (int) $qb->getQuery()->getSingleScalarResult();
+  }
 }

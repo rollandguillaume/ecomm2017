@@ -221,13 +221,6 @@ class AdminController extends Controller
     ));
   }
 
-
-  public function indexAction () {
-    return $this->render('AdminBundle:Admin:index.html.twig');
-  }
-
-
-
   /**
   * Lists all Categories entities.
   */
@@ -258,6 +251,45 @@ class AdminController extends Controller
     }
     return $this->render('AdminBundle:Admin:ordershow.html.twig', array(
       'order' => $order
+    ));
+  }
+
+  public function indexAction(Request $req)
+  {
+    // Pour récupérer la liste de toutes les annonces : on utilise findAll()
+    $em = $this->getDoctrine()->getManager();
+    $orderRepository=$em->getRepository('ECommBundle:Order');
+    $nborder=$orderRepository->count();
+
+    $CA=0;
+    $productsell=0;
+    $listorder=$orderRepository->findAll();
+
+    foreach ($listorder as $orderentity) {
+    $commande=$orderentity->getCommande();
+    $CA+=$commande["prixTot"];
+    foreach ($commande['produits'] as $product) {
+      $productsell+=1*$product['qte'];
+    }
+
+  }
+
+    $productRepository=$em->getRepository('ECommBundle:Product');
+    $nbproduct =$productRepository->count();
+
+    $userRepository=$em->getRepository('ECommBundle:User');
+    $nbuser=$userRepository->count();
+
+    $bigbrowserRepository=$em->getRepository('ECommBundle:Bigbrowser');
+    $listBigbrowser=$bigbrowserRepository->findAll();
+
+    return $this->render('AdminBundle:Admin:index.html.twig', array(
+      'nborder' => $nborder,
+      'nbproduct' => $nbproduct,
+      'nbuser' => $nbuser,
+      'ca' => $CA,
+      'productsell' => $productsell,
+      'listBigbrowser' => $listBigbrowser,
     ));
   }
 

@@ -4,6 +4,12 @@ parameters:
     #parameter_name: value
 
 services:
+    # authentication failure event listener
+    acme.security.authentication_event_listener:
+        class: AdminBundle\Event\AuthenticationListener
+        arguments: ['@service_container']
+        tags:
+            - { name: kernel.event_subscriber }
     # default configuration for services in *this* file
     _defaults:
         # automatically injects dependencies in your services

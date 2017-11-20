@@ -15,5 +15,11 @@ class UserRepository extends EntityRepository implements UserLoaderInterface
     ->getQuery()
     ->getOneOrNullResult();
   }
+  public function count()
+  {
+      $qb = $this->createQueryBuilder('u');
+      $qb ->select($qb->expr()->count('u'));
+      return (int) $qb->getQuery()->getSingleScalarResult();
+  }
 
 }

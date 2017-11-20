@@ -45,4 +45,10 @@ class CategoryRepository extends EntityRepository
     ->getQuery()
     ->getOneOrNullResult();
   }
+  public function count()
+  {
+      $qb = $this->createQueryBuilder('c');
+      $qb ->select($qb->expr()->count('c'));
+      return (int) $qb->getQuery()->getSingleScalarResult();
+  }
 }

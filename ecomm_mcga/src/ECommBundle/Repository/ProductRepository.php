@@ -55,5 +55,11 @@ class ProductRepository extends EntityRepository
 
       return $qb;
   }
+  public function count()
+  {
+      $qb = $this->createQueryBuilder('p');
+      $qb ->select($qb->expr()->count('p'));
+      return (int) $qb->getQuery()->getSingleScalarResult();
+  }
 
 }

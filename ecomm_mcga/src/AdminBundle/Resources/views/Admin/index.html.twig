@@ -7,6 +7,161 @@
 {% endblock %}
 
 {% block page_content %}
+<div class="content-inner">
+  <!-- Page Header-->
+  <header class="page-header">
+    <div class="container-fluid">
+      <h2 class="no-margin-bottom">Dashboard</h2>
+    </div>
+  </header>
+  <!-- Dashboard Counts Section-->
+  <section class="dashboard-counts no-padding-bottom">
+    <div class="container-fluid">
+      <div class="row bg-white has-shadow">
+        <!-- Item -->
+        <div class="col-xl-3 col-sm-6">
+          <div class="item d-flex align-items-center">
+            <div class="icon bg-violet"><i class="icon-user"></i></div>
+            <div class="title"><span>Utilisateur</span>
+            </div>
+            <div class="number"><strong>{{nbuser}}</strong></div>
+          </div>
+        </div>
+        <!-- Item -->
+        <div class="col-xl-3 col-sm-6">
+          <div class="item d-flex align-items-center">
+            <div class="icon bg-red"><i class="icon-padnote"></i></div>
+            <div class="title"><span>Commande</span>
+            </div>
+            <div class="number"><strong>{{nborder}}</strong></div>
+          </div>
+        </div>
+        <!-- Item -->
+        <div class="col-xl-3 col-sm-6">
+          <div class="item d-flex align-items-center">
+            <div class="icon bg-green"><i class="icon-bill"></i></div>
+            <div class="title"><span>Produit</span>
+            </div>
+            <div class="number"><strong>{{nbproduct}}</strong></div>
+          </div>
+        </div>
+        <!-- Item -->
+        <div class="col-xl-3 col-sm-6">
+          <div class="item d-flex align-items-center">
+            <div class="icon bg-orange"><i class="icon-check"></i></div>
+            <div class="title"><span>chiffre<br>d'affaires</span>
+            </div>
+            <div class="number"><strong>{{ca}}</strong></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- Dashboard Header Section    -->
+  <section class="dashboard-header">
+    <div class="container-fluid">
+      <div class="row">
+        <!-- Statistics -->
+        <div class="statistics col-lg-3 col-12">
+          <div class="statistic d-flex align-items-center bg-white has-shadow">
+            <div class="icon bg-red"><i class="fa fa-tasks"></i></div>
+            <div class="text"><strong>{{productsell}}</strong><br><small>Produits vendus</small></div>
+          </div>
+          <div class="statistic d-flex align-items-center bg-white has-shadow">
+            <div class="icon bg-green"><i class="fa fa-calendar-o"></i></div>
+            <div class="text"><strong>152</strong><br><small>Interviews</small></div>
+          </div>
+          <div class="statistic d-flex align-items-center bg-white has-shadow">
+            <div class="icon bg-orange"><i class="fa fa-paper-plane-o"></i></div>
+            <div class="text"><strong>147</strong><br><small>Forwards</small></div>
+          </div>
+        </div>
+        <!-- Line Chart            -->
+        <div class="chart col-lg-6 col-12">
+          <div class="line-chart bg-white d-flex align-items-center justify-content-center has-shadow">
+            <img class="img-responsive box" width="50%" src="{{ asset('admin/img/ubs.jpg') }}" >
+          </div>
+        </div>
+        <div class="chart col-lg-3 col-12">
+          <!-- Bar Chart   -->
+          <div class="bar-chart has-shadow bg-white">
+            <div class="title"><strong class="text-violet">95%</strong><br><small>Current Server Uptime</small></div>
+            <canvas id="barChartHome"></canvas>
+          </div>
+          <!-- Numbers-->
+          <div class="statistic d-flex align-items-center bg-white has-shadow">
+            <div class="icon bg-green"><i class="fa fa-line-chart"></i></div>
+            <div class="text"><strong>99.9%</strong><br><small>Success Rate</small></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Form Elements -->
+  <div class="col-lg-12">
+    <div class="card">
+      <div class="card-close">
+        <div class="dropdown">
+          <button type="button" id="closeCard" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="dropdown-toggle"><i class="fa fa-ellipsis-v"></i></button>
+          <div aria-labelledby="closeCard" class="dropdown-menu has-shadow"><a href="#" class="dropdown-item remove"> <i class="fa fa-times"></i>Close</a><a href="#" class="dropdown-item edit"> <i class="fa fa-gear"></i>Edit</a></div>
+        </div>
+      </div>
+      <div class="card-header d-flex align-items-center">
+        <h3 class="h4">Dernière connexion</h3>
+      </div>
+      <div class="card-body">
+        <div class="table-responsive">
+          <table id="example" class="table table-striped table-bordered dt-responsive nowrap" cellspacing="0" width="100%">
+            <thead>
+              <tr>
+                <th>Utilisateur</th>
+                <th>Authentification</th>
+                <th>Date</th>
+                <th>IP</th>
+              </tr>
+            </thead>
+            <tbody>
+              {% for bigbrowser in listBigbrowser %}
+              <tr>
+                <td>{{bigbrowser.utilisateur.firstname}} {{bigbrowser.utilisateur.lastname}}</td>
+
+                {% if bigbrowser.authentification == true %}
+                <td>Connecté</td>
+                {% else %}
+                <td>Tentative de connexion</td>
+                {% endif %}
+                <td>{{bigbrowser.date|date('Y-m-d H:i') }}</td>
+                <td>{{bigbrowser.ip}}</td>
+              </tr>
+              {% endfor %}
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- Page Footer-->
+  <footer class="main-footer">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-sm-6">
+          <p>Your company &copy; 2017-2019</p>
+        </div>
+        <div class="col-sm-6 text-right">
+          <p>Design by <a href="https://bootstrapious.com/admin-templates" class="external">Bootstrapious</a></p>
+          <!-- Please do not remove the backlink to us unless you support further theme's development at https://bootstrapious.com/donate. It is part of the license conditions. Thank you for understanding :)-->
+        </div>
+      </div>
+    </div>
+  </footer>
+</div>
+</div>
+
+
+
 
 {% endblock page_content %}
 
